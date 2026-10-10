@@ -1,0 +1,463 @@
+/*!
+ * VidyaLMS public styles.
+ *
+ * Enqueued only on VidyaLMS routes and on pages carrying a VidyaLMS shortcode
+ * or block, never site wide. Everything is a custom property so a theme can
+ * restyle the whole surface from its own stylesheet without forking this file,
+ * and colours fall back to the theme's own text colour wherever they can.
+ */
+
+/* Full plugin routes sit in the theme's wide content column. These wrappers
+ * are outside the LMS style/SPA scope and never wrap embedded blocks or shortcodes.
+ * Classic themes without theme.json get a fluid, bounded fallback. No app frame.
+ * Themes can override --vidyalms-theme-width and --vidyalms-theme-gutter. */
+.vidyalms-theme-content {
+  box-sizing: border-box;
+  min-width: 0;
+  padding-block: clamp(16px, 2vw, 32px);
+  padding-left: var(--wp--style--root--padding-left, var(--vidyalms-theme-gutter, clamp(16px, 3vw, 32px)));
+  padding-right: var(--wp--style--root--padding-right, var(--vidyalms-theme-gutter, clamp(16px, 3vw, 32px)));
+}
+
+.vidyalms-theme-container {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: var(--vidyalms-theme-width, var(--wp--style--global--wide-size, var(--wp--style--global--content-size, 1280px)));
+  margin-inline: auto;
+}
+
+.vidyalms {
+  --vidyalms-gap: 1.5rem;
+  --vidyalms-gap-sm: 0.75rem;
+  --vidyalms-radius: 0.5rem;
+  --vidyalms-border-width: 1px;
+  --vidyalms-border: rgba(0, 0, 0, 0.15);
+  --vidyalms-surface: rgba(0, 0, 0, 0.02);
+  --vidyalms-muted: rgba(0, 0, 0, 0.65);
+  --vidyalms-accent: currentColor;
+  --vidyalms-success: #1a7f4b;
+  --vidyalms-danger: #b3261e;
+  --vidyalms-info: rgba(0, 0, 0, 0.55);
+  --vidyalms-focus-width: 3px;
+  --vidyalms-card-min: 16rem;
+  --vidyalms-measure: 68ch;
+}
+
+@media (prefers-color-scheme: dark) {
+  .vidyalms {
+    --vidyalms-border: rgba(255, 255, 255, 0.22);
+    --vidyalms-surface: rgba(255, 255, 255, 0.05);
+    --vidyalms-muted: rgba(255, 255, 255, 0.72);
+    --vidyalms-success: #6ee7a8;
+    --vidyalms-danger: #ff9b93;
+    --vidyalms-info: rgba(255, 255, 255, 0.68);
+  }
+}
+
+.vidyalms-page {
+  margin: 0 auto;
+  padding: var(--vidyalms-gap);
+}
+
+.vidyalms-page-title,
+.vidyalms-section-title {
+  margin: 0 0 var(--vidyalms-gap-sm);
+}
+
+.vidyalms-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.vidyalms :focus-visible {
+  outline: var(--vidyalms-focus-width) solid var(--vidyalms-accent);
+  outline-offset: 2px;
+}
+
+/* Filters and forms */
+
+.vidyalms-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vidyalms-gap-sm);
+  align-items: flex-end;
+  margin: 0 0 var(--vidyalms-gap);
+}
+
+.vidyalms-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1 1 16rem;
+  min-width: 0;
+}
+
+.vidyalms-field-actions {
+  flex: 0 0 auto;
+}
+
+.vidyalms-label {
+  font-weight: 600;
+}
+
+.vidyalms-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+}
+
+.vidyalms-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  background: var(--vidyalms-surface);
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.vidyalms-button:hover,
+.vidyalms-button:focus {
+  text-decoration: underline;
+}
+
+.vidyalms-link {
+  color: inherit;
+  text-decoration: underline;
+}
+
+/* Messages */
+
+.vidyalms-result-count,
+.vidyalms-empty {
+  color: var(--vidyalms-muted);
+}
+
+.vidyalms-notice {
+  margin: 0 0 var(--vidyalms-gap-sm);
+  padding: 0.75rem 1rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-left-width: 4px;
+  border-radius: var(--vidyalms-radius);
+  background: var(--vidyalms-surface);
+}
+
+.vidyalms-notice-success {
+  border-left-color: var(--vidyalms-success);
+}
+
+.vidyalms-notice-error {
+  border-left-color: var(--vidyalms-danger);
+}
+
+.vidyalms-notice-info {
+  border-left-color: var(--vidyalms-info);
+}
+
+/* Catalogue */
+
+.vidyalms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--vidyalms-card-min), 1fr));
+  gap: var(--vidyalms-gap);
+  margin: 0 0 var(--vidyalms-gap);
+  padding: 0;
+  list-style: none;
+}
+
+.vidyalms-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--vidyalms-gap-sm);
+  height: 100%;
+  padding: var(--vidyalms-gap-sm);
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  background: var(--vidyalms-surface);
+}
+
+.vidyalms-card-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.vidyalms-card-link {
+  color: inherit;
+}
+
+.vidyalms-card-summary {
+  margin: 0;
+  color: var(--vidyalms-muted);
+}
+
+.vidyalms-card-image,
+.vidyalms-course-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-card-meta,
+.vidyalms-certificate-meta,
+.vidyalms-enrolment-status {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vidyalms-gap-sm);
+  align-items: center;
+  margin: auto 0 0;
+}
+
+.vidyalms-badge {
+  display: inline-flex;
+  gap: 0.35em;
+  align-items: baseline;
+  padding: 0.15rem 0.5rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  font-size: 0.875rem;
+}
+
+.vidyalms-badge-label {
+  color: var(--vidyalms-muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vidyalms-badge-free {
+  border-color: var(--vidyalms-success);
+}
+
+.vidyalms-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vidyalms-gap-sm);
+  margin: var(--vidyalms-gap) 0;
+}
+
+.vidyalms-pagination .page-numbers {
+  padding: 0.25rem 0.6rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  color: inherit;
+  text-decoration: none;
+}
+
+.vidyalms-pagination .page-numbers.current {
+  font-weight: 700;
+  background: var(--vidyalms-surface);
+}
+
+/* Course */
+
+.vidyalms-course-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+  gap: var(--vidyalms-gap);
+  align-items: start;
+}
+
+@media (max-width: 48rem) {
+  .vidyalms-course-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.vidyalms-course-summary,
+.vidyalms-course-description {
+  max-width: var(--vidyalms-measure);
+}
+
+.vidyalms-course-aside {
+  padding: var(--vidyalms-gap-sm);
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  background: var(--vidyalms-surface);
+  position: sticky;
+  top: 1rem;
+}
+
+.vidyalms-aside-title {
+  margin-top: 0;
+}
+
+.vidyalms-list,
+.vidyalms-lessons,
+.vidyalms-enrolment-list,
+.vidyalms-certificate-list {
+  margin: 0 0 var(--vidyalms-gap);
+  padding: 0 0 0 1.25rem;
+}
+
+.vidyalms-enrolment-list,
+.vidyalms-certificate-list {
+  padding-left: 0;
+  list-style: none;
+}
+
+.vidyalms-module {
+  margin: 0 0 var(--vidyalms-gap);
+}
+
+.vidyalms-module-title {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: baseline;
+  margin: 0 0 0.25rem;
+  font-size: 1.0625rem;
+}
+
+.vidyalms-module-number {
+  color: var(--vidyalms-muted);
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vidyalms-module-summary {
+  margin: 0 0 var(--vidyalms-gap-sm);
+  color: var(--vidyalms-muted);
+}
+
+.vidyalms-lesson {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem var(--vidyalms-gap-sm);
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.4rem 0;
+  border-bottom: var(--vidyalms-border-width) solid var(--vidyalms-border);
+}
+
+.vidyalms-lesson-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--vidyalms-gap-sm);
+  align-items: baseline;
+  color: var(--vidyalms-muted);
+  font-size: 0.875rem;
+}
+
+.vidyalms-lesson-state {
+  color: var(--vidyalms-success);
+  font-weight: 600;
+}
+
+/* Progress */
+
+.vidyalms-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 0 0 var(--vidyalms-gap-sm);
+}
+
+.vidyalms-progress-bar {
+  width: 100%;
+  height: 0.75rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-progress-value {
+  margin: 0;
+  color: var(--vidyalms-muted);
+  font-size: 0.875rem;
+}
+
+/* My learning and certificates */
+
+.vidyalms-enrolment,
+.vidyalms-certificate {
+  margin: 0 0 var(--vidyalms-gap);
+  padding: var(--vidyalms-gap-sm);
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-enrolment-title,
+.vidyalms-certificate-title {
+  margin: 0 0 var(--vidyalms-gap-sm);
+  font-size: 1.125rem;
+}
+
+.vidyalms-code {
+  padding: 0.1rem 0.35rem;
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-radius: var(--vidyalms-radius);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  word-break: break-all;
+}
+
+/* Verification */
+
+.vidyalms-verify-intro {
+  max-width: var(--vidyalms-measure);
+  color: var(--vidyalms-muted);
+}
+
+.vidyalms-verify-result {
+  padding: var(--vidyalms-gap-sm);
+  border: var(--vidyalms-border-width) solid var(--vidyalms-border);
+  border-left-width: 4px;
+  border-radius: var(--vidyalms-radius);
+  background: var(--vidyalms-surface);
+}
+
+.vidyalms-verify-valid {
+  border-left-color: var(--vidyalms-success);
+}
+
+.vidyalms-verify-invalid {
+  border-left-color: var(--vidyalms-danger);
+}
+
+.vidyalms-verify-heading {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.vidyalms-definition {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  gap: 0.25rem var(--vidyalms-gap-sm);
+  margin: 0;
+}
+
+.vidyalms-definition dt {
+  color: var(--vidyalms-muted);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.vidyalms-definition dd {
+  margin: 0;
+}
+
+@media (max-width: 30rem) {
+  .vidyalms-definition {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vidyalms-definition dd {
+    margin-bottom: var(--vidyalms-gap-sm);
+  }
+}

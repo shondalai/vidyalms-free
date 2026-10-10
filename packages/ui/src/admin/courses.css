@@ -1,0 +1,72 @@
+/* Scoped to the course library; use the host's light/dark workspace tokens. */
+#vidyalms-admin .vy-course-library .vy-list-header { padding: 22px 24px 16px; border-bottom: 0; }
+#vidyalms-admin .vy-course-library .vy-list-header h2 { font-size: 20px; }
+#vidyalms-admin .vy-course-controls { padding: 0 24px 20px; border-bottom: 1px solid var(--_vy-border); }
+#vidyalms-admin .vy-course-filter-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+#vidyalms-admin .vy-course-status-tabs { gap: 4px; }
+/* FilterChips carries the shared .border utility, which is important for CMS isolation. */
+#vidyalms-admin .vy-course-status-tabs button { border-width: 0 !important; background: transparent; font-size: 13px; font-weight: 500; padding: 8px 14px; border-radius: 8px; }
+#vidyalms-admin .vy-course-status-tabs button[aria-pressed='true'] { background: var(--_vy-accent-soft); color: var(--_vy-accent); font-weight: 600; }
+#vidyalms-admin .vy-course-status-tabs button[aria-pressed='true'] span { color: inherit; }
+#vidyalms-admin .vy-course-status-tabs button:hover { background: var(--_vy-surface-2); }
+#vidyalms-admin .vy-course-tools { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 12px; }
+#vidyalms-admin .vy-course-search { flex: 1 1 240px; max-width: 480px; }
+#vidyalms-admin .vy-course-search input { background: var(--_vy-bg); font-size: 13px; }
+#vidyalms-admin .vy-course-view-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-inline-start: auto; }
+#vidyalms-admin .vy-course-sort-controls { display: flex; align-items: center; border: 1px solid var(--_vy-border); border-radius: 8px; background: var(--_vy-surface); }
+#vidyalms-admin .vy-course-sort-controls select { min-width: 140px; max-width: 210px; width: auto; height: 38px; padding: 0 30px 0 12px; border: 0; border-radius: 8px; background-color: transparent; color: var(--_vy-fg); font-size: 13px; }
+#vidyalms-admin .vy-course-sort-controls button { border-inline-start: 1px solid var(--_vy-border); border-radius: 0 8px 8px 0; }
+#vidyalms-admin .vy-course-view-switch { display: flex; gap: 2px; padding: 3px; border-radius: 9px; background: var(--_vy-surface-2); }
+#vidyalms-admin .vy-course-view-switch button { width: 34px; height: 32px; min-height: 32px; padding: 6px; color: var(--_vy-fg-2); border-radius: 6px; }
+#vidyalms-admin .vy-course-view-switch button[aria-pressed='true'] { background: var(--_vy-surface); color: var(--_vy-accent); box-shadow: 0 1px 4px rgb(0 0 0 / .1); }
+#vidyalms-admin .vy-course-category-filter { flex: 0 1 205px; min-width: 180px; }
+#vidyalms-admin .vy-course-category-filter summary { display: flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 12px; border: 1px solid var(--_vy-border); border-radius: 8px; cursor: pointer; background: var(--_vy-surface); color: var(--_vy-fg-2); font-size: 13px; list-style: none; }
+#vidyalms-admin .vy-course-category-filter summary::-webkit-details-marker { display: none; }
+#vidyalms-admin .vy-course-category-filter summary > svg:last-child { margin-inline-start: auto; }
+#vidyalms-admin .vy-course-category-filter[open] { flex-basis: 100%; order: 3; }
+#vidyalms-admin .vy-course-category-filter[open] summary { width: fit-content; color: var(--_vy-accent); background: var(--_vy-accent-soft); }
+#vidyalms-admin .vy-course-category-panel { max-width: 640px; padding-top: 16px; }
+#vidyalms-admin .vy-course-filter-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--_vy-accent); }
+#vidyalms-admin .vy-course-table th { font-size: 11px; text-transform: none; letter-spacing: 0; padding-block: 12px; }
+#vidyalms-admin .vy-course-table th button { text-transform: none; }
+#vidyalms-admin .vy-course-table td { padding-block: 22px; }
+#vidyalms-admin .vy-course-table :is(th, td):first-child { padding-inline-start: 24px; }
+#vidyalms-admin .vy-course-table :is(th, td):last-child { padding-inline-end: 24px; }
+#vidyalms-admin .vy-course-identity { display: flex; align-items: center; gap: 18px; padding-inline-end: 24px; }
+#vidyalms-admin .vy-course-identity-copy { min-width: 0; display: grid; gap: 6px; }
+#vidyalms-admin .vy-course-library .vy-course-title { font-size: 15px; line-height: 1.4; font-weight: 600; color: var(--_vy-fg); overflow-wrap: anywhere; text-decoration: none; }
+#vidyalms-admin .vy-course-library .vy-course-title[href]:hover { color: var(--_vy-accent); text-decoration: underline; text-underline-offset: 4px; }
+#vidyalms-admin .vy-course-summary { margin: 0; font-size: 12.5px; line-height: 1.6; color: var(--_vy-fg-2); display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 1; overflow: hidden; }
+#vidyalms-admin .vy-course-metadata { font-size: 11.5px; line-height: 1.5; color: var(--_vy-fg-2); }
+#vidyalms-admin .vy-course-number { font-size: 15px; font-weight: 600; font-variant-numeric: tabular-nums; }
+#vidyalms-admin .vy-course-completion { display: flex; flex-direction: column; gap: 8px; max-width: 120px; }
+#vidyalms-admin .vy-course-completion strong { font-size: 13px; font-weight: 500; font-variant-numeric: tabular-nums; }
+#vidyalms-admin .vy-course-updated { font-size: 12px; color: var(--_vy-fg-2); }
+/* Joomla's global .text-danger is important and otherwise obscures dark-mode actions. */
+#vidyalms-admin .vy-course-library button.text-danger { color: var(--_vy-danger) !important; }
+#vidyalms-admin .vy-course-artwork { display: grid; place-items: center; flex: none; width: 84px; height: 66px; overflow: hidden; border-radius: 10px; background: var(--_vy-accent-soft); color: var(--_vy-accent); }
+#vidyalms-admin .vy-course-artwork-1 { background: color-mix(in srgb, var(--_vy-fg-2) 12%, var(--_vy-surface)); color: var(--_vy-fg-2); }
+#vidyalms-admin .vy-course-artwork-2 { background: color-mix(in srgb, var(--_vy-ok, #3a8066) 12%, var(--_vy-surface)); color: var(--_vy-ok, #3a8066); }
+#vidyalms-admin .vy-course-artwork-3 { background: color-mix(in srgb, var(--_vy-fg) 8%, var(--_vy-surface)); color: var(--_vy-fg-2); }
+#vidyalms-admin .vy-course-artwork img { display: block; width: 100%; height: 100%; object-fit: cover; }
+#vidyalms-admin .vy-course-library .vy-course-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 24px; }
+#vidyalms-admin .vy-course-library .vy-course-card { background: var(--_vy-surface); transition: border-color .15s; }
+#vidyalms-admin .vy-course-library .vy-course-card:hover { border-color: var(--_vy-accent); }
+#vidyalms-admin .vy-course-library .vy-course-card h3 a { color: var(--_vy-fg); text-decoration: none; }
+#vidyalms-admin .vy-course-library .vy-course-card h3 a:hover { color: var(--_vy-accent); }
+#vidyalms-admin .vy-course-library .vy-course-cover { height: auto; aspect-ratio: 16 / 9; }
+#vidyalms-admin .vy-course-library .vy-course-cover > .vy-course-artwork { position: static; width: 100%; height: 100%; border-radius: 0; }
+#vidyalms-admin .vy-course-library .vy-course-cover > .vy-course-artwork > svg { width: 42px; height: 42px; }
+#vidyalms-admin .vy-course-library .vy-course-cover-status { position: absolute; left: 14px; bottom: 14px; background: var(--_vy-surface); padding: 3px; border-radius: 20px; }
+#vidyalms-admin .vy-course-card-completion { display: grid; grid-template-columns: 1fr auto; gap: 8px; font-size: 12px; color: var(--_vy-fg-2); }
+#vidyalms-admin .vy-course-card-completion > :last-child { grid-column: 1 / -1; }
+#vidyalms-admin .vy-course-card-completion strong { color: var(--_vy-fg); font-weight: 500; }
+@container vy-admin (max-width: 800px) {
+    #vidyalms-admin .vy-course-controls { padding-inline: 16px; }
+    #vidyalms-admin .vy-course-search { max-width: none; }
+    #vidyalms-admin .vy-course-view-tools { flex-basis: 100%; justify-content: space-between; margin-inline-start: 0; }
+    #vidyalms-admin .vy-course-library .vy-course-cards { padding: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+    #vidyalms-admin .vy-course-library .vy-course-card { transition: none; }
+}

@@ -1,0 +1,89 @@
+parameters:
+    level: 5
+    phpVersion: 80300
+
+    paths:
+        - com_vidyalms/admin/src
+        - com_vidyalms/admin/services
+        - com_vidyalms/site/src
+        - com_vidyalms/api/src
+        - plugins
+        - pkg_script.php
+
+    # Joomla and the core are autoloaded by the CMS at runtime, not by Composer,
+    # so their symbols are only scanned, never analysed. The administrator
+    # components are here because the task, privacy and finder plugins extend
+    # base classes that ship inside com_scheduler, com_privacy and com_finder.
+    # The Joomla installation is named by VIDYALMS_JOOMLA_SITE, the variable
+    # the build/ scripts read, so the file carries no machine's layout; the
+    # core is the source beside this package.
+    scanDirectories:
+        - %env.VIDYALMS_JOOMLA_SITE%/libraries
+        - %env.VIDYALMS_JOOMLA_SITE%/administrator/components
+        - %env.VIDYALMS_JOOMLA_SITE%/components
+        - ../core/src
+
+    bootstrapFiles:
+        - build/phpstan-bootstrap.php
+
+    excludePaths:
+        analyseAndScan:
+            # Installed generated Core can lag source while a new package is
+            # being validated. Resolve its symbols from packages/core/src only.
+            # A pattern rather than a path: it names no machine, and a plain
+            # Joomla checkout without VidyaLMS installed simply matches nothing.
+            - */libraries/vidyalms_core/*
+        analyse:
+            - lib_vidyalms_core
+            - build/.generated
+            - vendor
+
+    treatPhpDocTypesAsCertain: false
+
+    # Every entry below is a Joomla typing artefact, not a defect. Each one
+    # says which Joomla declaration is looser than the runtime object, and each
+    # is scoped to the files that legitimately hit it.
+    ignoreErrors:
+        # Joomla's MVC base classes and Factory::getApplication() are declared
+        # against CMSApplicationInterface, while the object in hand is always a
+        # SiteApplication, AdministratorApplication or ApiApplication. Joomla's
+        # own components call these same methods on the same interface.
+        -
+            identifier: method.notFound
+            message: '#^Call to an undefined method Joomla\\CMS\\Application\\CMSApplicationInterface::(getParams|getDocument|getUserState|setUserState|redirect|allowCache|setHeader|sendHeaders)\(\)\.$#'
+
+        # Document::getToolbar() lives on HtmlDocument; an administrator view is
+        # only ever rendered into one.
+        -
+            identifier: method.notFound
+            message: '#^Call to an undefined method Joomla\\CMS\\Document\\Document::getToolbar\(\)\.$#'
+            paths:
+                - com_vidyalms/admin/src/View
+
+        # WebAssetManager::useStyle() throws UnknownAssetException for a name the
+        # registry does not hold, but says so only in prose, not in a @throws tag.
+        -
+            identifier: catch.neverThrown
+            message: '#UnknownAssetException is never thrown#'
+            paths:
+                - com_vidyalms/admin/src/Dispatcher/Dispatcher.php
+                - com_vidyalms/admin/src/Service/MountAssets.php
+
+        # com_finder's Result uses __set()/__get() for every indexed element, and
+        # its Adapter documents @param string for ids the indexer itself passes
+        # as integers. Both are docblock artefacts of an untyped 2.5-era API.
+        -
+            identifier: property.notFound
+            message: '#Joomla\\Component\\Finder\\Administrator\\Indexer\\Result::\$#'
+            paths:
+                - plugins/plg_finder_vidyalms/src/Extension/VidyaLms.php
+        -
+            identifier: nullCoalesce.property
+            message: '#Joomla\\Component\\Finder\\Administrator\\Indexer\\Result::\$#'
+            paths:
+                - plugins/plg_finder_vidyalms/src/Extension/VidyaLms.php
+        -
+            identifier: argument.type
+            message: '#Joomla\\Component\\Finder\\Administrator\\Indexer\\Result::addInstruction\(\) expects string, int given#'
+            paths:
+                - plugins/plg_finder_vidyalms/src/Extension/VidyaLms.php

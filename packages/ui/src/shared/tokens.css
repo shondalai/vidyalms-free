@@ -1,0 +1,313 @@
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+
+/*
+ * VidyaLMS design tokens. The defaults deliberately use a quiet, cool-neutral
+ * canvas so the product feels at home inside both Joomla and WordPress while
+ * still reading as one application. One flat layer, prefix --vy-, no aliases.
+ *
+ * HOW HOSTS OVERRIDE (the token boundary):
+ * Every token is public under its --vy-* name. The bundle never reads the
+ * public name directly; it reads an internal --_vy-* property declared here
+ * as `var(--vy-x, <default>)`. A host (template, theme, or the adapter)
+ * therefore overrides any token by setting the same --vy-* property on the
+ * mount element or on any ancestor of it, e.g.
+ *
+ *   :root { --vy-accent: var(--template-link-color); }
+ *   #vidyalms-player { --vy-radius: 0; }
+ *
+ * Custom properties inherit, so a value set above the mount flows in; when
+ * none is set, the neutral defaults below apply. The declarations here sit
+ * inside :where() at zero specificity on purpose: any host rule that reaches
+ * the mount wins without specificity games.
+ *
+ * The tokens live ON THE MOUNT SELECTOR, not :root. The host owns :root.
+ */
+
+:where(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+       #vidyalms-notifications, #vidyalms-credentials, .vidyalms) {
+    --_vy-control-scheme: light;
+    /* Colour: AA-checked pairs. */
+    --_vy-bg: var(--vy-bg, #f4f7fb);                 /* page canvas */
+    --_vy-surface: var(--vy-surface, #ffffff);       /* cards, panes */
+    --_vy-surface-2: var(--vy-surface-2, #edf2f8);   /* rails, wells */
+    --_vy-fg: var(--vy-fg, #172033);                 /* text */
+    --_vy-fg-2: var(--vy-fg-2, #5f6c80);             /* secondary text */
+    --_vy-border: var(--vy-border, #dbe3ee);         /* structural hairlines */
+    --_vy-control-border: var(--vy-control-border, #7a8798); /* 3:1+ on every control surface */
+    --_vy-accent: var(--vy-accent, #285d8f);         /* actions, active states */
+    --_vy-accent-fg: var(--vy-accent-fg, #ffffff);   /* text on accent */
+    --_vy-accent-soft: var(--vy-accent-soft, color-mix(in srgb, var(--_vy-accent) 9%, transparent));
+    --_vy-ok: var(--vy-ok, #28785c);                 /* complete, pass, saved */
+    --_vy-warn: var(--vy-warn, #966300);             /* pending, expiring */
+    --_vy-danger: var(--vy-danger, #a4372a);          /* errors, destructive */
+
+    /*
+     * On-tint text pairs, the darker values the artboards use wherever a
+     * status colour becomes TEXT on its own soft tint (the base status
+     * colours are for dots, rings and borders; on the 10-12% tints they
+     * fall just under 4.5:1). Checked in tokens.test.ts.
+     */
+    --_vy-ok-strong: var(--vy-ok-strong, #206348);
+    --_vy-warn-strong: var(--vy-warn-strong, #775000);
+    --_vy-danger-strong: var(--vy-danger-strong, var(--_vy-danger));
+
+    /* Shape */
+    --_vy-radius: var(--vy-radius, 5px);             /* controls, small panels */
+    --_vy-radius-lg: var(--vy-radius-lg, 8px);       /* cards, dialogs */
+    --_vy-btn-radius: var(--vy-btn-radius, var(--_vy-radius)); /* host may pill it */
+
+    /* Type */
+    --_vy-font-body: var(--vy-font-body, 'Bricolage Grotesque Variable', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif);
+    --_vy-font-display: var(--vy-font-display, var(--_vy-font-body));
+    --_vy-font-mono: var(--vy-font-mono, ui-monospace, 'SF Mono', Menlo, Consolas, monospace); /* type chips, timer, positions */
+    --_vy-text: var(--vy-text, 14px);                /* UI base; lesson content uses 16px */
+
+    /* Focus: 2px ring + 2px offset, accent */
+    --_vy-focus: var(--vy-focus, 2px solid var(--_vy-accent));
+
+    /* Space: 4-pt scale 4/8/12/16/24/32/48 (Tailwind's default scale matches). */
+    --_vy-space: var(--vy-space, 4px);
+
+    /* Motion */
+    --_vy-dur-1: var(--vy-dur-1, 120ms);
+    --_vy-dur-2: var(--vy-dur-2, 200ms);
+}
+
+/*
+ * Dark scheme: the second value set, keyed on the host's data-color-scheme
+ * attribute (on the mount itself or any ancestor, which is where Joomla
+ * templates and WordPress themes put it). Host --vy-* overrides still win.
+ * Every text pair below was contrast-checked at 4.5:1 or better.
+ */
+:where([data-color-scheme='dark'] #vidyalms-player,
+       [data-color-scheme='dark'] #vidyalms-quiz-runner,
+       [data-color-scheme='dark'] #vidyalms-instructor,
+       [data-color-scheme='dark'] #vidyalms-admin,
+       #vidyalms-player[data-color-scheme='dark'],
+       #vidyalms-quiz-runner[data-color-scheme='dark'],
+       [data-color-scheme='dark'] #vidyalms-notifications,
+       [data-color-scheme='dark'] #vidyalms-credentials,
+       #vidyalms-instructor[data-color-scheme='dark'],
+       #vidyalms-admin[data-color-scheme='dark'],
+       #vidyalms-notifications[data-color-scheme='dark'],
+       #vidyalms-credentials[data-color-scheme='dark'],
+       [data-color-scheme='dark'] .vidyalms, .vidyalms[data-color-scheme='dark']) {
+    --_vy-control-scheme: dark;
+    --_vy-bg: var(--vy-bg, #101722);
+    --_vy-surface: var(--vy-surface, #182231);
+    --_vy-surface-2: var(--vy-surface-2, #222e3e);
+    --_vy-fg: var(--vy-fg, #f2f5f9);
+    --_vy-fg-2: var(--vy-fg-2, #aeb9c9);
+    --_vy-border: var(--vy-border, #344255);
+    --_vy-control-border: var(--vy-control-border, #6a7a8f);
+    --_vy-accent: var(--vy-accent, #8fc5f4); /* bright enough for accent text on the 16% tint */
+    --_vy-accent-fg: var(--vy-accent-fg, #102033);
+    --_vy-accent-soft: var(--vy-accent-soft, color-mix(in srgb, var(--_vy-accent) 16%, transparent));
+    --_vy-ok: var(--vy-ok, #67c69e);
+    --_vy-warn: var(--vy-warn, #dfb565);
+    --_vy-danger: var(--vy-danger, #f29483);
+    /* The light status colours already clear 4.5:1 on the dark tints. */
+    --_vy-ok-strong: var(--vy-ok-strong, var(--_vy-ok));
+    --_vy-warn-strong: var(--vy-warn-strong, var(--_vy-warn));
+    --_vy-danger-strong: var(--vy-danger-strong, var(--_vy-danger));
+}
+
+/*
+ * A theme chosen inside VidyaLMS is more specific in intent than the host
+ * page's theme. This block deliberately follows the dark ancestor rules at
+ * the same zero specificity, so an explicit light mount stays light inside a
+ * dark Joomla template or WordPress admin colour scheme.
+ */
+:where(#vidyalms-player[data-color-scheme='light'],
+       #vidyalms-quiz-runner[data-color-scheme='light'],
+       #vidyalms-instructor[data-color-scheme='light'],
+       #vidyalms-admin[data-color-scheme='light'],
+       #vidyalms-notifications[data-color-scheme='light'],
+       #vidyalms-credentials[data-color-scheme='light'], .vidyalms[data-color-scheme='light']) {
+    --_vy-control-scheme: light;
+    --_vy-bg: var(--vy-bg, #f4f7fb);
+    --_vy-surface: var(--vy-surface, #ffffff);
+    --_vy-surface-2: var(--vy-surface-2, #edf2f8);
+    --_vy-fg: var(--vy-fg, #172033);
+    --_vy-fg-2: var(--vy-fg-2, #5f6c80);
+    --_vy-border: var(--vy-border, #dbe3ee);
+    --_vy-control-border: var(--vy-control-border, #7a8798);
+    --_vy-accent: var(--vy-accent, #285d8f);
+    --_vy-accent-fg: var(--vy-accent-fg, #ffffff);
+    --_vy-accent-soft: var(--vy-accent-soft, color-mix(in srgb, var(--_vy-accent) 9%, transparent));
+    --_vy-ok: var(--vy-ok, #28785c);
+    --_vy-warn: var(--vy-warn, #966300);
+    --_vy-danger: var(--vy-danger, #a4372a);
+    --_vy-ok-strong: var(--vy-ok-strong, #206348);
+    --_vy-warn-strong: var(--vy-warn-strong, #775000);
+    --_vy-danger-strong: var(--vy-danger-strong, var(--_vy-danger));
+}
+
+/* Motion collapses to zero under reduced motion, host values included. */
+@media (prefers-reduced-motion: reduce) {
+    :where(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+       #vidyalms-notifications, #vidyalms-credentials) {
+        --_vy-dur-1: 0ms;
+        --_vy-dur-2: 0ms;
+    }
+}
+
+/*
+ * The mount element itself. Utilities cannot target it (the Tailwind scope
+ * is a descendant selector), so its base look lives here. `all: revert`
+ * rolls back host author styles on the node; custom properties are excluded
+ * from `all`, so the tokens above survive.
+ */
+#vidyalms-player,
+#vidyalms-quiz-runner,
+#vidyalms-instructor,
+#vidyalms-admin,
+#vidyalms-notifications,
+#vidyalms-credentials {
+    all: revert;
+    box-sizing: border-box;
+    display: block;
+    font-family: var(--_vy-font-body);
+    font-size: var(--_vy-text);
+    line-height: 1.5;
+    color: var(--_vy-fg);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/*
+ * Scoped preflight. Tailwind's global preflight is off (it must never
+ * restyle the host page); this reset applies only under the mounts, at id
+ * strength so host content rules (.article p { margin ... }) cannot reach
+ * inside. Embedded-app rules from the artboard: own box-sizing, no viewport
+ * units anywhere in the bundle, no fixed positioning except dialogs,
+ * z-index ceiling 100.
+ */
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) *,
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) *::before,
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) *::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: var(--_vy-border);
+    margin: 0;
+    padding: 0;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--_vy-font-display);
+    font-size: inherit;
+    font-weight: 600;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :is(button, input, select, textarea, label) {
+    font: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+}
+
+/*
+ * Atum/Bootstrap's global .border shorthand is !important. Own its default
+ * colour/style inside our mounts; the generated semantic border utilities
+ * have the same narrow importance and follow this reset, so warn/accent and
+ * invalid-state colours still win. Width stays the utility's responsibility.
+ * Do not strengthen the universal reset: inline-authored canvas styles and
+ * elements without the colliding class must retain their normal cascade.
+ */
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) .border {
+    border-color: var(--_vy-border) !important;
+    border-style: solid !important;
+}
+
+/*
+ * Structural dividers stay intentionally quiet. Interactive boundaries get
+ * their own 3:1 token (SC 1.4.11) by rebinding the internal border value only
+ * on controls. Components can keep using the shared border utility, while
+ * cards, rows and rails retain the calmer structural hairline.
+ */
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials)
+    :is(button, input, select, textarea, [role='button'], [role='checkbox'], [role='combobox'],
+        [role='radio'], [role='searchbox'], [role='slider'], [role='spinbutton'], [role='switch'],
+        [role='textbox']) {
+    --_vy-border: var(--_vy-control-border);
+}
+
+/*
+ * WordPress removes native checkbox/radio painting and supplies its own border
+ * and checked pseudo-element. Our preflight removes that border, leaving an
+ * invisible unchecked control. Restore browser painting as the shared default;
+ * :where keeps component-specific switches free to supply their own visuals.
+ */
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials)
+    :where(input[type='checkbox'], input[type='radio']) {
+    appearance: auto;
+    background: revert;
+    border: revert;
+    border-radius: revert;
+    box-shadow: none;
+    accent-color: var(--_vy-accent);
+    color-scheme: inherit;
+}
+
+:is(#vidyalms-instructor, #vidyalms-admin)
+    :where(input[type='checkbox'], input[type='radio']) {
+    color-scheme: var(--_vy-control-scheme);
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials)
+    :where(input[type='checkbox'], input[type='radio'])::before,
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials)
+    :where(input[type='checkbox'], input[type='radio'])::after {
+    content: none;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) button {
+    background-color: transparent;
+    background-image: none;
+    text-align: inherit;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) a {
+    color: var(--_vy-accent);
+    text-decoration: none;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :is(ol, ul) {
+    list-style: none;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :is(img, svg, video, canvas, audio, iframe, embed, object) {
+    display: block;
+    vertical-align: middle;
+}
+
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :is(img, video) {
+    max-width: 100%;
+    height: auto;
+}
+
+/*
+ * Focus convention: one visible ring for everything, driven by --vy-focus.
+ * Components need no per-instance focus classes; a utility can still
+ * override for composite widgets.
+ */
+:is(#vidyalms-player, #vidyalms-quiz-runner, #vidyalms-instructor, #vidyalms-admin,
+     #vidyalms-notifications, #vidyalms-credentials) :focus-visible {
+    outline: var(--_vy-focus);
+    outline-offset: 2px;
+}

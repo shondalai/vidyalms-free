@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="finder" method="upgrade">
+    <name>PLG_FINDER_VIDYALMS</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>PLG_FINDER_VIDYALMS_XML_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Plugin\Finder\VidyaLms</namespace>
+
+    <files>
+        <filename>LICENSE</filename>
+        <folder plugin="vidyalms">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_finder_vidyalms.ini</language>
+        <language tag="en-GB">language/en-GB/plg_finder_vidyalms.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic" addfieldprefix="Joomla\Component\Finder\Administrator\Field">
+                <field
+                    name="search_archived"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="PLG_FINDER_VIDYALMS_FIELD_SEARCH_ARCHIVED_LABEL"
+                    description="PLG_FINDER_VIDYALMS_FIELD_SEARCH_ARCHIVED_DESC"
+                    default="0"
+                    filter="integer"
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                    name="taxonomies"
+                    type="taxonomytypes"
+                    label="PLG_FINDER_VIDYALMS_TAXONOMIES_LABEL"
+                    description="PLG_FINDER_VIDYALMS_TAXONOMIES_DESC"
+                    default="type,level,language"
+                    multiple="true"
+                    >
+                    <option value="type">PLG_FINDER_VIDYALMS_TAXONOMIES_TYPE</option>
+                    <option value="level">PLG_FINDER_VIDYALMS_TAXONOMIES_LEVEL</option>
+                    <option value="language">PLG_FINDER_VIDYALMS_TAXONOMIES_LANGUAGE</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="privacy" method="upgrade">
+    <name>PLG_PRIVACY_VIDYALMS</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>PLG_PRIVACY_VIDYALMS_XML_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Plugin\Privacy\VidyaLms</namespace>
+
+    <files>
+        <filename>LICENSE</filename>
+        <folder plugin="vidyalms">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_privacy_vidyalms.ini</language>
+        <language tag="en-GB">language/en-GB/plg_privacy_vidyalms.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="export_email_log"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="PLG_PRIVACY_VIDYALMS_FIELD_EXPORT_EMAIL_LOG_LABEL"
+                    description="PLG_PRIVACY_VIDYALMS_FIELD_EXPORT_EMAIL_LOG_DESC"
+                    default="1"
+                    filter="integer"
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

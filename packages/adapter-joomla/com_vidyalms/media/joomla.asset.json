@@ -1,0 +1,113 @@
+{
+    "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+    "name": "com_vidyalms",
+    "version": "1.0.0",
+    "description": "VidyaLMS - Joomla 6 web assets",
+    "license": "GPL-3.0-or-later",
+    "assets": [
+        {
+            "name": "com_vidyalms.app.credentials",
+            "type": "style",
+            "uri": "com_vidyalms/app/credentials.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.credentials",
+            "type": "script",
+            "uri": "com_vidyalms/app/credentials.js",
+            "attributes": { "type": "module" },
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.site",
+            "type": "style",
+            "uri": "com_vidyalms/app/public-theme.css",
+            "dependencies": ["com_vidyalms.public-structure"],
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.public-structure",
+            "type": "style",
+            "uri": "com_vidyalms/site.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.admin",
+            "type": "style",
+            "uri": "com_vidyalms/admin.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.import",
+            "type": "script",
+            "uri": "com_vidyalms/import.js",
+            "dependencies": [
+                "core"
+            ],
+            "attributes": {
+                "defer": true
+            },
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.player",
+            "type": "style",
+            "uri": "com_vidyalms/app/player.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.player",
+            "type": "script",
+            "uri": "com_vidyalms/app/player.js",
+            "attributes": {
+                "type": "module"
+            },
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.quiz-runner",
+            "type": "style",
+            "uri": "com_vidyalms/app/quiz-runner.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.quiz-runner",
+            "type": "script",
+            "uri": "com_vidyalms/app/quiz-runner.js",
+            "attributes": {
+                "type": "module"
+            },
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.instructor",
+            "type": "style",
+            "uri": "com_vidyalms/app/instructor.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.instructor",
+            "type": "script",
+            "uri": "com_vidyalms/app/instructor.js",
+            "attributes": {
+                "type": "module"
+            },
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.admin",
+            "type": "style",
+            "uri": "com_vidyalms/app/admin.css",
+            "version": "1.0.0"
+        },
+        {
+            "name": "com_vidyalms.app.admin",
+            "type": "script",
+            "uri": "com_vidyalms/app/admin.js",
+            "attributes": {
+                "type": "module"
+            },
+            "version": "1.0.0"
+        }
+    ]
+}

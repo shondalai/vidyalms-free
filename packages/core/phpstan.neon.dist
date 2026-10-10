@@ -1,0 +1,17 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+        # The shared database port contract: core's test runs it, both
+        # adapters run it, so it is analysed with the package that owns
+        # the port it describes.
+        - ../../tooling/contract
+    tmpDir: .phpstan-cache
+    treatPhpDocTypesAsCertain: false
+    reportUnmatchedIgnoredErrors: false
+    ignoreErrors:
+        # The shared kernel ships traits before the first bounded context uses them.
+        -
+            identifier: trait.unused
+            path: src/Domain/Shared/RecordsDomainEvents.php

@@ -1,0 +1,89 @@
+/* Dedicated administrator authoring workspace, contained inside either CMS. */
+#vidyalms-admin .vy-course-builder { container: vy-course / inline-size; display: grid; gap: 18px; min-width: 0; color: var(--_vy-fg); }
+#vidyalms-admin .vy-builder-back { display: inline-flex; align-items: center; gap: 8px; width: fit-content; color: var(--_vy-fg-2); font-size: 12px; text-decoration: none; }
+#vidyalms-admin .vy-builder-back:hover { color: var(--_vy-accent); }
+#vidyalms-admin .vy-builder-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+#vidyalms-admin .vy-builder-header > div:first-child { flex: 1 1 350px; min-width: 0; }
+#vidyalms-admin .vy-builder-header h1 { font-family: var(--_vy-font-display); font-size: clamp(24px, 2.1vw, 32px); font-weight: 650; letter-spacing: -.04em; line-height: 1.2; overflow-wrap: anywhere; margin: 0; }
+#vidyalms-admin .vy-builder-header-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; }
+#vidyalms-admin .vy-builder-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 18px; color: var(--_vy-fg-2); font-size: 12px; }
+#vidyalms-admin .vy-builder-meta > span { display: inline-flex; align-items: center; gap: 7px; }
+#vidyalms-admin .vy-builder-tools { position: relative; margin-left: auto; }
+#vidyalms-admin .vy-builder-tools summary { display: flex; align-items: center; gap: 8px; cursor: pointer; list-style: none; padding: 8px 10px; border-radius: 8px; }
+#vidyalms-admin .vy-builder-tools summary:hover { background: var(--_vy-surface-2); color: var(--_vy-fg); }
+#vidyalms-admin .vy-builder-tools > div { position: absolute; right: 0; top: 100%; z-index: 25; display: grid; min-width: 240px; border: 1px solid var(--_vy-border); border-radius: 12px; background: var(--_vy-surface); box-shadow: 0 12px 32px #0002; padding: 8px; }
+#vidyalms-admin .vy-builder-tools small { padding: 8px; font-size: 11px; }
+#vidyalms-admin .vy-builder-tools :is(button,a) { display: flex; align-items: center; justify-content: space-between; gap: 12px; text-align: left; padding: 10px; border-radius: 6px; color: var(--_vy-fg); cursor: pointer; font-size: 13px; text-decoration: none; }
+#vidyalms-admin .vy-builder-tools :is(button,a):hover { background: var(--_vy-accent-soft); }
+#vidyalms-admin .vy-course-builder .vy-builder-tabs { flex-wrap: nowrap; gap: 8px; padding: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: thin; border-bottom: 1px solid var(--_vy-border); }
+#vidyalms-admin .vy-builder-tabs > button { flex-shrink: 0; white-space: nowrap; padding: 15px 14px; font-size: 13px; }
+#vidyalms-admin .vy-builder-content { min-width: 0; }
+#vidyalms-admin .vy-builder-content > [role=tabpanel] { min-width: 0; }
+#vidyalms-admin .vy-builder-section-intro { margin-bottom: 22px; }
+#vidyalms-admin .vy-builder-section-intro h3 { font-family: var(--_vy-font-display); font-size: 22px; font-weight: 600; letter-spacing: -.025em; line-height: 1.3; margin: 0 0 8px; }
+#vidyalms-admin .vy-builder-section-intro p { font-size: 13px; line-height: 1.7; color: var(--_vy-fg-2); margin: 0; max-width: 740px; }
+#vidyalms-admin .vy-builder-settings-layout { display: grid; grid-template-columns: 230px minmax(0,1fr); gap: 24px; align-items: start; }
+#vidyalms-admin .vy-builder-section-nav { display: grid; gap: 8px; min-width: 0; }
+#vidyalms-admin .vy-builder-section-nav button { text-align: left; cursor: pointer; padding: 16px; border-radius: 12px; border: 1px solid transparent; color: var(--_vy-fg); }
+#vidyalms-admin .vy-builder-section-nav button:hover { background: var(--_vy-surface-2); }
+#vidyalms-admin .vy-builder-section-nav button[aria-current] { border-color: var(--_vy-accent); background: var(--_vy-accent-soft); }
+#vidyalms-admin .vy-builder-section-nav strong { display: block; font-size: 13px; margin-bottom: 6px; font-weight: 600; }
+#vidyalms-admin .vy-builder-section-nav small { display: block; color: var(--_vy-fg-2); font-size: 12px; line-height: 1.6; }
+#vidyalms-admin #vy-tabpanel-assessment > .vy-builder-section-nav { grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); margin-bottom: 24px; }
+#vidyalms-admin .vy-builder-setting-content { display: grid; gap: 20px; min-width: 0; }
+#vidyalms-admin .vy-course-builder .vy-builder-course-fields { display: grid; gap: 24px; border-radius: 14px; padding: 24px; background: var(--_vy-surface); }
+#vidyalms-admin .vy-builder-course-fields > section { gap: 22px; min-width: 0; }
+#vidyalms-admin .vy-builder-course-fields > section > h3 { font-size: 16px; }
+#vidyalms-admin .vy-builder-course-fields:has(.vy-builder-course-card) { grid-template-columns: minmax(0,1fr) 280px; align-items: start; }
+#vidyalms-admin .vy-builder-course-card { grid-column: 2; grid-row: 2; border: 1px solid var(--_vy-border); border-radius: 14px; overflow: hidden; min-width: 0; background: var(--_vy-bg); position: sticky; top: 76px; }
+#vidyalms-admin .vy-builder-course-card img { display: block; width: 100%; aspect-ratio: 16/10; object-fit: cover; }
+#vidyalms-admin .vy-builder-course-card > div:first-child { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 16px; padding: 26px; text-align: center; aspect-ratio: 16/10; color: var(--_vy-fg-2); background: var(--_vy-accent-soft); font-size: 12px; line-height: 1.7; }
+#vidyalms-admin .vy-builder-course-card > div:last-child { padding: 20px; }
+#vidyalms-admin .vy-builder-course-card small { font-size: 10px; text-transform: uppercase; letter-spacing: .1em; color: var(--_vy-accent); }
+#vidyalms-admin .vy-builder-course-card h3 { font-family: var(--_vy-font-display); font-size: 22px; font-weight: 600; line-height: 1.3; margin: 12px 0; overflow-wrap: anywhere; }
+#vidyalms-admin .vy-builder-course-card p { font-size: 12px; line-height: 1.8; color: var(--_vy-fg-2); overflow-wrap: anywhere; }
+#vidyalms-admin .vy-builder-course-card + section { grid-row: 2; grid-column: 1; }
+#vidyalms-admin .vy-builder-course-fields .vy-builder-savebar { grid-column: 1/-1; position: sticky; top: 0; z-index: 5; background: var(--_vy-surface); border-bottom: 1px solid var(--_vy-border); padding: 12px 0 16px; }
+#vidyalms-admin .vy-builder-team { margin-top: 28px; }
+#vidyalms-admin .vy-builder-note { border: 1px solid var(--_vy-border); border-radius: 12px; padding: 20px; font-size: 12px; color: var(--_vy-fg-2); }
+#vidyalms-admin .vy-builder-note strong { color: var(--_vy-fg); font-weight: 600; }
+#vidyalms-admin .vy-builder-note p { margin: 8px 0 0; line-height: 1.7; }
+#vidyalms-admin .vy-builder-operation-heading { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+#vidyalms-admin .vy-builder-operation-heading h2 { font-family: var(--_vy-font-display); font-size: 22px; margin: 0; }
+#vidyalms-admin .vy-course-builder .vy-curriculum-studio { grid-template-columns: 290px minmax(0,1fr); gap: 20px; }
+#vidyalms-admin .vy-course-builder .vy-studio-outline { grid-template-columns: minmax(0,1fr); background: var(--_vy-surface); border: 1px solid var(--_vy-border); border-radius: 14px; padding: 16px 12px; gap: 14px; }
+#vidyalms-admin .vy-course-builder .vy-studio-outline > * { min-width: 0; max-width: 100%; }
+#vidyalms-admin .vy-course-builder .vy-studio-outline > ul { grid-template-columns: minmax(0,1fr); }
+#vidyalms-admin .vy-course-builder .vy-studio-outline :is(ul,li) { min-width: 0; max-width: 100%; }
+#vidyalms-admin .vy-course-builder .vy-outline-intro { padding: 2px 4px; }
+#vidyalms-admin .vy-course-builder .vy-outline-intro p { line-height: 1.6; }
+#vidyalms-admin .vy-course-builder .vy-outline-module { padding: 12px 8px; flex-wrap: nowrap; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson { display: grid; grid-template-columns: 16px 32px minmax(0,1fr) 20px; column-gap: 6px; row-gap: 4px; padding: 12px 8px; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson > button { grid-column: 1; grid-row: 1/3; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson > span:first-of-type { grid-column: 2; grid-row: 1/3; padding: 2px; text-align: center; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson > span:nth-of-type(2) { grid-column: 3; grid-row: 1; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson > span:nth-of-type(3) { grid-column: 3; grid-row: 2; font-size: 10px; }
+#vidyalms-admin .vy-course-builder .vy-outline-lesson > details { grid-column: 4; grid-row: 1/3; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson { padding: 24px; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson-heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; padding: 12px 0 18px; margin-bottom: 20px; border-bottom: 1px solid var(--_vy-border); background: var(--_vy-surface); position: sticky; top: 0; z-index: 8; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson-heading > div { flex: 1 1 220px; min-width: 0; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson-heading > button { flex-shrink: 0; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson-heading h3 { font-family: var(--_vy-font-display); font-size: 23px; letter-spacing: -.025em; line-height: 1.3; }
+#vidyalms-admin .vy-course-builder .vy-inline-lesson .vy-lesson-footer { position: sticky; bottom: 0; z-index: 5; background: var(--_vy-surface); padding: 16px 0; }
+#vidyalms-admin .vy-workspace-body:has(.vy-course-builder[data-focus=true]) > .vy-sidebar { display: none; }
+@container vy-course (max-width: 1040px) {
+    #vidyalms-admin .vy-course-builder .vy-builder-course-fields:has(.vy-builder-course-card) { grid-template-columns: minmax(0,1fr) 220px; }
+    #vidyalms-admin .vy-course-builder .vy-curriculum-studio { grid-template-columns: 260px minmax(0,1fr); gap: 16px; }
+    #vidyalms-admin .vy-course-builder .vy-inline-lesson { padding: 18px; }
+}
+@container vy-course (max-width: 759px) {
+    #vidyalms-admin .vy-course-builder .vy-curriculum-studio,
+    #vidyalms-admin .vy-builder-settings-layout,
+    #vidyalms-admin .vy-course-builder .vy-builder-course-fields:has(.vy-builder-course-card) { grid-template-columns: minmax(0,1fr); }
+    #vidyalms-admin .vy-builder-course-card { grid-column: 1; grid-row: auto; position: static; }
+    #vidyalms-admin .vy-builder-course-card + section { grid-column: 1; grid-row: 2; }
+    #vidyalms-admin .vy-builder-section-nav { grid-template-columns: repeat(auto-fit,minmax(160px,1fr)); gap: 8px; }
+    #vidyalms-admin .vy-builder-section-nav button { padding: 12px; }
+    #vidyalms-admin .vy-course-builder .vy-builder-course-fields { padding: 18px; }
+    #vidyalms-admin .vy-course-builder .vy-studio-outline { max-height: 420px; overflow-y: auto; }
+}

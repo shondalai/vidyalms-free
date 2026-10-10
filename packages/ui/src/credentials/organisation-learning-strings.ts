@@ -1,0 +1,23 @@
+import { translate as uiText } from '@/shared/i18n';
+export const organisationLearningStrings = {
+    viewOrganisation: uiText("vidyalms.ui.c16045055c97c82d", "View organization"), assignedCourses: uiText("vidyalms.ui.e23cffdf0299af03", "Assigned courses"), availableCourses: uiText("vidyalms.ui.0a058629429c0083", "Available courses"),
+    noCoursesYet: uiText("vidyalms.ui.afc279c138518dee", "No courses here yet"), noCoursesYetHint: uiText("vidyalms.ui.e0c38b8941674117", "Courses will appear here when your organization assigns or offers them to you."),
+    requiredToComplete: uiText("vidyalms.ui.7c7d986810d77e7f", "required to complete"),
+    back: uiText("vidyalms.ui.e8c4d4a652a3aa68", "Your organizations"), eyebrow: uiText("vidyalms.ui.5d9d6a0c6fd240fa", "Learning, together"), title: uiText("vidyalms.ui.a767ee2ba0df2896", "Organization learning"),
+    intro: uiText("vidyalms.ui.29ef70f2d237996a", "Your assigned training and the learning opportunities your organization makes available to you."),
+    allLearning: uiText("vidyalms.ui.be26fa37fcb1e0d6", "All my learning"), assigned: uiText("vidyalms.ui.82adb506e0a78ebb", "Assigned to me"), available: uiText("vidyalms.ui.58d77bdc093002fe", "Available to me"), outstanding: uiText("vidyalms.ui.89f39c0341271120", "Required outstanding"),
+    filter: uiText("vidyalms.ui.032b1d42052833cc", "Choose a learning list"), search: uiText("vidyalms.ui.0c31e498eb58890a", "Find a course"), searchButton: uiText("vidyalms.ui.49c266baaaa70981", "Search"), loading: uiText("vidyalms.ui.43b44d494932bb89", "Loading organization learning"),
+    assignedHint: uiText("vidyalms.ui.81578e32d40bcf30", "Courses assigned through this organization. Progress is shared when you take the same course elsewhere."),
+    availableHint: uiText("vidyalms.ui.76f8de3970c16b21", "Explore courses offered to your membership or team. An offering does not automatically give you access."),
+    noMatches: uiText("vidyalms.ui.3e3fa985a96e8a38", "No courses match your search"), searchHint: uiText("vidyalms.ui.d32415e54c5cf9fa", "Try a different title or clear your search."),
+    noAssigned: uiText("vidyalms.ui.3a939d37ffca6802", "Your next chapter is on its way"), noAssignedHint: uiText("vidyalms.ui.e51943c1fc92a818", "No courses have been assigned to you here yet. Explore the available courses or contact your organization manager."),
+    noAvailable: uiText("vidyalms.ui.f8d3f84f710c3ef7", "No additional courses available"), noAvailableHint: uiText("vidyalms.ui.086d811e4026b48b", "Your organization has no additional offerings for your membership right now. Check your assigned training or ask your manager about upcoming learning."),
+    required: uiText("vidyalms.ui.4850b174b713d88c", "Required"), optional: uiText("vidyalms.ui.59be71333c960fd0", "Optional"), offered: uiText("vidyalms.ui.00f46cd0c52f699a", "Offered to you"), progress: uiText("vidyalms.ui.433a720b7e1d3cf6", "Your progress"),
+    progressFor: (title: string) => uiText("vidyalms.ui.aba9bb900c1226f8", "Progress in {p0}", { p0: title }), due: (date: string) => uiText("vidyalms.ui.cdd52e191b36e373", "Due {p0}", { p0: date }), expires: (date: string) => uiText("vidyalms.ui.42de96de43a41e8c", "Access until {p0}", { p0: date }), ended: (date: string) => uiText("vidyalms.ui.e95740f212b384eb", "Access ended {p0}", { p0: date }),
+    unpublished: uiText("vidyalms.ui.30f1e2451f10c040", "This course is currently unavailable. Your learning record is retained."), suspended: uiText("vidyalms.ui.0626020b00072987", "Your enrolment is paused. Contact your organization manager."),
+    needsAccess: uiText("vidyalms.ui.27966cba269a4c26", "Learning access is not active. Contact your organization manager to allocate or renew your access."),
+    awaitingAllocation: uiText("vidyalms.ui.4c56ec488f2fe776", "Your organization allocates access to this course. If it has not appeared in your assigned learning, contact your manager."),
+    offerHelp: uiText("vidyalms.ui.297785f68ff58ee4", "Open the course for enrollment options. If access requires a seat or assignment, your organization manager can arrange it."),
+    review: uiText("vidyalms.ui.cac134ea3d20755f", "Review course"), resume: uiText("vidyalms.ui.04cafa19f11e66ac", "Resume learning"), start: uiText("vidyalms.ui.ac1796280ca0f3c1", "Start learning"), courseDetails: uiText("vidyalms.ui.fd6d10919c25aa59", "View course"), pages: uiText("vidyalms.ui.3e0d09d1443cbfb6", "Organization course pages"),
+    view: uiText("vidyalms.ui.c8a1fcbeb18339a0", "View learning"), signIn: uiText("vidyalms.ui.516d05abc3d0bd57", "Sign in to see your learning"), signInBody: uiText("vidyalms.ui.187ec79df65ffbd8", "Return to Your organizations and sign in with your member account."),
+};

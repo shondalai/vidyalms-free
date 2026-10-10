@@ -1,0 +1,25 @@
+/* Per-entry aggregate: postcss-import inlines these, so the build emits a
+   self-contained instructor.css. Keep in sync with player/styles.css. */
+@import '../shared/tokens.css';
+@import '../shared/tailwind.css';
+@import '../instructor/studio.css';
+
+/* Bundle marker: identifies the loaded app in devtools and keeps this file
+   distinct from player.css (identical assets would be deduplicated). */
+#vidyalms-instructor {
+    --vy-app: instructor;
+}
+
+/*
+ * The workbench is embedded in administrator chrome that owns the page
+ * width, so the app never assumes the viewport: every collapse decision is
+ * made from the MOUNT width, measured with a ResizeObserver (lib/layout.ts),
+ * and no rule in this bundle reads a viewport unit.
+ *
+ * Wide tables stay readable by scrolling inside their own panel rather than
+ * pushing the host page sideways.
+ */
+#vidyalms-instructor .vy-scroll-x {
+    overflow-x: auto;
+    max-width: 100%;
+}

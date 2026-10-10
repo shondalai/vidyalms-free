@@ -1,0 +1,12 @@
+-- =============================================================================
+-- VidyaLMS 1.0.0
+--
+-- The baseline. install.mysql.utf8.sql creates every table at this version, so
+-- there is nothing to migrate; this file exists so Joomla records 1.0.0 as the
+-- installed schema version and later update files have a floor to build on.
+--
+-- Every later file in this folder is named for the version it upgrades TO, and
+-- carries only the delta. Core table changes come from the schema compiler
+-- (php tooling/schema/compile.php); the adapter-owned #__vidyalms_joomla_jobs
+-- table is migrated by hand here.
+-- =============================================================================

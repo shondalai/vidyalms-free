@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_VIDYALMS_MENU_CATALOGUE_TITLE">
+        <message><![CDATA[COM_VIDYALMS_MENU_CATALOGUE_DESC]]></message>
+    </layout>
+    <fields name="params">
+        <fieldset name="basic" label="COM_VIDYALMS_MENU_CATALOGUE_FIELDSET">
+            <field
+                name="catalogue_per_page"
+                type="number"
+                label="COM_VIDYALMS_CONFIG_PER_PAGE_LABEL"
+                description="COM_VIDYALMS_CONFIG_PER_PAGE_DESC"
+                min="1"
+                max="50"
+                filter="integer"
+            />
+            <field
+                name="catalogue_category"
+                type="category"
+                extension="com_vidyalms"
+                label="COM_VIDYALMS_CONFIG_CATEGORY_LABEL"
+                description="COM_VIDYALMS_CONFIG_CATEGORY_DESC"
+                default="0"
+            >
+                <option value="0">COM_VIDYALMS_CATALOGUE_CATEGORY_ANY</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

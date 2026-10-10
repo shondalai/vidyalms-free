@@ -1,0 +1,56 @@
+import { translate as uiText } from '@/shared/i18n';
+export const quizStudioStrings = {
+    eyebrow: uiText("vidyalms.ui.162a3e247cd5a74a", "QUIZ LESSON"),
+    region: uiText("vidyalms.ui.36c9293d6a43c712", "Quiz lesson editor"),
+    sections: uiText("vidyalms.ui.6cc933323d871bab", "Customize this quiz"),
+    tabs: {
+        questions: uiText("vidyalms.ui.9a72221a27476f3e", "Questions"),
+        selection: uiText("vidyalms.ui.83f23e3beeded5aa", "Selection rules"),
+        settings: uiText("vidyalms.ui.b51e165437fcb9c3", "Quiz settings"),
+        grading: uiText("vidyalms.ui.fb930b774fd41603", "Grading policies"),
+        details: uiText("vidyalms.ui.278522ce00cd00ad", "Lesson details"),
+        access: uiText("vidyalms.ui.e6f91fdfeaad888e", "Access & release"),
+    },
+    add: uiText("vidyalms.ui.f9496b764efa5ff2", "Add question"),
+    bank: uiText("vidyalms.ui.b1b31b995b7c310d", "Use question banks"),
+    more: uiText("vidyalms.ui.ffd28b834657c21a", "Quiz tools"),
+    search: uiText("vidyalms.ui.aa4574677dc88771", "Find a question"),
+    typeTitle: uiText("vidyalms.ui.a650819fc3dcd5d5", "Choose a question type"),
+    typeIntro: uiText("vidyalms.ui.1f5890cca8aa7518", "Choose the response format. You can set answers, points and feedback in the next step."),
+    typeSearch: uiText("vidyalms.ui.825ff9d4a30934b7", "Search question types"),
+    noTypes: uiText("vidyalms.ui.ae139cbec36fa3ff", "No matching question types"),
+    typesError: uiText("vidyalms.ui.ec3ac34e932618db", "Question types could not be loaded."),
+    emptyTitle: uiText("vidyalms.ui.13963a92a0f623d0", "Build the first question"),
+    emptyIntro: uiText("vidyalms.ui.751896adb6867e27", "Write questions for this lesson, or select reusable questions from your banks."),
+    noMatches: uiText("vidyalms.ui.56ae596724a8b347", "No questions match your search."),
+    clearSearch: uiText("vidyalms.ui.3b7ea51793e9d906", "Clear search"),
+    selectionTitle: uiText("vidyalms.ui.4a7430502824e569", "Choose what each learner receives"),
+    selectionIntro:
+        uiText("vidyalms.ui.de431f9d613c75f0", "Place questions from a bank, draw questions automatically using conditions, or organize them into sections."),
+    selectionHint:
+        uiText("vidyalms.ui.27a13febc9c0c058", "Selection rules control the questions delivered to learners. Review the selected questions and pool sizes before publishing."),
+    questionHint:
+        uiText("vidyalms.ui.15cea17358371316", "Create and arrange questions for this quiz lesson. Changes are saved to this assessment only."),
+    questionCount: (count: number) => uiText("vidyalms.ui.6420a98d6ca3fea7", "{p0} authored {p1}", { p0: count, p1: count === 1 ? 'question' : 'questions' }),
+    points: (points: number) => uiText("vidyalms.ui.cba84808e76e19f5", "{p0} points", { p0: points }),
+    untimed: uiText("vidyalms.ui.436b4b94e38ea005", "No time limit"),
+    time: (seconds: number) => uiText("vidyalms.ui.618d152970777caa", "{p0} min", { p0: Math.round(seconds / 60) }),
+    pass: (mark: number) => (mark === 0 ? uiText("vidyalms.ui.1862503e66a179aa", "No pass mark") : uiText("vidyalms.ui.3bb1745fc90a0ba3", "{p0}% to pass", { p0: mark })),
+    edit: (position: number) => uiText("vidyalms.ui.7e0b3c64d6332e6d", "Edit question {p0}", { p0: position }),
+    actions: (position: number) => uiText("vidyalms.ui.444eed1c9bb4a05e", "Question {p0} actions", { p0: position }),
+    manual: uiText("vidyalms.ui.fad9ee799f15048d", "Manual grading"),
+    policy: uiText("vidyalms.ui.b1a9bd9009faae23", "Marking & timing"),
+    rubrics: uiText("vidyalms.ui.6bbe30b8b3bcbcb5", "Rubrics"),
+    gradingSections: uiText("vidyalms.ui.ed70fd8f723c18b7", "Grading configuration"),
+    createIntro:
+        uiText("vidyalms.ui.01a582d51a25c803", "Add this quiz lesson to start building questions, choosing question banks, and configuring the assessment right here."),
+    reuse: uiText("vidyalms.ui.016aa4944dad66c5", "Use an existing unlinked quiz"),
+    missingTitle: uiText("vidyalms.ui.154f4d39e53a7f98", "The linked quiz is unavailable"),
+    missingBody:
+        uiText("vidyalms.ui.40ce0bb99d4d5a45", "Reload the curriculum to retrieve this lesson’s assessment. Its existing link has been preserved."),
+    reload: uiText("vidyalms.ui.bfeed3d6651018be", "Reload curriculum"),
+    saved: uiText("vidyalms.ui.c6598fb235db37fa", "Each editor saves its own changes"),
+    inlineBasics:
+        uiText("vidyalms.ui.9529ce48d064ccb3", "Set the assessment instructions, passing score, attempts, time limit and learner feedback."),
+    inlinePolicy: uiText("vidyalms.ui.8e6ecd45f6b706ac", "Configure the marking and delivery policies supported by this site."),
+} as const;

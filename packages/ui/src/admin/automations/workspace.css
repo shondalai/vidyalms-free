@@ -1,0 +1,602 @@
+.vy-automation-workspace {
+    color: var(--_vy-fg);
+    min-width: 0;
+}
+.vy-automation-workspace [hidden] {
+    display: none !important;
+}
+.vy-auto-list,
+.vy-auto-editor {
+    display: grid;
+    gap: 24px;
+    min-width: 0;
+}
+.vy-auto-dot {
+    color: var(--_vy-accent);
+}
+.vy-automation-workspace :is(h2, h3),
+.vy-auto-dialog :is(h2, h3) {
+    color: var(--_vy-fg);
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin: 0;
+}
+.vy-automation-workspace h2 {
+    font-size: 19px;
+}
+.vy-automation-workspace h3 {
+    font-size: 16px;
+}
+.vy-auto-muted {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 0;
+}
+.vy-auto-error {
+    color: var(--_vy-danger-strong, #a93232);
+    font-size: 13px;
+    line-height: 1.6;
+}
+.vy-auto-actions,
+.vy-auto-toolbar,
+.vy-auto-card-heading,
+.vy-auto-card-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+.vy-auto-toolbar,
+.vy-auto-card-heading,
+.vy-auto-card-footer {
+    justify-content: space-between;
+}
+.vy-auto-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+}
+.vy-auto-stats > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 14px 16px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 10px;
+    background: var(--_vy-surface);
+}
+.vy-auto-stats svg {
+    color: var(--_vy-accent);
+    flex-shrink: 0;
+}
+.vy-auto-stats dd {
+    margin: 0;
+    font:
+        600 22px/1.2 'Bricolage Grotesque',
+        sans-serif;
+    letter-spacing: -0.04em;
+}
+.vy-auto-stats dt {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    margin-top: 4px;
+}
+.vy-auto-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--_vy-border);
+}
+.vy-auto-tabs button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 15px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+    font-size: 13px;
+}
+.vy-auto-tabs button[aria-current] {
+    border-color: var(--_vy-accent);
+    color: var(--_vy-fg);
+    font-weight: 600;
+}
+.vy-auto-notice {
+    display: flex;
+    align-items: start;
+    gap: 14px;
+    padding: 22px 24px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 14px;
+    background: var(--_vy-surface);
+    font-size: 13px;
+}
+.vy-auto-notice > svg {
+    color: var(--_vy-accent);
+    flex-shrink: 0;
+}
+.vy-auto-notice p {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    margin: 7px 0 0;
+    line-height: 1.65;
+}
+.vy-auto-filters {
+    display: grid;
+    grid-template-columns: 1.5fr 1.3fr 1fr 1.2fr;
+    gap: 16px;
+    align-items: end;
+}
+.vy-automation-workspace :is(input:not([type='checkbox']), select, textarea),
+.vy-auto-dialog :is(input:not([type='checkbox']), select, textarea) {
+    min-width: 0;
+    width: 100%;
+    height: 42px;
+    padding: 10px 12px;
+    background: var(--_vy-surface);
+    color: var(--_vy-fg);
+    border: 1px solid var(--_vy-border);
+    border-radius: 9px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1.4;
+}
+.vy-automation-workspace textarea {
+    height: auto;
+    min-height: 110px;
+}
+.vy-automation-workspace label {
+    min-width: 0;
+}
+.vy-auto-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--_vy-fg-2);
+}
+.vy-auto-field small {
+    font-weight: 400;
+    line-height: 1.6;
+}
+.vy-auto-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+.vy-auto-view {
+    display: grid;
+    place-items: center;
+    height: 36px;
+    width: 38px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 8px;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+}
+.vy-auto-view[aria-pressed='true'] {
+    background: var(--_vy-accent-soft);
+    color: var(--_vy-accent);
+    border-color: var(--_vy-accent);
+}
+.vy-auto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+.vy-auto-card {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    padding: 25px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 16px;
+    min-width: 0;
+}
+.vy-auto-card-title {
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--_vy-fg);
+    text-align: left;
+    font:
+        600 18px/1.4 'Bricolage Grotesque',
+        sans-serif;
+    cursor: pointer;
+    overflow-wrap: anywhere;
+}
+.vy-auto-card-title:hover {
+    color: var(--_vy-accent);
+}
+.vy-auto-icon {
+    display: inline-grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    border-radius: 9px;
+    flex-shrink: 0;
+}
+.vy-auto-icon.peach {
+    color: #a85b35;
+    background: #f8e9db;
+}
+.vy-auto-icon.violet {
+    color: #7b58a6;
+    background: #eee7f8;
+}
+.vy-auto-icon.blue {
+    color: #4a739c;
+    background: #e6eff8;
+}
+.vy-auto-flow {
+    display: grid;
+    gap: 7px;
+}
+.vy-auto-flow-step {
+    display: flex;
+    gap: 13px;
+    align-items: start;
+}
+.vy-auto-flow-step > div {
+    min-width: 0;
+}
+.vy-auto-flow-step small {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 9px;
+    color: var(--_vy-fg-2);
+}
+.vy-auto-flow-step p {
+    margin: 5px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+}
+.vy-auto-flow-arrow {
+    margin: 1px 0 6px 12px;
+    color: var(--_vy-fg-2);
+    opacity: 0.55;
+}
+.vy-auto-counters {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    margin: auto 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--_vy-border);
+}
+.vy-auto-counters dd {
+    margin: 0;
+    font-size: 17px;
+    font-family: 'Bricolage Grotesque', sans-serif;
+    font-weight: 600;
+}
+.vy-auto-counters dt {
+    font-size: 9px;
+    color: var(--_vy-fg-2);
+    margin-top: 5px;
+}
+.vy-auto-card-footer {
+    padding-top: 14px;
+    border-top: 1px solid var(--_vy-border);
+    gap: 8px;
+}
+.vy-auto-starters {
+    display: grid;
+    gap: 20px;
+}
+.vy-auto-section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+.vy-auto-section-heading p {
+    color: var(--_vy-fg-2);
+    font-size: 13px;
+    margin: 8px 0 0;
+}
+.vy-auto-section-heading svg {
+    color: var(--_vy-accent);
+}
+.vy-auto-starter {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 17px;
+    text-align: left;
+    padding: 25px;
+    color: var(--_vy-fg);
+    border: 1px solid var(--_vy-border);
+    border-radius: 15px;
+    background: var(--_vy-surface);
+    cursor: pointer;
+}
+.vy-auto-starter:hover:not(:disabled) {
+    border-color: var(--_vy-accent);
+}
+.vy-auto-starter:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+.vy-auto-starter p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.8;
+    color: var(--_vy-fg-2);
+}
+.vy-auto-text-link {
+    color: var(--_vy-accent);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: auto;
+}
+.vy-auto-back {
+    justify-self: start;
+    padding-left: 0;
+}
+.vy-auto-editor-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 280px;
+    gap: 24px;
+    align-items: start;
+}
+.vy-auto-editor-main {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+}
+.vy-auto-editor-main > :is(section, fieldset),
+.vy-auto-builder-section,
+.vy-auto-editor [data-panel='settings'] > fieldset {
+    min-width: 0;
+    border: 1px solid var(--_vy-border);
+    border-radius: 16px;
+    padding: 24px;
+    background: var(--_vy-surface);
+    display: grid;
+    gap: 22px;
+}
+.vy-auto-editor [data-panel='settings'] {
+    display: grid;
+    gap: 24px;
+}
+.vy-auto-editor-main legend,
+.vy-auto-builder-section legend,
+.vy-auto-editor [data-panel='settings'] legend {
+    float: none;
+    width: auto;
+    font:
+        600 17px/1.4 'Bricolage Grotesque',
+        sans-serif;
+    color: var(--_vy-fg);
+    padding: 0 8px;
+    margin: 0;
+}
+.vy-auto-editor-main legend span {
+    display: none;
+}
+.vy-auto-outline {
+    display: grid;
+    gap: 25px;
+    padding: 24px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 15px;
+    position: sticky;
+    top: 15px;
+}
+.vy-auto-outline h2 {
+    font-size: 16px;
+}
+.vy-auto-editor-main label {
+    gap: 8px;
+    font-weight: 500;
+}
+.vy-auto-editor-main :is(.sm\:grid-cols-2, .sm\:grid-cols-3) {
+    gap: 18px;
+}
+.vy-auto-editor-main .sm\:grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.vy-auto-step-advanced {
+    border-top: 1px solid var(--_vy-border);
+    padding-top: 16px;
+    margin-top: 5px;
+}
+.vy-auto-step-advanced summary {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+}
+.vy-auto-step-advanced[open] > :not(summary) {
+    margin-top: 22px;
+}
+.vy-auto-step-advanced section {
+    display: grid;
+    gap: 14px;
+}
+.vy-auto-step-advanced h3 {
+    font-size: 14px;
+}
+.vy-auto-condition-group {
+    display: grid;
+    gap: 18px;
+    min-width: 0;
+}
+.vy-auto-condition-leaf,
+.vy-auto-condition-nested {
+    display: grid;
+    gap: 16px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 10px;
+    padding: 18px;
+}
+.vy-auto-condition-nested {
+    border-left: 3px solid var(--_vy-accent);
+}
+.vy-auto-condition-group strong {
+    font-size: 13px;
+}
+.vy-auto-savebar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    position: sticky;
+    bottom: -28px;
+    z-index: 8;
+    padding: 17px 22px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    box-shadow: 0 -8px 24px #1c293508;
+}
+.vy-auto-savebar span {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+}
+.vy-auto-dialog {
+    max-width: 600px;
+    max-height: calc(100dvh - 8rem);
+    top: calc(50% + 2rem);
+    padding: 25px;
+}
+.vy-auto-dialog h2 {
+    font-size: 22px;
+    padding-right: 20px;
+}
+.vy-auto-dialog > p {
+    margin: 12px 0 22px;
+    line-height: 1.7;
+}
+.vy-auto-run-summary {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 18px 22px;
+    border: 1px solid var(--_vy-border);
+    background: var(--_vy-surface);
+    border-radius: 12px;
+}
+.vy-auto-run-panel {
+    display: grid;
+    gap: 22px;
+}
+.vy-auto-counter-list {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-size: 12px;
+}
+.vy-auto-log-details {
+    display: grid;
+    gap: 18px;
+}
+.vy-auto-log-details dt {
+    font-size: 11px;
+    color: var(--_vy-fg-2);
+    margin-bottom: 5px;
+}
+.vy-auto-log-details dd {
+    font-size: 13px;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+.vy-auto-log-details pre {
+    max-width: 100%;
+    overflow: auto;
+    font-size: 12px;
+}
+.vy-auto-picker-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+.vy-auto-picker-list button {
+    width: 100%;
+    justify-content: space-between;
+    text-align: left;
+    height: auto;
+    padding: 12px;
+}
+.vy-auto-picker-list small {
+    display: block;
+    color: var(--_vy-fg-2);
+    font-weight: 400;
+    margin-top: 5px;
+}
+.vy-automation-workspace :is(button, a, input, select, textarea):focus-visible,
+.vy-auto-dialog :is(button, input, select, textarea):focus-visible {
+    outline: 2px solid var(--_vy-accent);
+    outline-offset: 3px;
+}
+@media (max-width: 1350px) {
+    .vy-auto-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .vy-auto-editor-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-auto-outline {
+        position: static;
+    }
+    .vy-auto-stats > div {
+        padding: 14px 16px;
+        gap: 12px;
+    }
+}
+@media (max-width: 1050px) {
+    .vy-auto-filters,
+    .vy-auto-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 650px) {
+    .vy-auto-grid,
+    .vy-auto-fields,
+    .vy-auto-filters {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-auto-tabs {
+        gap: 0;
+    }
+    .vy-auto-tabs button {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+    .vy-auto-card,
+    .vy-auto-starter {
+        padding: 20px;
+    }
+    .vy-auto-condition-nested {
+        padding: 12px;
+    }
+    .vy-auto-savebar {
+        bottom: -14px;
+    }
+}
+.vy-auto-dialog .vy-auto-check {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-top: 14px;
+}
+.vy-automation-workspace > fieldset.vy-auto-editor {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}

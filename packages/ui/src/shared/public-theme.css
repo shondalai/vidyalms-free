@@ -1,0 +1,89 @@
+@import './tokens.css';
+@import './learner-theme.css';
+@import './learner-colors.css';
+@import './preferences-theme.css';
+
+/* Shared foundation for CMS-rendered catalogue, course, learning and verification
+   pages. No reset, hydration or data rewrite: native forms/links and schema stay
+   intact. This file is loaded after the host-specific structural stylesheet. */
+.vidyalms {
+    --vidyalms-gap: 24px;
+    --vidyalms-gap-sm: 12px;
+    --vidyalms-radius: var(--_vy-radius-lg);
+    --vidyalms-surface: var(--_vy-surface);
+    --vidyalms-muted: var(--_vy-fg-2);
+    --vidyalms-accent: var(--_vy-accent);
+    --vidyalms-success: var(--_vy-ok);
+    --vidyalms-danger: var(--_vy-danger);
+    --vidyalms-info: var(--_vy-fg-2);
+    box-sizing: border-box;
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    color: var(--_vy-fg);
+    background: transparent;
+    font-family: var(--_vy-font-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+.vidyalms *, .vidyalms *::before, .vidyalms *::after { box-sizing: border-box; }
+
+.vidyalms :is(h1, h2, h3, h4) {
+    color: var(--_vy-fg);
+    font-family: var(--_vy-font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+.vidyalms :is(.vidyalms-page-title, h1) { font-size: clamp(26px, 3vw, 38px); }
+.vidyalms :is(.vidyalms-card, .vidyalms-course-card, .vidyalms-enrolment, .vidyalms-certificate,
+             .vidyalms-course-aside, .vidyalms-module, .vidyalms-verify-result, .vidyalms-empty) {
+    border: 1px solid var(--_vy-border);
+    border-radius: var(--_vy-radius-lg);
+    background: var(--_vy-surface);
+    padding: 20px;
+    color: var(--_vy-fg);
+    box-shadow: 0 4px 16px rgb(15 23 42 / 3%);
+}
+.vidyalms :is(.vidyalms-card-summary, .vidyalms-card-meta, .vidyalms-lesson-meta, .vidyalms-result-count) {
+    color: var(--_vy-fg-2);
+}
+.vidyalms a { color: var(--_vy-accent); text-underline-offset: 3px; }
+.vidyalms :is(:where(input:not([type='checkbox']):not([type='radio']):not([type='hidden']), select, textarea), .vidyalms-button, .btn) {
+    min-height: 44px;
+    box-sizing: border-box;
+    border: 1px solid var(--_vy-control-border);
+    border-radius: var(--_vy-radius);
+    background: var(--_vy-surface);
+    color: var(--_vy-fg);
+    font: inherit;
+    padding: 8px 12px;
+}
+.vidyalms :is(.vidyalms-button-primary, .btn-primary) {
+    background: var(--_vy-accent);
+    border-color: var(--_vy-accent);
+    color: var(--_vy-accent-fg);
+}
+.vidyalms :focus-visible { outline: var(--_vy-focus); outline-offset: 3px; }
+.vidyalms .vidyalms-filters { align-items: end; gap: 12px; }
+.vidyalms .vidyalms-progress-bar { accent-color: var(--_vy-accent); }
+.vidyalms .vidyalms-pagination { margin-top: 24px; gap: 6px; }
+.vidyalms .vidyalms-pagination :is(a, span[aria-current='page']) {
+    display: inline-flex;
+    min-width: 40px;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 10px;
+    border: 1px solid var(--_vy-border);
+    border-radius: var(--_vy-radius);
+    background: var(--_vy-surface);
+}
+.vidyalms .vidyalms-pagination :is(a, span)[aria-current='page'] {
+    background: var(--_vy-accent);
+    color: var(--_vy-accent-fg);
+    font-weight: 600;
+}
+@media (max-width: 600px) {
+    .vidyalms .vidyalms-filters > * { min-width: 0; width: 100%; }
+    .vidyalms :is(.vidyalms-card, .vidyalms-course-card, .vidyalms-course-aside) { padding: 16px; }
+}

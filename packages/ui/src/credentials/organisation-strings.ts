@@ -1,0 +1,12 @@
+import { translate as uiText } from '@/shared/i18n';
+export const organisationJoinStrings = {
+    title: uiText("vidyalms.ui.e8c4d4a652a3aa68", "Your organizations"), intro: uiText("vidyalms.ui.d391840506bbd05f", "One account. Learning with every organization you belong to."),
+    invite: uiText("vidyalms.ui.ff263cf97b3df791", "Join your organization"), inviteIntro: uiText("vidyalms.ui.715a002ba7ad84a4", "Sign in with the account that uses your invited email address. We will send a fresh verification code to that inbox before you join."),
+    login: uiText("vidyalms.ui.dedab47bfff3fe06", "Sign in in a new tab"), refresh: uiText("vidyalms.ui.068c98863bcf0af8", "I have signed in, continue"), loginHint: uiText("vidyalms.ui.ad3b007e716195b1", "Keep this page open. After signing in, return here and continue. Your invitation stays private in this tab."),
+    signedIn: (name: string) => uiText("vidyalms.ui.c78a9c7e9ffd5705", "Signed in as {p0}", { p0: name }), verify: uiText("vidyalms.ui.19e86d2b7055340c", "Send verification code"), sending: uiText("vidyalms.ui.b8ed5279e897be5d", "Sending…"),
+    proof: uiText("vidyalms.ui.4ee2c02184f0fe62", "Check your inbox"), proofIntro: uiText("vidyalms.ui.83bc4a24718d2244", "Enter the fresh code sent to your invited email address. It expires after 10 minutes. The original invitation alone cannot join an organization."),
+    code: uiText("vidyalms.ui.3ee75029c70e284c", "Verification code"), accept: uiText("vidyalms.ui.1b7a7090ab82ae9a", "Verify and join"), accepting: uiText("vidyalms.ui.6bbb89ee5d48b326", "Joining…"),
+    success: uiText("vidyalms.ui.3920c811cb2a74c6", "You have joined the organization"), successBody: uiText("vidyalms.ui.6e4d302cbdca669f", "Membership is ready. A manager can now assign available learning or seats; joining does not automatically enroll you in every course."),
+    learning: uiText("vidyalms.ui.c72208ce85161c88", "Go to my learning"), empty: uiText("vidyalms.ui.c6659bf453e492c9", "No active organization memberships"), emptyBody: uiText("vidyalms.ui.5a602ceca4a04ce4", "An organization administrator can invite you or add your existing account."),
+    pages: uiText("vidyalms.ui.15d7b36f4bfc98a6", "Your organizations pages"), member: uiText("vidyalms.ui.d245e6bd6ca5d0f6", "Active membership"), invalid: uiText("vidyalms.ui.c1b65718b351124f", "This invitation address is not valid"), invalidBody: uiText("vidyalms.ui.e483252b4950b94e", "Open the complete link from your invitation email, or request a new invitation from your organization administrator."),
+};

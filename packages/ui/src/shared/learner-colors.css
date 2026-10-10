@@ -1,0 +1,73 @@
+/* One adaptive palette for native learner pages and their React mounts.
+   light-dark() follows the used color-scheme, including DevTools/OS changes.
+   Public --vy-* overrides remain the theme integration boundary. */
+:is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials) {
+    color-scheme: var(--_vy-learner-scheme, inherit);
+    --_vy-bg: var(--vy-bg, light-dark(#f8f9fa, #151c19));
+    --_vy-surface: var(--vy-surface, light-dark(#ffffff, #1e2823));
+    --_vy-surface-2: var(--vy-surface-2, light-dark(#f0f3f1, #2b3830));
+    --_vy-fg: var(--vy-fg, light-dark(#26312e, #edf3ee));
+    --_vy-fg-2: var(--vy-fg-2, light-dark(#65716e, #b3c0b7));
+    --_vy-border: var(--vy-border, light-dark(#e4e8e5, #3b4b41));
+    --_vy-control-border: var(--vy-control-border, light-dark(#7a8781, #7d9386));
+    --_vy-accent: var(--vy-accent, light-dark(#b7492a, #f1ad8b));
+    --_vy-accent-fg: var(--vy-accent-fg, light-dark(#ffffff, #291c15));
+    --_vy-accent-soft: var(--vy-accent-soft, light-dark(#f9ece6, #3a2e27));
+    --_vy-ok: var(--vy-ok, light-dark(#28785c, #78cba5));
+    --_vy-ok-strong: var(--vy-ok-strong, light-dark(#206348, #91d6b5));
+    --_vy-warn: var(--vy-warn, light-dark(#966300, #e7bc71));
+    --_vy-warn-strong: var(--vy-warn-strong, light-dark(#775000, #edc583));
+    --_vy-danger: var(--vy-danger, light-dark(#a4372a, #f49f91));
+    --_vy-danger-strong: var(--vy-danger-strong, light-dark(#a4372a, #f9b4a8));
+    --_vy-illustration: light-dark(#e7e9dc, #303b2b);
+    --_vy-illustration-fg: light-dark(#5e644d, #c0ccad);
+    --_vy-illustration-warm: light-dark(#eee1d4, #40342a);
+    --_vy-illustration-warm-fg: light-dark(#876046, #dfbfa4);
+    --_vy-illustration-violet: light-dark(#e4ddec, #382e40);
+    --_vy-illustration-violet-fg: light-dark(#776080, #ceb6df);
+    --_vy-certificate-paper: light-dark(#fffcf4, #2b2a20);
+    --_vy-certificate-edge: light-dark(#c8b58b, #89794e);
+    --_vy-activity-bg: light-dark(#e9eddf, #303d28);
+    --_vy-activity-fg: light-dark(#5c7050, #c0d4a9);
+    --_vy-skeleton: light-dark(#e8ece9, #304036);
+    --_vy-skeleton-shine: light-dark(#f2f5f2, #3c4d42);
+    --_vy-feature: var(--vy-feature, light-dark(#263b35, #2c463e));
+    --_vy-feature-fg: var(--vy-feature-fg, light-dark(#ffffff, #ffffff));
+    --_vy-feature-fg-2: var(--vy-feature-fg-2, light-dark(#c0cec7, #c0cec7));
+    --_vy-feature-action: var(--vy-feature-action, light-dark(#f5e9d6, #f5e9d6));
+    --_vy-feature-action-fg: var(--vy-feature-action-fg, light-dark(#24392f, #24392f));
+}
+
+/* First paint before the theme observer starts. The observer then resolves
+   nested, conflicting host markers by proximity, not stylesheet order.
+   Without a marker the shell inherits the host's own color-scheme, so a host
+   that never opted into dark paints light from the first frame, exactly as
+   the observer resolves it later. */
+:is([data-color-scheme=auto], [data-color-scheme=system], [data-bs-theme=auto], [data-bs-theme=system], [data-theme=auto], [data-theme=system])
+    :is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials) {
+    --_vy-learner-scheme: light dark;
+}
+:is([data-color-scheme=dark], [data-bs-theme=dark], [data-theme=dark], .dark, .dark-mode, .theme-dark)
+    :is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials) {
+    --_vy-learner-scheme: dark;
+}
+:is([data-color-scheme=light], [data-bs-theme=light], [data-theme=light], .light, .light-mode, .theme-light)
+    :is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials) {
+    --_vy-learner-scheme: light;
+}
+.vidyalms :is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials) {
+    --_vy-learner-scheme: inherit;
+    color-scheme: inherit;
+}
+:is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials):is([data-color-scheme=dark], [data-vy-color-scheme=dark]) {
+    --_vy-learner-scheme: dark;
+    color-scheme: dark;
+}
+:is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials):is([data-color-scheme=light], [data-vy-color-scheme=light]) {
+    --_vy-learner-scheme: light;
+    color-scheme: light;
+}
+:is(.vidyalms, #vidyalms-player, #vidyalms-quiz-runner, #vidyalms-notifications, #vidyalms-credentials)[data-vy-color-scheme=auto] {
+    --_vy-learner-scheme: light dark;
+    color-scheme: light dark;
+}

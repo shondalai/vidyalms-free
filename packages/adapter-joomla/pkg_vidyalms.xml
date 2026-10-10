@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<extension method="upgrade" type="package">
+    <name>pkg_vidyalms</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com/</authorUrl>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <description>PKG_VIDYALMS_XML_DESCRIPTION</description>
+    <creationDate>01 September 2026</creationDate>
+    <packagename>vidyalms</packagename>
+    <version>1.0.1</version>
+    <url>https://shondalai.com/</url>
+    <packager>BulaSikku Technologies Pvt. Ltd.</packager>
+    <packagerurl>https://shondalai.com/</packagerurl>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <scriptfile>pkg_script.php</scriptfile>
+    <files folder="packages">
+        <!-- Dependency order: the library carries the engine every other piece resolves
+             classes from, and the component owns the schema the plugins read and write.
+
+             Each id must be the extension's element exactly as it is stored in
+             #__extensions, because that is what the package uninstaller matches
+             on. A component's element carries the com_ prefix, so an id of
+             "vidyalms" here would install cleanly and then silently orphan the
+             component, its files and its tables on uninstall. -->
+        <file id="vidyalms_core" type="library">lib_vidyalms_core.zip</file>
+        <file id="com_vidyalms" type="component">com_vidyalms.zip</file>
+
+        <!-- Plugins. -->
+        <file id="vidyalms" type="plugin" group="webservices">plg_webservices_vidyalms.zip</file>
+        <file id="vidyalms" type="plugin" group="system">plg_system_vidyalms.zip</file>
+        <file id="vidyalms_easycommerce" type="plugin" group="system">plg_system_vidyalms_easycommerce.zip</file>
+        <file id="vidyalms" type="plugin" group="task">plg_task_vidyalms.zip</file>
+        <file id="vidyalms" type="plugin" group="privacy">plg_privacy_vidyalms.zip</file>
+        <file id="vidyalms" type="plugin" group="finder">plg_finder_vidyalms.zip</file>
+    </files>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/pkg_vidyalms.sys.ini</language>
+    </languages>
+    <dlid prefix="license_key=" suffix="" />
+    <changelogurl>https://shondalai.com/media/uploads/autoupdates/vidyalms/changelog.xml</changelogurl>
+    <updateservers>
+        <server type="extension" priority="1" name="VidyaLMS Package Updates">https://shondalai.com/media/uploads/autoupdates/vidyalms/vidyalms.xml</server>
+    </updateservers>
+</extension>

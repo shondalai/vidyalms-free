@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="vidyalms_expire_entitlements" label="PLG_TASK_VIDYALMS_EXPIRE_TITLE">
+            <!-- The sweep is a whole-table pass driven by the entitlement time
+                 windows themselves. It takes no options, so the fieldset only
+                 explains what running it does. -->
+            <field
+                name="expire_note"
+                type="note"
+                label="PLG_TASK_VIDYALMS_EXPIRE_NOTE_LABEL"
+                description="PLG_TASK_VIDYALMS_EXPIRE_NOTE_DESC"
+            />
+        </fieldset>
+    </fields>
+</form>

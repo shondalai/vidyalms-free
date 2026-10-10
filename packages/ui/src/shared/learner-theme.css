@@ -1,0 +1,244 @@
+/* Learner pages remain inside the host theme, with no global reset. */
+.vidyalms .vy-learning-filter {display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 0;margin:0 0 22px;border-block:1px solid var(--_vy-border)}
+.vidyalms .vy-learning-filter label {font-size:14px;font-weight:600;margin:0}
+.vidyalms .vy-learning-filter select {width:auto;min-width:min(230px,100%);max-width:100%;margin:0;padding:10px 36px 10px 12px;border:1px solid var(--_vy-border);border-radius:8px;background-color:var(--_vy-surface);color:var(--_vy-fg);font:inherit;font-size:14px}
+.vidyalms .vy-learning-filter .vidyalms-button {width:auto;margin:0}
+.vidyalms .vy-learning-sources {display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:var(--_vy-fg-2);font-size:12px;line-height:1.5}
+.vidyalms .vy-learning-sources > span:first-child {flex-basis:100%;font-size:11px}
+.vidyalms .vy-learning-sources .vidyalms-badge {background:var(--_vy-surface-2);border:0;padding:4px 8px;border-radius:6px;color:var(--_vy-fg-2)}
+@container vy-learning-shell (max-width:520px) {.vidyalms .vy-learning-filter label {flex-basis:100%}.vidyalms .vy-learning-filter select {flex:1;min-width:0}}
+.vidyalms.vy-learner-shell {
+    display: flex; flex-wrap: wrap; align-items: center; column-gap: 28px; min-width: 0;
+    width: 100%; max-width: none; margin: 0; padding: 0; border: 0; border-radius: 0;
+    background: transparent; isolation: isolate; font-size: 16px;
+    container: vy-learning-shell / inline-size;
+}
+.vidyalms .vy-learning-brandbar { display:flex; flex:1 0 220px; min-width:0; align-items:center; gap:24px; padding:var(--_vy-header-padding,20px) 0; background:transparent; }
+.vidyalms .vy-learning-brand { display:flex; align-items:center; gap:13px; text-decoration:none; color:var(--_vy-fg); font-size:20px; font-weight:650; line-height:1.25; }
+.vidyalms .vy-learning-brand small {display:block;font-size:12px;font-weight:400;color:var(--_vy-fg-2);margin-top:5px;letter-spacing:.01em}
+.vidyalms .vy-learning-brand > span:last-child {min-width:0;overflow-wrap:anywhere}
+.vidyalms .vy-learning-mark {display:grid;place-items:center;width:var(--vy-learner-logo-size,42px);height:var(--vy-learner-logo-size,42px);flex-shrink:0;background:#253b35;color:#f5ead7;border-radius:12px;font-family:Georgia,serif;font-style:italic;font-size:calc(var(--vy-learner-logo-size,42px) * .714)}
+.vidyalms .vy-learning-logo {height:var(--vy-learner-logo-size,42px);width:auto;max-width:min(180px,45%);object-fit:contain;flex-shrink:0;border-radius:0}
+.vidyalms .vy-learning-navigation {display:flex;flex:2 1 660px;min-width:0;gap:4px;align-items:center;flex-wrap:wrap;justify-content:flex-end;padding:calc(var(--_vy-header-padding,20px) - 4px) 0;margin:0;background:transparent}
+.vidyalms .vy-learning-navigation a {display:flex;align-items:center;min-height:44px;padding:10px 12px;border-radius:8px;text-decoration:none;color:var(--_vy-fg-2);font-size:14px;font-weight:500;line-height:1.4}
+.vidyalms .vy-learning-navigation a:hover {background:var(--_vy-surface-2);color:var(--_vy-fg)}
+/* The current page is marked by more than colour (WCAG 1.4.1): an accent bar under its label. */
+.vidyalms .vy-learning-navigation a[aria-current=page] {background:var(--_vy-accent-soft);color:var(--_vy-accent);box-shadow:inset 0 -2px 0 var(--_vy-accent)}
+.vidyalms .vy-learning-content {flex:1 0 100%;width:100%;padding:36px 0 20px;border-top:1px solid var(--_vy-border);min-width:0;container-type:inline-size}
+.vidyalms.vy-learner-shell:has(#vidyalms-player, #vidyalms-quiz-runner) {display:block}
+.vidyalms.vy-learner-shell:has(#vidyalms-player, #vidyalms-quiz-runner) > :is(.vy-learning-brandbar, .vy-learning-navigation) {display:none}
+.vidyalms.vy-learner-shell:has(#vidyalms-player, #vidyalms-quiz-runner) .vy-learning-content {padding:0;border:0}
+
+.vidyalms .vy-learning-content .vidyalms {padding:0;border:0;margin:0;max-width:none;background:transparent}
+.vidyalms .vy-learning-content .vidyalms-page-header {padding:0;margin:0 0 28px;border:0;background:transparent}
+.vidyalms .vy-learning-content .vidyalms-page-title {font-size:clamp(28px,3vw,43px);letter-spacing:-.04em;font-weight:550;line-height:1.15;margin:0 0 15px}
+.vidyalms .vy-learning-content .vidyalms-learner-navigation {display:none}
+.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] {align-items:flex-start;column-gap:0}
+.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-brandbar {flex-basis:100%;border-bottom:1px solid var(--_vy-border)}
+.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-navigation {flex:0 0 205px;justify-content:flex-start;position:sticky;top:20px;align-items:stretch;flex-direction:column;padding:28px 20px 0 0;border:0;background:transparent}
+.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-content {flex:1 1 0;width:auto;border-top:0;border-inline-start:1px solid var(--_vy-border);padding-inline-start:28px}
+.vidyalms .vy-page-kicker {font-size:11px;letter-spacing:.13em;font-weight:600;color:var(--_vy-fg-2);margin:0 0 12px;text-transform:uppercase}
+.vidyalms .vy-page-description {font-size:17px;color:var(--_vy-fg-2);max-width:650px;line-height:1.75;margin:0 0 30px}
+.vidyalms .vidyalms-catalogue .vidyalms-filters {display:flex;flex-wrap:wrap;padding:0 0 24px;gap:14px;border:0;border-bottom:1px solid var(--_vy-border);background:transparent;border-radius:0;margin:28px 0 20px}
+.vidyalms .vidyalms-catalogue .vidyalms-field:first-child {flex:2 1 260px;min-width:0}
+.vidyalms .vidyalms-catalogue .vidyalms-field {flex:1 1 190px;min-width:0;margin:0}
+.vidyalms .vidyalms-catalogue .vidyalms-field-actions {flex:0 0 auto}
+.vidyalms .vidyalms-catalogue .vidyalms-label {font-size:12px;letter-spacing:.01em;margin-bottom:7px;font-weight:500}
+.vidyalms .vidyalms-catalogue :is(.vidyalms-input,select) {width:100%;min-height:46px;border:1px solid var(--_vy-control-border);font-size:14px;background:var(--_vy-surface);border-radius:8px}
+.vidyalms.vy-learner-shell .vidyalms-catalogue .vidyalms-field-actions .vidyalms-button {background:var(--_vy-accent);border-color:var(--_vy-accent);color:var(--_vy-accent-fg);font-size:14px}
+.vidyalms .vidyalms-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,clamp(265px,24cqi,320px)),1fr));gap:36px 28px;list-style:none;padding:0;margin:24px 0}
+.vidyalms .vidyalms-grid-item {margin:0;padding:0;min-width:0;list-style:none}
+.vidyalms .vidyalms-grid :is(.vidyalms-card,.vidyalms-course-card) {height:100%;display:flex;flex-direction:column;padding:0;overflow:visible;border-radius:0;box-shadow:none;border:0;background:transparent}
+.vidyalms :is(.vidyalms-card-media,.vy-course-art) {margin:0;aspect-ratio:16/9;overflow:hidden;border-radius:12px;background:var(--_vy-illustration);transition:transform .18s ease}
+@media(prefers-reduced-motion:no-preference) {
+ .vidyalms .vidyalms-grid :is(.vidyalms-card,.vidyalms-course-card):is(:hover,:focus-within) :is(.vidyalms-card-media,.vy-course-art) {transform:translateY(-3px)}
+}
+.vidyalms .vidyalms-card-media img {width:100%;height:100%;object-fit:cover;border-radius:0;display:block}
+.vidyalms .vy-course-art {display:flex;flex-direction:column;align-items:start;justify-content:space-between;padding:22px 25px;color:var(--_vy-illustration-fg);background:var(--_vy-illustration)}
+.vidyalms .vy-course-art small {font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:500}
+.vidyalms .vy-course-art strong {font-size:64px;font-family:Georgia,serif;font-style:italic;line-height:1;align-self:end;font-weight:400}
+.vidyalms .vidyalms-grid-item:nth-child(3n+2) .vy-course-art {background:var(--_vy-illustration-warm);color:var(--_vy-illustration-warm-fg)}
+.vidyalms .vidyalms-grid-item:nth-child(3n) .vy-course-art {background:var(--_vy-illustration-violet);color:var(--_vy-illustration-violet-fg)}
+.vidyalms .vidyalms-grid .vidyalms-card-title {font-size:21px;line-height:1.3;letter-spacing:-.025em;padding:20px 0 0;margin:0;font-weight:550;overflow-wrap:anywhere}
+.vidyalms .vidyalms-card-title a {text-decoration:none;color:var(--_vy-fg)}
+.vidyalms .vidyalms-grid .vidyalms-card-summary {padding:0;margin:10px 0;font-size:14px;line-height:1.75;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.vidyalms .vidyalms-grid .vidyalms-card-meta {padding:12px 0 18px;margin:auto 0 0;font-size:12px;display:flex;flex-wrap:wrap;gap:8px}
+.vidyalms .vy-course-link {display:flex;justify-content:space-between;align-items:center;min-height:44px;font-size:13px;text-decoration:none;border-top:1px solid var(--_vy-border);padding:12px 0}
+.vidyalms .vy-course-link:hover {text-decoration:underline}
+.vidyalms .vy-course-link::after {content:'↗';font-size:20px}
+.vidyalms .vy-resume-course {background:#263b35;color:#fff;border-radius:13px;padding:30px 34px;margin:24px 0 32px;display:flex;justify-content:space-between;align-items:center;gap:28px}
+.vidyalms .vy-resume-course h2 {color:#fff;font-size:clamp(25px,3vw,35px);font-weight:500;line-height:1.2;letter-spacing:-.03em;margin:9px 0 13px;max-width:650px}
+.vidyalms .vy-resume-course .vy-page-kicker,.vidyalms .vy-resume-course p {color:#c0cec7;font-size:13px;margin:0}
+.vidyalms .vy-resume-course .vidyalms-button {background:#f5e9d6;color:#24392f;border:0;text-decoration:none;white-space:nowrap;font-size:14px;padding:12px 20px;border-radius:8px}
+.vidyalms .vidyalms-enrolment-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:22px;list-style:none;padding:0;margin:20px 0 32px}
+.vidyalms .vidyalms-enrolment {padding:24px 0;min-width:0;display:flex;flex-direction:column;box-shadow:none;border:0;border-top:1px solid var(--_vy-border);background:transparent;border-radius:0;margin:0}
+.vidyalms .vidyalms-enrolment-title {font-size:22px;letter-spacing:-.025em;line-height:1.3;margin:0 0 14px;font-weight:550}
+.vidyalms .vidyalms-enrolment-title a {color:var(--_vy-fg);text-decoration:none}
+.vidyalms .vidyalms-enrolment-status {font-size:12px;color:var(--_vy-fg-2);margin:0 0 20px}
+.vidyalms .vidyalms-enrolment .vidyalms-label {font-size:12px;font-weight:400}
+.vidyalms .vidyalms-enrolment .vidyalms-progress-bar {height:5px;border:0;border-radius:4px;background:var(--_vy-surface-2);color:var(--_vy-accent);width:100%;appearance:none;display:block;margin-top:8px}
+.vidyalms .vidyalms-progress-bar::-webkit-progress-bar {background:var(--_vy-surface-2);border-radius:4px}
+.vidyalms .vidyalms-progress-bar::-webkit-progress-value {background:var(--_vy-accent);border-radius:4px}
+.vidyalms .vidyalms-progress-bar::-moz-progress-bar {background:var(--_vy-accent);border-radius:4px}
+.vidyalms .vidyalms-progress-value {font-size:12px;color:var(--_vy-fg-2);margin-top:9px}
+.vidyalms .vidyalms-enrolment > p:last-child {display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:auto 0 0;padding-top:20px}
+.vidyalms .vidyalms-enrolment :is(.vidyalms-button,.vidyalms-link) {font-size:13px;text-decoration:none}
+.vidyalms .vidyalms-enrolment .vidyalms-button {background:var(--_vy-accent-soft);border-color:var(--_vy-border);color:var(--_vy-accent)}
+.vidyalms :is(.vidyalms-enrolments,.vidyalms-certificates)>h2 {font-size:24px;font-weight:550;letter-spacing:-.03em;margin:25px 0 12px}
+.vidyalms .vidyalms-certificate-list {display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:22px;list-style:none;padding:0}
+.vidyalms .vidyalms-certificate {margin:0;padding:26px;border-top:4px solid var(--_vy-certificate-edge);background:var(--_vy-certificate-paper);box-shadow:none}
+.vidyalms .vidyalms-certificate-title {font-size:22px;font-family:Georgia,serif;font-weight:400;margin:0 0 18px}
+.vidyalms .vidyalms-certificate-meta {font-size:12px;color:var(--_vy-fg-2);overflow-wrap:anywhere}
+.vidyalms .vidyalms-course {gap:32px}
+.vidyalms .vidyalms-course-main {min-width:0}
+.vidyalms .vidyalms-course-summary {font-size:18px;line-height:1.8;color:var(--_vy-fg-2)}
+.vidyalms .vidyalms-course-image {width:100%;max-height:480px;object-fit:cover;border-radius:12px}
+.vidyalms :is(.vidyalms-course-description,.vidyalms-curriculum) {margin:30px 0}
+.vidyalms :is(.vidyalms-course-description,.vidyalms-curriculum)>h2 {font-size:25px;font-weight:550;margin:0 0 20px;letter-spacing:-.03em}
+.vidyalms .vidyalms-course-description {font-size:16px;line-height:1.85}
+.vidyalms .vidyalms-module {box-shadow:none;margin:16px 0;border:0;border-top:1px solid var(--_vy-border);background:transparent;border-radius:0;padding:22px 0}
+.vidyalms .vidyalms-module-title {font-size:18px;font-weight:550;margin:0 0 15px}
+.vidyalms .vidyalms-course-aside {position:sticky;top:24px;align-self:start;padding:27px;border-radius:13px;box-shadow:none}
+.vidyalms .vidyalms-course-aside .vidyalms-button {width:100%;justify-content:center;text-align:center;text-decoration:none;background:var(--_vy-accent);border-color:var(--_vy-accent);color:var(--_vy-accent-fg);font-size:14px}
+.vidyalms .vidyalms-course-aside h2 {font-size:24px;font-weight:550;margin:0 0 20px}
+@container(max-width:700px) {
+ .vidyalms .vidyalms-course {grid-template-columns:minmax(0,1fr)}
+ .vidyalms .vidyalms-course-aside {position:static}
+ .vidyalms .vy-resume-course {flex-direction:column;align-items:start;gap:20px}
+}
+/* Respond to the space the CMS gives us, including a narrow template column
+   inside a wide browser. The host owns the outer canvas and page gutters. */
+@container vy-learning-shell (max-width:920px) {
+ .vidyalms .vy-learning-navigation {justify-content:flex-start;padding-top:0}
+}
+@container vy-learning-shell (max-width:720px) {
+ .vidyalms .vy-learning-brandbar {padding:min(16px,var(--_vy-header-padding,20px)) 0;gap:15px;flex-wrap:wrap}
+ .vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-brandbar {border-bottom:0}
+ .vidyalms .vy-learning-brand {font-size:18px}
+ .vidyalms .vy-learning-navigation,.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-navigation {flex:1 0 100%;position:static;flex-direction:row;justify-content:flex-start;padding:0 0 16px;gap:3px;border:0}
+ .vidyalms .vy-learning-navigation a {font-size:13px;padding:9px 10px;min-height:44px}
+ .vidyalms .vy-learning-content,.vidyalms.vy-learner-shell[data-vy-navigation=sidebar] .vy-learning-content {flex-basis:100%;width:100%;padding:26px 0 12px;border:0;border-top:1px solid var(--_vy-border)}
+}
+@container(max-width:540px) {
+ .vidyalms .vy-resume-course {padding:25px;flex-direction:column;align-items:start;gap:22px}
+ .vidyalms .vidyalms-course-aside {position:static}
+ .vidyalms .vidyalms-catalogue .vidyalms-field {flex-basis:100%;width:100%}
+ .vidyalms .vidyalms-catalogue .vidyalms-field-actions .vidyalms-button {width:100%;justify-content:center}
+}
+@media(prefers-reduced-motion:reduce) {.vidyalms .vidyalms-grid :is(.vidyalms-card,.vidyalms-course-card) :is(.vidyalms-card-media,.vy-course-art) {transition:none;transform:none}}
+@media print {.vidyalms .vy-learning-brandbar,.vidyalms .vy-learning-navigation {display:none}.vidyalms.vy-learner-shell {display:block;border:0}.vidyalms .vy-learning-content {padding:0;border:0}}
+
+/* Administrator-owned presentation; the CMS continues to own the page canvas. */
+.vidyalms.vy-learner-shell[data-vy-header-density=compact] {--_vy-header-padding:10px}
+.vidyalms.vy-learner-shell[data-vy-header=navigation] .vy-learning-navigation {justify-content:flex-start}
+.vidyalms.vy-learner-shell[data-vy-header-divider=false] > .vy-learning-brandbar,
+.vidyalms.vy-learner-shell[data-vy-header-divider=false] > .vy-learning-content {border-top-width:0;border-bottom-width:0}
+.vidyalms.vy-learner-shell[data-vy-header=hidden] {display:block}
+.vidyalms.vy-learner-shell[data-vy-header=hidden] > .vy-learning-content {width:100%;padding-top:0;padding-inline-start:0;border:0}
+
+.vidyalms.vy-learner-shell[data-vy-page-loading] .vy-learning-navigation {cursor:progress}
+.vidyalms .vy-learning-content:focus {outline:none}
+.vidyalms .vy-learning-content:focus-visible {outline:2px solid var(--_vy-accent);outline-offset:-4px}
+
+/* Page transitions preserve the outgoing DOM without exposing stale controls. */
+.vidyalms .vy-learning-content[data-vy-loading] {position:relative;min-height:690px}
+.vidyalms .vy-learning-content[data-vy-loading] > :not(.vy-page-skeleton) {visibility:hidden;opacity:0!important}
+.vidyalms .vy-page-skeleton {position:absolute;inset:0;padding:inherit;overflow:clip;pointer-events:none}
+.vidyalms .vy-skeleton-frame {position:sticky;top:24px}
+.vidyalms .vy-loading-status {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.vidyalms .vy-skeleton-block {display:block;border-radius:6px;background:linear-gradient(100deg,var(--_vy-skeleton) 20%,var(--_vy-skeleton-shine) 45%,var(--_vy-skeleton) 70%);background-size:220% 100%;animation:vy-learner-shimmer 1.8s ease-in-out infinite}
+.vidyalms .vy-skeleton-line {height:13px;width:85%;margin-bottom:12px}
+.vidyalms .vy-skeleton-heading {margin-bottom:30px}
+.vidyalms .vy-skeleton-kicker {width:130px;height:9px;margin-bottom:18px}
+.vidyalms .vy-skeleton-title {width:min(460px,80%);height:36px;margin-bottom:16px}
+.vidyalms .vy-skeleton-description {width:min(550px,95%);height:14px}
+.vidyalms .vy-skeleton-short {width:60%}
+.vidyalms .vy-skeleton-meta {width:30%;height:10px;margin-top:26px;margin-bottom:0}
+.vidyalms .vy-skeleton-toolbar {display:flex;align-items:center;gap:18px;padding:0 0 24px;border-bottom:1px solid var(--_vy-border);margin-bottom:24px}
+.vidyalms .vy-skeleton-toolbar .vy-skeleton-line {flex:1;height:38px;margin:0}
+.vidyalms .vy-skeleton-action {width:80px;height:34px;flex-shrink:0}
+.vidyalms .vy-skeleton-cards {display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,clamp(265px,24cqi,320px)),1fr));gap:28px}
+.vidyalms .vy-skeleton-card {min-width:0}
+.vidyalms .vy-skeleton-cover {aspect-ratio:16/9;border-radius:12px}
+.vidyalms .vy-skeleton-card-body {padding:24px 0}
+.vidyalms .vy-skeleton-rows {padding:8px 0;border-top:1px solid var(--_vy-border)}
+.vidyalms .vy-skeleton-row {display:flex;align-items:center;gap:18px;padding:19px 0;border-bottom:1px solid var(--_vy-border)}
+.vidyalms .vy-skeleton-row:last-child {border:0}
+.vidyalms .vy-skeleton-row > div {flex:1;min-width:0}
+.vidyalms .vy-skeleton-row .vy-skeleton-line:last-child {height:9px;margin-bottom:0}
+.vidyalms .vy-skeleton-icon {width:36px;height:36px;flex-shrink:0;border-radius:9px}
+.vidyalms .vy-skeleton-detail {display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:28px}
+.vidyalms .vy-skeleton-media {height:285px;margin-bottom:24px;border-radius:12px}
+.vidyalms .vy-skeleton-aside .vy-skeleton-action {display:none}
+@keyframes vy-learner-shimmer {from {background-position:100% 0} to {background-position:-100% 0}}
+@container(max-width:700px) {
+ .vidyalms .vy-skeleton-cards {grid-template-columns:repeat(2,minmax(0,1fr))}
+ .vidyalms .vy-skeleton-card:nth-child(3) {display:none}
+ .vidyalms .vy-skeleton-detail {grid-template-columns:minmax(0,1fr)}
+ .vidyalms .vy-skeleton-aside {display:none}
+}
+@container(max-width:440px) {
+ .vidyalms .vy-skeleton-cards {grid-template-columns:minmax(0,1fr)}
+ .vidyalms .vy-skeleton-card:nth-child(2) {display:none}
+ .vidyalms .vy-skeleton-row .vy-skeleton-action {display:none}
+}
+@media(prefers-reduced-motion:reduce) {.vidyalms .vy-skeleton-block {animation:none;background:var(--_vy-skeleton)}}
+
+/* Signed-out learner pages. The invitation is ours; the credential form, its errors, MFA and passkeys stay on the host's own sign-in page. */
+.vidyalms .vy-signin {container:vy-signin / inline-size;min-width:0;margin:0 0 36px;font-weight:400;letter-spacing:normal}
+.vidyalms .vy-signin-card {display:grid;grid-template-columns:minmax(0,1.5fr) minmax(260px,1fr);overflow:hidden;border:1px solid var(--_vy-border);border-radius:13px;background:var(--_vy-surface);color:var(--_vy-fg)}
+.vidyalms .vy-signin-body {display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:40px 44px 30px}
+.vidyalms .vy-signin-kicker {margin:0 0 14px}
+.vidyalms .vy-signin-title {max-width:17em;margin:0 0 14px;color:var(--_vy-fg);font-family:var(--_vy-font-display);font-size:clamp(24px,3.6cqi,30px);font-weight:550;line-height:1.15;letter-spacing:-.03em;overflow-wrap:anywhere;text-wrap:balance}
+.vidyalms .vy-signin-lede {max-width:34em;margin:0 0 28px;color:var(--_vy-fg-2);font-size:17px;line-height:1.7;text-wrap:pretty}
+.vidyalms .vy-signin-account {color:var(--_vy-fg)}
+.vidyalms .vy-signin-actions {display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.vidyalms .vy-signin-actions .vidyalms-button {display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin:0;padding:12px 24px;border-radius:8px;font-size:15px;font-weight:600;line-height:1.2;text-decoration:none;transition:none}
+/* Colour eases only under the pointer or focus, so a host or OS scheme change repaints the actions at once. */
+.vidyalms .vy-signin-actions .vidyalms-button:is(:hover,:focus-visible) {transition:background-color var(--_vy-dur-1) ease,border-color var(--_vy-dur-1) ease}
+.vidyalms .vy-signin-actions .vy-signin-primary {border:1px solid var(--_vy-accent);background:var(--_vy-accent);color:var(--_vy-accent-fg)}
+.vidyalms .vy-signin-actions .vy-signin-primary:hover {border-color:color-mix(in srgb,var(--_vy-accent) 86%,var(--_vy-fg));background:color-mix(in srgb,var(--_vy-accent) 86%,var(--_vy-fg));color:var(--_vy-accent-fg)}
+.vidyalms .vy-signin-actions .vy-signin-secondary {border:1px solid var(--_vy-control-border);background:var(--_vy-surface);color:var(--_vy-fg)}
+.vidyalms .vy-signin-actions .vy-signin-secondary:hover {background:var(--_vy-surface-2);color:var(--_vy-fg)}
+.vidyalms .vy-signin-help {display:flex;flex-wrap:wrap;gap:0 20px;margin:8px 0 0;padding:0;list-style:none}
+.vidyalms .vy-signin-help li {margin:0;padding:0;list-style:none}
+.vidyalms .vy-signin-help a {display:inline-flex;align-items:center;min-height:44px;color:var(--_vy-accent);font-size:14px;font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.vidyalms .vy-signin-explore {align-self:stretch;margin:20px 0 0;padding:10px 0 0;border-top:1px solid var(--_vy-border)}
+.vidyalms .vy-signin-link {display:inline-block;min-height:44px;line-height:44px;color:var(--_vy-accent);font-size:15px;font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.vidyalms :is(.vy-signin-help a,.vy-signin-link):hover {text-decoration-thickness:2px}
+.vidyalms .vy-signin-arrow {display:inline-block;margin-inline-start:6px;font-size:18px;line-height:1;text-decoration:none}
+.vidyalms .vy-signin :focus-visible {outline:var(--_vy-focus);outline-offset:3px}
+.vidyalms .vy-signin a {scroll-margin-block:96px}
+.vidyalms .vy-signin-steps {min-width:0;padding:38px 36px 32px;background:var(--_vy-feature);color:var(--_vy-feature-fg)}
+.vidyalms .vy-signin-steps-title {margin:0 0 22px;color:var(--_vy-feature-fg-2);font-family:var(--_vy-font-body);font-size:11px;font-weight:600;line-height:1.4;letter-spacing:.13em;text-transform:uppercase}
+.vidyalms .vy-signin-step-list {margin:0;padding:0;padding-inline-start:42px;list-style:decimal}
+.vidyalms .vy-signin-step {margin:0 0 20px;padding:0;padding-inline-start:6px;color:var(--_vy-feature-fg);line-height:0}
+.vidyalms .vy-signin-step:last-child {margin-bottom:0}
+.vidyalms .vy-signin-step::marker {color:var(--_vy-feature-action);font-family:Georgia,serif;font-size:28px;font-style:italic}
+.vidyalms .vy-signin-step-name {display:block;color:var(--_vy-feature-fg);font-size:16px;font-weight:600;line-height:1.4}
+.vidyalms .vy-signin-step-detail {display:block;margin-top:3px;color:var(--_vy-feature-fg-2);font-size:14px;line-height:1.6}
+@container vy-signin (max-width:720px) {
+ .vidyalms .vy-signin-card {grid-template-columns:minmax(0,1fr)}
+ .vidyalms .vy-signin-body {padding:32px 32px 24px}
+ .vidyalms .vy-signin-steps {padding:28px 32px}
+}
+@container vy-signin (max-width:540px) {
+ .vidyalms .vy-signin-body {padding:22px 20px 18px}
+ .vidyalms .vy-signin-kicker {margin-bottom:10px}
+ .vidyalms .vy-signin-title {margin-bottom:10px}
+ .vidyalms .vy-signin-lede {margin-bottom:20px;font-size:16px;line-height:1.6}
+ .vidyalms .vy-signin-actions {flex-direction:column;align-items:stretch;width:100%}
+ .vidyalms .vy-signin-actions .vidyalms-button {width:100%}
+ .vidyalms .vy-signin-steps {padding:24px 20px 22px}
+ .vidyalms .vy-signin-step-list {padding-inline-start:34px}
+ .vidyalms .vy-signin-step::marker {font-size:24px}
+}
+@media (prefers-reduced-motion:reduce) {.vidyalms .vy-signin-actions .vidyalms-button,.vidyalms .vy-signin-actions .vidyalms-button:is(:hover,:focus-visible) {transition:none}}
+@media (forced-colors:active) {
+ .vidyalms .vy-signin-actions .vidyalms-button {border:2px solid ButtonText}
+ .vidyalms .vy-signin-steps {outline:1px solid CanvasText;outline-offset:-1px}
+}
+@media print {
+ .vidyalms .vy-signin-card {display:block;border-color:currentColor}
+ .vidyalms :is(.vy-signin-actions,.vy-signin-help,.vy-signin-explore,.vy-signin-steps) {display:none}
+}

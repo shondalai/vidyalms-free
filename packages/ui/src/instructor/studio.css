@@ -1,0 +1,88 @@
+/* Shared by the CMS admin shell and the standalone instructor entry. */
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-eyebrow {
+    color: var(--_vy-accent); font-size: 10px; font-weight: 700; letter-spacing: .14em; margin: 0 0 8px;
+}
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-library { display: grid; gap: 24px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-heading h1 { font-family: var(--_vy-font-display); font-size: clamp(26px, 3vw, 36px); font-weight: 650; letter-spacing: -.045em; color: var(--_vy-fg); margin: 0 0 10px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-heading p:not(.vy-studio-eyebrow) { font-size: 13px; color: var(--_vy-fg-2); max-width: 600px; margin: 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-metrics { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: 16px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-metrics button { cursor: pointer; text-align: left; border: 1px solid var(--_vy-border); border-radius: 14px; background: var(--_vy-surface); padding: 20px 22px; color: var(--_vy-fg); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-metrics button[aria-pressed=true] { border-color: var(--_vy-accent); background: var(--_vy-accent-soft); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-metrics span { display: block; font-size: 12px; color: var(--_vy-fg-2); margin-bottom: 12px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-metrics strong { font-size: 30px; line-height: 1; letter-spacing: -.04em; font-weight: 600; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-sort select { border: 1px solid var(--_vy-border); background: var(--_vy-surface); color: var(--_vy-fg); border-radius: 8px; padding: 7px 28px 7px 10px; font-size: 12px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-title:hover { color: var(--_vy-accent); text-decoration: underline; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-workbench { border-radius: 16px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-header { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; padding: 26px 24px 20px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-header h2 { font-size: 26px; line-height: 1.2; letter-spacing: -.03em; margin: 0 0 10px; color: var(--_vy-fg); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-curriculum-studio { display: grid; grid-template-columns: minmax(280px, 34%) minmax(0,1fr); gap: 20px; align-items: start; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-outline { display: grid; gap: 12px; min-width: 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-intro h3,
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-inline-lesson-heading h3,
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness h3 { margin: 0 0 8px; font-size: 18px; font-weight: 650; color: var(--_vy-fg); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-intro p,
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-intro small { font-size: 12px; color: var(--_vy-fg-2); margin: 0 0 8px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-module { gap: 8px; padding: 12px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-module > span:nth-of-type(2) { display: none; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-lesson { padding: 14px 10px; flex-wrap: nowrap; gap: 8px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-lesson-title { text-align: left; color: var(--_vy-fg); font-size: 12px; line-height: 1.5; cursor: pointer; overflow-wrap: anywhere; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-lesson-title:hover { color: var(--_vy-accent); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-outline li[data-selected=true] > div { background: var(--_vy-accent-soft); box-shadow: inset 3px 0 var(--_vy-accent); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-actions { position: relative; flex-shrink: 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-actions summary { list-style: none; cursor: pointer; color: var(--_vy-fg-2); padding: 6px; border-radius: 6px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-outline-actions[open] > div { position: absolute; z-index: 20; right: 0; top: 100%; min-width: 170px; display: grid; gap: 6px; padding: 10px; background: var(--_vy-surface); border: 1px solid var(--_vy-border); border-radius: 10px; box-shadow: 0 8px 25px #0002; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-editor { min-width: 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-inline-lesson { border: 1px solid var(--_vy-border); border-radius: 14px; background: var(--_vy-surface); padding: 24px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-inline-lesson .vy-lesson-footer { position: static; border-top: 1px solid var(--_vy-border); padding-top: 18px; margin-top: 22px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-empty { min-height: 430px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 36px; border: 1px dashed var(--_vy-border); border-radius: 16px; background: var(--_vy-surface); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-empty > span { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 18px; background: var(--_vy-accent-soft); color: var(--_vy-accent); font-size: 30px; margin-bottom: 22px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-empty h3 { color: var(--_vy-fg); font-size: 22px; line-height: 1.3; margin: 0 0 12px; letter-spacing: -.025em; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-empty p { max-width: 340px; color: var(--_vy-fg-2); font-size: 13px; line-height: 1.8; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings { display: grid; grid-template-columns: 220px minmax(0,1fr); gap: 24px; align-items: start; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings > nav { display: grid; gap: 6px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings > nav button { text-align: left; padding: 15px; border: 1px solid transparent; border-radius: 10px; color: var(--_vy-fg); cursor: pointer; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings > nav button[aria-current] { background: var(--_vy-surface); border-color: var(--_vy-border); box-shadow: 0 2px 4px #00000004; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings strong { display: block; font-size: 13px; margin-bottom: 5px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings small { display: block; color: var(--_vy-fg-2); font-size: 11px; line-height: 1.5; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness { border: 1px solid var(--_vy-border); border-radius: 12px; background: var(--_vy-surface); padding: 24px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness > p { color: var(--_vy-fg-2); font-size: 13px; line-height: 1.7; margin-bottom: 16px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness li { display: flex; align-items: center; gap: 12px; padding: 16px 0; border-top: 1px solid var(--_vy-border); font-size: 12px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness li > span:first-of-type { flex: 1; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-quiz-editor-link { border-top: 1px solid var(--_vy-border); margin-top: 20px; padding-top: 20px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-quiz-editor-link p { color: var(--_vy-fg-2); font-size: 12px; line-height: 1.7; margin-bottom: 12px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-curriculum-studio[data-narrow=true],
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings[data-narrow=true] { grid-template-columns: minmax(0,1fr); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-curriculum-studio[data-narrow=true] .vy-studio-outline { max-height: 480px; overflow-y: auto; padding: 2px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-settings[data-narrow=true] > nav { grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); }
+@container vy-admin (max-width: 680px) {
+    #vidyalms-admin .vy-library-metrics { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+    #vidyalms-admin .vy-library-metrics button { padding: 16px; }
+    #vidyalms-admin .vy-library-heading { align-items: flex-start; flex-wrap: wrap; }
+    #vidyalms-admin .vy-inline-lesson { padding: 16px; }
+}
+
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor { border: 1px solid var(--_vy-border); border-radius: 10px; overflow: hidden; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor .tiptap { min-height: 280px; padding: 20px; outline: none; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor .tiptap:focus { box-shadow: inset 0 0 0 2px var(--_vy-accent); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor h2 { font-size: 22px; font-weight: 650; margin: 20px 0 12px; color: var(--_vy-fg); }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor p { margin: 10px 0; font-size: 14px; line-height: 1.8; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor ul { list-style: disc; padding-left: 24px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor ol { list-style: decimal; padding-left: 24px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-article-editor blockquote { border-left: 3px solid var(--_vy-accent); padding-left: 18px; margin: 16px 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-category { padding: 6px; font-size: 12px; min-width: 150px; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-library-category summary { cursor: pointer; color: var(--_vy-fg); }
+
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-workbench { container: vy-course / inline-size; }
+@container vy-course (min-width: 760px) {
+    :is(#vidyalms-admin, #vidyalms-instructor) .vy-curriculum-studio[data-narrow=true] { grid-template-columns: minmax(250px, 34%) minmax(0,1fr); }
+    :is(#vidyalms-admin, #vidyalms-instructor) .vy-curriculum-studio[data-narrow=true] .vy-studio-outline { max-height: none; overflow: visible; }
+}
+
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-workbench > [role=tablist] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: thin; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-course-workbench > [role=tablist] > button { white-space: nowrap; flex-shrink: 0; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-publishing { display: grid; gap: 20px; align-items: start; }
+:is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-readiness small { display: block; color: var(--_vy-fg-2); font-size: 11px; margin-top: 4px; }
+@container vy-course (min-width: 1050px) {
+    :is(#vidyalms-admin, #vidyalms-instructor) .vy-studio-publishing { grid-template-columns: minmax(0,1fr) 300px; }
+}

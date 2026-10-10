@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="vidyalms_drain_jobs" label="PLG_TASK_VIDYALMS_DRAIN_TITLE">
+            <field
+                name="batch_size"
+                type="number"
+                label="PLG_TASK_VIDYALMS_BATCH_SIZE_LABEL"
+                description="PLG_TASK_VIDYALMS_BATCH_SIZE_DESC"
+                default="25"
+                min="1"
+                max="500"
+                step="5"
+                filter="uint"
+            />
+            <field
+                name="max_attempts"
+                type="number"
+                label="PLG_TASK_VIDYALMS_MAX_ATTEMPTS_LABEL"
+                description="PLG_TASK_VIDYALMS_MAX_ATTEMPTS_DESC"
+                default="3"
+                min="1"
+                max="20"
+                filter="uint"
+            />
+            <field
+                name="retry_backoff_minutes"
+                type="number"
+                label="PLG_TASK_VIDYALMS_BACKOFF_LABEL"
+                description="PLG_TASK_VIDYALMS_BACKOFF_DESC"
+                default="5"
+                min="0"
+                max="1440"
+                filter="uint"
+            />
+            <field
+                name="stuck_minutes"
+                type="number"
+                label="PLG_TASK_VIDYALMS_STUCK_LABEL"
+                description="PLG_TASK_VIDYALMS_STUCK_DESC"
+                default="30"
+                min="0"
+                max="1440"
+                filter="uint"
+            />
+        </fieldset>
+    </fields>
+</form>

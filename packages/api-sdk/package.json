@@ -1,0 +1,37 @@
+{
+  "name": "@vidyalms/api-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Typed client for the VidyaLMS /v1 contract. Types are generated from openapi.yaml; do not edit generated files by hand.",
+  "license": "GPL-3.0-or-later",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "generate": "openapi-typescript ../../openapi.yaml --default-non-nullable=false -o src/generated/schema.d.ts",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-generated.mjs",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "type-check": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "openapi-fetch": "^0.13.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "openapi-typescript": "^7.5.2",
+    "typescript": "^5.8.0",
+    "typescript-eslint": "^8.19.0",
+    "vitest": "^3.0.0"
+  }
+}

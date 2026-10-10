@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form><fields name="params"><fieldset name="task_params">
+    <field name="batch_size" type="number" default="100" min="1" max="500" label="PLG_TASK_VIDYALMS_EASYCOMMERCE_BATCH" />
+</fieldset></fields></form>

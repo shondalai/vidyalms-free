@@ -1,0 +1,24 @@
+# The repository root ignores every directory named build/; the packager must stay tracked.
+!/build/
+/build/.generated/
+
+# Build-time copy of packages/core/src. Fix core bugs in packages/core, never here.
+/lib_vidyalms_core/src/
+
+# Compiled by build/build.php from packages/core/schema/tables.php.
+/com_vidyalms/admin/sql/install.mysql.utf8.sql
+/com_vidyalms/admin/sql/uninstall.mysql.utf8.sql
+
+# The generated core catalogue lives in a marked block inside
+# com_vidyalms/admin/language/en-GB/com_vidyalms.ini, which stays tracked; the
+# block is rebuilt on every run from packages/core/i18n/catalogue.php.
+
+# The learner app bundles, copied from packages/ui/dist by build/build.php.
+/com_vidyalms/media/app/
+
+# Packager output.
+/dist/
+*.zip
+
+# Static analysis harness only; the shipped extensions have no Composer deps.
+/vendor/

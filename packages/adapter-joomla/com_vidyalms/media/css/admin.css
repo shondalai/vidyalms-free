@@ -1,0 +1,252 @@
+/**
+ * @package     VidyaLMS
+ * @subpackage  Administrator
+ * @copyright   Copyright (C) 2026 BulaSikku Technologies Private Limited.
+ * @license     GNU General Public License version 2 or later
+ */
+
+/*
+ * Atum lays its 100%-wide main pane beside a fixed administration sidebar.
+ * Its automatic flex-item minimum otherwise includes the embedded LMS's
+ * wide tables and shifts an already-contained mount beyond the viewport.
+ */
+body.com_vidyalms #wrapper > .container-main {
+    min-width: 0;
+}
+
+/* Only the SPA owns viewport scrolling; native Joomla forms keep their gutters. */
+html:has(body.com_vidyalms #vidyalms-admin),
+body.com_vidyalms:has(#vidyalms-admin) { overflow: hidden; }
+body.com_vidyalms:has(#vidyalms-admin) #wrapper > .container-main,
+body.com_vidyalms:has(#vidyalms-admin) #content,
+body.com_vidyalms:has(#vidyalms-admin) #content > .row,
+body.com_vidyalms:has(#vidyalms-admin) #content > .row > .col-md-12,
+body.com_vidyalms:has(#vidyalms-admin) #content > .row > .col-md-12 > main {
+    min-width: 0;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+body.com_vidyalms #vidyalms-admin {
+    height: calc(100vh - var(--_vy-admin-offset, var(--header-height, 0px)));
+    height: calc(100dvh - var(--_vy-admin-offset, var(--header-height, 0px)));
+    min-height: 0;
+    overflow: hidden;
+}
+
+body.com_vidyalms #vidyalms-admin .vy-admin-workspace {
+    border-width: 0 !important; /* Overrides the shared shell's border utility. */
+    border-radius: 0;
+    box-shadow: none;
+}
+
+body.com_vidyalms #vidyalms-admin .vy-sidebar-brand {
+    height: 64px;
+    padding: 16px;
+}
+
+body.com_vidyalms #vidyalms-admin .vy-workspace-toolbar {
+    min-height: 64px;
+}
+
+body.com_vidyalms #vidyalms-admin .vy-workspace-main {
+    padding: clamp(14px, 1.8cqi, 24px);
+}
+
+/* Compact navigation still leaves the content inside the bounded workspace. */
+body.com_vidyalms #vidyalms-admin .vy-workspace-body {
+    height: calc(100vh - var(--_vy-workspace-offset, 0px));
+    height: calc(100dvh - var(--_vy-workspace-offset, 0px));
+    min-height: 0;
+}
+body.com_vidyalms #vidyalms-admin .vy-workspace-main {
+    overflow: auto;
+}
+body.com_vidyalms #vidyalms-admin .vy-mobile-navigation {
+    flex-shrink: 0;
+}
+
+/* The expanded Atum menu must not make a viewport-sized SPA's document
+   taller. Let the main pane determine the flex row height and scroll the
+   menu inside that height. Native CMS screens and mobile keep their layout. */
+@media (min-width: 576px) {
+    body.com_vidyalms:has(#vidyalms-admin) #wrapper:not(.closed) > .sidebar-wrapper {
+        height: calc(100vh - var(--_vy-admin-header-height, var(--header-height, 0px)) - var(--_vy-admin-bottom-height, 0px));
+        height: calc(100dvh - var(--_vy-admin-header-height, var(--header-height, 0px)) - var(--_vy-admin-bottom-height, 0px));
+        min-block-size: 0;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+    }
+
+    body.com_vidyalms:has(#vidyalms-admin) #wrapper:not(.closed) > .sidebar-wrapper > .sidebar-sticky {
+        block-size: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior-y: contain;
+    }
+
+    /* Atum collapses submenus to zero height but leaves their invisible
+       contents overflowing. Clip only those submenus, preserving the
+       collapsed menu's visible hover labels. */
+    body.com_vidyalms:has(#vidyalms-admin) #wrapper.closed .main-nav > li > ul {
+        overflow: clip;
+    }
+}
+
+/* Keep content scrolling visible without drawing heavy rails around the embedded app.
+   Scope the host menu treatment to VidyaLMS; other Joomla pages keep Atum's styles.
+   Forced-colour users retain their existing system scrollbar treatment. */
+@media (forced-colors: none) {
+    body.com_vidyalms #vidyalms-admin {
+        --_vy-scrollbar-ink: var(--_vy-fg-2, #626b78);
+    }
+
+    body.com_vidyalms:has(#vidyalms-admin) #sidebarmenu {
+        --_vy-scrollbar-ink: var(--template-text-light, #dfe7f2);
+    }
+
+    body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu) {
+        scrollbar-width: thin;
+        scrollbar-color: color-mix(in srgb, var(--_vy-scrollbar-ink) 30%, transparent) transparent;
+    }
+
+    body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu):is(:hover, :focus-visible) {
+        scrollbar-color: color-mix(in srgb, var(--_vy-scrollbar-ink) 50%, transparent) transparent;
+    }
+
+    /* Chromium and Safari support rounded, six-pixel handles. Reset the standard
+       properties here because non-auto values take precedence over these rules. */
+    @supports selector(::-webkit-scrollbar) {
+        body.com_vidyalms:has(#vidyalms-admin) #wrapper #sidebarmenu,
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu),
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu):is(:hover, :focus-visible) {
+            scrollbar-width: auto;
+            scrollbar-color: auto;
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar-track,
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar-corner {
+            background: transparent;
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar-thumb {
+            background: color-mix(in srgb, var(--_vy-scrollbar-ink) 30%, transparent);
+            border-radius: 999px;
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu):is(:hover, :focus-visible)::-webkit-scrollbar-thumb {
+            background: color-mix(in srgb, var(--_vy-scrollbar-ink) 50%, transparent);
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar-thumb:hover {
+            background: color-mix(in srgb, var(--_vy-scrollbar-ink) 70%, transparent);
+        }
+
+        body.com_vidyalms:has(#vidyalms-admin) :is(#vidyalms-admin *, #sidebarmenu)::-webkit-scrollbar-button {
+            display: none;
+            width: 0;
+            height: 0;
+        }
+    }
+}
+
+/* Hide only Joomla's menu tracks, never its scrolling or collapsed flyouts.
+   This follows the content scrollbar rules above so those cannot restore a track. */
+@media (min-width: 576px) {
+    body.com_vidyalms:has(#vidyalms-admin) #wrapper:not(.closed) :is(.sidebar-wrapper, .sidebar-sticky, #sidebarmenu) {
+        scrollbar-width: none !important;
+    }
+    body.com_vidyalms:has(#vidyalms-admin) #wrapper:not(.closed) :is(.sidebar-wrapper, .sidebar-sticky, #sidebarmenu)::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Only SPA mounts own their actions. Native import/configuration views keep
+   their Joomla toolbars. Atum renders this container even with no buttons. */
+body.com_vidyalms:has(.vidyalms-app-screen) #subhead-container,
+body.com_vidyalms:has(.vidyalms-app-screen) .toggler-toolbar {
+    display: none !important;
+}
+
+.vidyalms-dashboard .vidyalms-metric {
+    border: 1px solid var(--template-bg-dark-7, rgba(0, 0, 0, .1));
+}
+
+.vidyalms-dashboard .vidyalms-metric .card-body {
+    position: relative;
+    padding: 1.25rem 1.25rem 1rem;
+}
+
+.vidyalms-metric-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    font-size: 1.5rem;
+    opacity: .25;
+}
+
+.vidyalms-metric-value {
+    font-size: 2.25rem;
+    font-weight: 600;
+    line-height: 1.1;
+    color: var(--body-color, #212529);
+}
+
+.vidyalms-metric-secondary .vidyalms-metric-value {
+    font-size: 1.5rem;
+    opacity: .8;
+}
+
+.vidyalms-metric-label {
+    margin-top: .25rem;
+    font-size: .875rem;
+    opacity: .75;
+}
+
+.vidyalms-steps {
+    padding-left: 1.25rem;
+}
+
+.vidyalms-steps > li {
+    margin-bottom: .75rem;
+}
+
+.vidyalms-steps > li:last-child {
+    margin-bottom: 0;
+}
+
+.vidyalms-rate {
+    height: .5rem;
+    overflow: hidden;
+    background: var(--template-bg-dark-7, rgba(0, 0, 0, .1));
+    border-radius: .25rem;
+}
+
+.vidyalms-rate-bar {
+    height: 100%;
+    background: var(--success, #198754);
+    border-radius: .25rem;
+}
+
+#courseList td,
+#enrolmentList td {
+    vertical-align: middle;
+}
+
+.vidyalms-import-log {
+    max-height: 18rem;
+    overflow: auto;
+    padding: .5rem .75rem;
+    white-space: pre-wrap;
+    word-break: break-word;
+    background: var(--template-bg-dark-3, rgba(0, 0, 0, .04));
+    border-radius: .25rem;
+}
+
+#vidyalms-import-jobs td {
+    vertical-align: top;
+}

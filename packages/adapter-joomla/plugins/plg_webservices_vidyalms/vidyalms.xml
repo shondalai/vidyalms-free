@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="webservices" method="upgrade">
+    <name>PLG_WEBSERVICES_VIDYALMS</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>PLG_WEBSERVICES_VIDYALMS_XML_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Plugin\Webservices\VidyaLms</namespace>
+
+    <files>
+        <filename>LICENSE</filename>
+        <folder plugin="vidyalms">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_webservices_vidyalms.ini</language>
+        <language tag="en-GB">language/en-GB/plg_webservices_vidyalms.sys.ini</language>
+    </languages>
+</extension>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+    <name>COM_VIDYALMS</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>COM_VIDYALMS_XML_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Component\VidyaLMS</namespace>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+    <!--
+      Every folder listed here must exist in the package: the installer aborts
+      on a missing source. Add a folder to the matching section when you add it
+      to the tree (site/forms and media/js are the two that are not shipped yet).
+    -->
+    <files folder="site">
+        <folder>language</folder>
+        <folder>layouts</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <media folder="media" destination="com_vidyalms">
+        <folder>app</folder>
+        <folder>css</folder>
+        <folder>js</folder>
+        <filename>joomla.asset.json</filename>
+    </media>
+
+    <administration>
+        <menu img="class:book" view="dashboard">COM_VIDYALMS_MENU</menu>
+
+        <files folder="admin">
+            <folder>services</folder>
+            <folder>sql</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <filename>README.md</filename>
+        </files>
+
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/com_vidyalms.ini</language>
+            <language tag="en-GB">en-GB/com_vidyalms.sys.ini</language>
+        </languages>
+    </administration>
+
+    <api>
+        <files folder="api">
+            <folder>src</folder>
+        </files>
+    </api>
+
+    <languages folder="site/language">
+        <language tag="en-GB">en-GB/com_vidyalms.ini</language>
+    </languages>
+</extension>

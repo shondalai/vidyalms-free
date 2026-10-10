@@ -1,0 +1,8 @@
+/*
+ * Utilities only. Preflight is disabled in tailwind.config.ts; the scoped
+ * reset lives in tokens.css so nothing here can restyle the host page.
+ * Every utility is emitted under :is(#vidyalms-player, #vidyalms-quiz-runner).
+ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

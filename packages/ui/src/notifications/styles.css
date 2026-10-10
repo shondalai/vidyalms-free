@@ -1,0 +1,12 @@
+/* Per-entry aggregate: postcss-import inlines these, so the build emits a
+   self-contained notifications.css. Keep in sync with player/styles.css. */
+@import '../shared/tokens.css';
+@import '../shared/tailwind.css';
+@import '../shared/learner-colors.css';
+
+/* Bundle marker: identifies the loaded app in devtools and keeps this file
+   distinct from the other apps' CSS (identical assets would be
+   deduplicated). */
+#vidyalms-notifications {
+    --vy-app: notifications;
+}

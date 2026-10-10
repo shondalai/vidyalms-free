@@ -1,0 +1,49 @@
+# Dependencies
+vendor/
+node_modules/
+
+# Build output
+dist/
+packages/ui/dist-wordpress/
+/build/
+*.zip
+tooling/schema/out/
+tooling/i18n/out/
+
+# Build-time copies the packagers write inside the extension folders. Fix the
+# engine in packages/core and the interface in packages/ui, never in a copy.
+packages/adapter-wordpress/vidyalms/core/
+packages/adapter-wordpress/vidyalms/vendor-psr/
+packages/adapter-wordpress/vidyalms/assets/app/
+packages/adapter-wordpress/vidyalms/schema/schema.php
+packages/adapter-wordpress/vidyalms/src/I18n/catalogue.php
+packages/adapter-wordpress/vidyalms/src/I18n/gettext.php
+packages/adapter-wordpress/vidyalms/THIRD-PARTY-NOTICES.txt
+packages/adapter-joomla/lib_vidyalms_core/src/
+packages/adapter-joomla/com_vidyalms/media/app/
+packages/adapter-joomla/com_vidyalms/admin/sql/install.mysql.utf8.sql
+packages/adapter-joomla/com_vidyalms/admin/sql/uninstall.mysql.utf8.sql
+
+# Caches and local tool configuration
+.idea/
+.vscode/
+.phpunit.cache/
+.phpunit.result.cache
+.phpcs-cache
+.phpstan-cache/
+phpstan.neon
+phpunit.xml
+phpcs.xml
+
+# Environment
+.env
+.env.*
+*.log
+tmp/
+
+# OS noise
+Thumbs.db
+.DS_Store
+
+# Per-machine tool paths for the Makefile
+local.mk

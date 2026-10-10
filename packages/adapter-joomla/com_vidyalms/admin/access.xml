@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  VidyaLMS ACL actions.
+
+  The component section carries the core's capability vocabulary
+  (packages/core/src/Application/Shared/Capability.php). Two capabilities ride
+  on Joomla's own actions: vidyalms.admin is core.admin and vidyalms.manage is
+  core.manage, so a Super User and a component manager need no extra setup.
+
+  The course section is the per-course subset. It applies to assets named
+  com_vidyalms.course.<id>; where no such asset exists the check falls back to
+  the component asset.
+
+  vidyalms.enrol and vidyalms.reports are in the course section as well as the
+  component one because JoomlaAuthorization::assetFor() resolves "course:42" to
+  the per-course asset and asks both questions there. An action a section does
+  not declare is an action the Permissions tab of that asset cannot show, so a
+  site owner had no way to grant enrolment or reporting on one course: the only
+  grant the screen offered was the component-wide one, which is the opposite of
+  a per-course delegation. Declaring them here changes no default (an
+  undeclared action was already denied) and adds no rule to any site.
+
+-->
+<access component="com_vidyalms">
+    <section name="component">
+        <action name="core.admin" title="JACTION_ADMIN" />
+        <action name="core.manage" title="JACTION_MANAGE" />
+        <action name="core.create" title="JACTION_CREATE" />
+        <action name="core.edit" title="JACTION_EDIT" />
+        <action name="core.edit.state" title="JACTION_EDITSTATE" />
+        <action name="core.delete" title="JACTION_DELETE" />
+        <action name="vidyalms.teach" title="COM_VIDYALMS_ACL_TEACH" description="COM_VIDYALMS_ACL_TEACH_DESC" />
+        <action name="vidyalms.grade" title="COM_VIDYALMS_ACL_GRADE" description="COM_VIDYALMS_ACL_GRADE_DESC" />
+        <action name="vidyalms.enrol" title="COM_VIDYALMS_ACL_ENROL" description="COM_VIDYALMS_ACL_ENROL_DESC" />
+        <action name="vidyalms.reports" title="COM_VIDYALMS_ACL_REPORTS" description="COM_VIDYALMS_ACL_REPORTS_DESC" />
+        <action name="vidyalms.manage_groups" title="COM_VIDYALMS_ACL_MANAGE_GROUPS" description="COM_VIDYALMS_ACL_MANAGE_GROUPS_DESC" />
+    </section>
+
+    <section name="course">
+        <action name="core.edit" title="JACTION_EDIT" />
+        <action name="core.delete" title="JACTION_DELETE" />
+        <action name="vidyalms.teach" title="COM_VIDYALMS_ACL_TEACH" description="COM_VIDYALMS_ACL_TEACH_DESC" />
+        <action name="vidyalms.grade" title="COM_VIDYALMS_ACL_GRADE" description="COM_VIDYALMS_ACL_GRADE_DESC" />
+        <action name="vidyalms.enrol" title="COM_VIDYALMS_ACL_ENROL" description="COM_VIDYALMS_ACL_ENROL_DESC" />
+        <action name="vidyalms.reports" title="COM_VIDYALMS_ACL_REPORTS" description="COM_VIDYALMS_ACL_REPORTS_DESC" />
+    </section>
+</access>

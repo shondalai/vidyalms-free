@@ -1,0 +1,307 @@
+/**
+ * VidyaLMS site stylesheet.
+ *
+ * Deliberately small and unopinionated: colours inherit from the site template
+ * through currentColor and a handful of variables, so a template override needs
+ * to set only those. No state is signalled by colour alone.
+ *
+ * @copyright  Copyright (C) 2026 BulaSikku Technologies Private Limited.
+ * @license    GNU General Public License version 2 or later
+ */
+
+.vidyalms {
+    --vidyalms-gap: 1.5rem;
+    --vidyalms-radius: 0.5rem;
+    --vidyalms-border: 1px solid rgba(127, 127, 127, 0.35);
+    --vidyalms-muted: rgba(127, 127, 127, 0.12);
+    --vidyalms-accent: currentColor;
+}
+
+.vidyalms-page-title {
+    margin-bottom: var(--vidyalms-gap);
+}
+
+/* Filters -------------------------------------------------------------- */
+
+.vidyalms-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--vidyalms-gap);
+    align-items: flex-end;
+    margin-bottom: var(--vidyalms-gap);
+}
+
+.vidyalms-field {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 14rem;
+    gap: 0.25rem;
+}
+
+.vidyalms-field-actions {
+    flex: 0 0 auto;
+}
+
+.vidyalms-label {
+    font-weight: 600;
+}
+
+.vidyalms-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+    background: transparent;
+    color: inherit;
+}
+
+.vidyalms-button {
+    display: inline-block;
+    padding: 0.55rem 1.1rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+    background: var(--vidyalms-muted);
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.vidyalms-button:hover,
+.vidyalms-button:focus-visible {
+    text-decoration: underline;
+}
+
+.vidyalms :is(a, button, input, select, summary):focus-visible {
+    outline: 3px solid var(--vidyalms-accent);
+    outline-offset: 2px;
+}
+
+/* Catalogue ------------------------------------------------------------ */
+
+.vidyalms-result-count {
+    margin-bottom: var(--vidyalms-gap);
+}
+
+.vidyalms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    gap: var(--vidyalms-gap);
+    margin: 0 0 var(--vidyalms-gap);
+    padding: 0;
+    list-style: none;
+}
+
+.vidyalms-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+    padding: 1rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-card-image,
+.vidyalms-course-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-card-title {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.vidyalms-card-summary {
+    margin: 0;
+}
+
+.vidyalms-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: auto 0 0;
+}
+
+.vidyalms-badge {
+    display: inline-flex;
+    gap: 0.35rem;
+    padding: 0.15rem 0.6rem;
+    border: var(--vidyalms-border);
+    border-radius: 999px;
+    font-size: 0.875rem;
+}
+
+.vidyalms-badge-label::after {
+    content: ":";
+}
+
+.vidyalms-pagination {
+    margin-top: var(--vidyalms-gap);
+}
+
+/* Course page ---------------------------------------------------------- */
+
+.vidyalms-course {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: calc(var(--vidyalms-gap) * 1.5);
+    align-items: start;
+}
+
+@media (max-width: 60rem) {
+    .vidyalms-course {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.vidyalms-course-aside {
+    padding: 1rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+    position: sticky;
+    top: 1rem;
+}
+
+.vidyalms-aside-title {
+    margin-top: 0;
+    font-size: 1.15rem;
+}
+
+.vidyalms-module {
+    margin-bottom: var(--vidyalms-gap);
+}
+
+.vidyalms-module-title {
+    font-size: 1.05rem;
+}
+
+.vidyalms-module-name {
+    display: block;
+    font-weight: 400;
+}
+
+.vidyalms-lessons {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.vidyalms-lesson {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: var(--vidyalms-border);
+}
+
+.vidyalms-lesson-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.vidyalms-lesson-complete .vidyalms-lesson-title::before {
+    content: "\2713\00a0";
+}
+
+.vidyalms-list {
+    margin: 0 0 var(--vidyalms-gap);
+    padding-left: 1.25rem;
+}
+
+/* Progress ------------------------------------------------------------- */
+
+.vidyalms-progress {
+    margin-bottom: var(--vidyalms-gap);
+}
+
+.vidyalms-progress-bar {
+    display: block;
+    width: 100%;
+    height: 0.75rem;
+}
+
+.vidyalms-progress-value {
+    margin: 0.25rem 0 0;
+    font-size: 0.875rem;
+}
+
+/* My learning ---------------------------------------------------------- */
+
+.vidyalms-enrolment-list,
+.vidyalms-certificate-list {
+    margin: 0 0 var(--vidyalms-gap);
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: var(--vidyalms-gap);
+}
+
+.vidyalms-enrolment,
+.vidyalms-certificate {
+    padding: 1rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-enrolment-title,
+.vidyalms-certificate-title {
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.vidyalms-code {
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.25rem;
+    background: var(--vidyalms-muted);
+    letter-spacing: 0.08em;
+}
+
+/* Verification --------------------------------------------------------- */
+
+.vidyalms-verify-result {
+    padding: 1rem 1.25rem;
+    border: var(--vidyalms-border);
+    border-left-width: 6px;
+    border-radius: var(--vidyalms-radius);
+}
+
+.vidyalms-verify-result h2 {
+    margin-top: 0;
+}
+
+.vidyalms-verify-valid {
+    border-left-color: #1a7f37;
+}
+
+.vidyalms-verify-invalid {
+    border-left-color: #b42318;
+}
+
+.vidyalms-definition {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35rem 1rem;
+    margin: 0;
+}
+
+.vidyalms-definition dt {
+    font-weight: 600;
+}
+
+.vidyalms-definition dd {
+    margin: 0;
+}
+
+.vidyalms-empty,
+.vidyalms-notice {
+    padding: 0.75rem 1rem;
+    border: var(--vidyalms-border);
+    border-radius: var(--vidyalms-radius);
+    background: var(--vidyalms-muted);
+}

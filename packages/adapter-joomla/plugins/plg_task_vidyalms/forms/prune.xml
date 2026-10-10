@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="vidyalms_prune" label="PLG_TASK_VIDYALMS_PRUNE_TITLE">
+            <field
+                name="idempotency_grace_days"
+                type="number"
+                label="PLG_TASK_VIDYALMS_GRACE_DAYS_LABEL"
+                description="PLG_TASK_VIDYALMS_GRACE_DAYS_DESC"
+                default="1"
+                min="0"
+                max="365"
+                filter="uint"
+            />
+            <field
+                name="job_retention_days"
+                type="number"
+                label="PLG_TASK_VIDYALMS_JOB_DAYS_LABEL"
+                description="PLG_TASK_VIDYALMS_JOB_DAYS_DESC"
+                default="30"
+                min="1"
+                max="3650"
+                filter="uint"
+            />
+            <field
+                name="import_source_retention_days"
+                type="number"
+                label="PLG_TASK_VIDYALMS_IMPORT_SOURCE_DAYS_LABEL"
+                description="PLG_TASK_VIDYALMS_IMPORT_SOURCE_DAYS_DESC"
+                default="30"
+                min="1"
+                max="3650"
+                filter="uint"
+            />
+        </fieldset>
+    </fields>
+</form>

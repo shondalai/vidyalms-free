@@ -1,0 +1,66 @@
+{
+    "name": "shondalai/vidyalms-core",
+    "description": "VidyaLMS learning engine. CMS-agnostic core: courses, enrolment, assessment, progress, completion, credentials.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "BulaSikku Technologies",
+            "homepage": "https://shondalai.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-dom": "*",
+        "ext-fileinfo": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-mbstring": "*",
+        "ext-simplexml": "*",
+        "ext-zlib": "*",
+        "psr/clock": "^1.0",
+        "psr/log": "^3.0"
+    },
+    "require-dev": {
+        "ext-pdo": "*",
+        "ext-pdo_sqlite": "*",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^10.5",
+        "squizlabs/php_codesniffer": "^3.10"
+    },
+    "autoload": {
+        "psr-4": {
+            "Shondalai\\VidyaLMS\\Core\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Shondalai\\VidyaLMS\\Core\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:unit": "phpunit --testsuite Unit",
+        "test:integration": "phpunit --testsuite Integration",
+        "analyse": "phpstan analyse --memory-limit=1G",
+        "catalogue": "php ../../tooling/assessment/catalogue.php",
+        "catalogue:check": "php ../../tooling/assessment/catalogue.php --check",
+        "spec:organisations": "php ../../tooling/organisations/spec.php",
+        "spec:organisations:check": "php ../../tooling/organisations/spec.php --check",
+        "spec:organisations:pro": "php ../../tooling/organisations/pro-spec.php",
+        "spec:organisations:pro:check": "php ../../tooling/organisations/pro-spec.php --check",
+        "spec:ai": "php ../../tooling/ai/spec.php",
+        "spec:ai:check": "php ../../tooling/ai/spec.php --check",
+        "contract:parity": "php ../../tooling/contract/route-parity.php",
+        "cs:check": "phpcs",
+        "cs:fix": "phpcbf",
+        "ci:gate": "php ../../tooling/ci/gate.php",
+        "ci:dashes": "php ../../tooling/ci/gate.php --check=dashes"
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}

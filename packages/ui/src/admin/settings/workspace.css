@@ -1,0 +1,496 @@
+.vy-settings-workspace {
+    min-width: 0;
+    display: grid;
+    gap: 26px;
+    color: var(--_vy-fg);
+}
+.vy-workspace-main > div:has(.vy-settings-workspace) {
+    overflow: clip !important;
+}
+.vy-settings-workspace :is(h1, h2, h3),
+.vy-settings-dialog h2 {
+    font-family: inherit;
+    color: var(--_vy-fg);
+    margin: 0;
+}
+.vy-settings-workspace h1 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+    line-height: 1.2;
+    font-weight: 650;
+}
+.vy-settings-dot {
+    color: var(--_vy-accent);
+}
+.vy-settings-layout {
+    display: grid;
+    grid-template-columns: 228px minmax(0, 1fr);
+    gap: 30px;
+    align-items: start;
+}
+.vy-settings-rail {
+    min-width: 0;
+    display: grid;
+    gap: 22px;
+    position: sticky;
+    top: 0;
+}
+.vy-settings-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 11px;
+    padding: 0 12px;
+    background: var(--_vy-surface);
+    color: var(--_vy-fg-2);
+}
+.vy-settings-search svg {
+    flex-shrink: 0;
+}
+.vy-settings-rail nav {
+    display: grid;
+    gap: 5px;
+}
+.vy-settings-rail nav button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    padding: 13px 12px;
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: left;
+    cursor: pointer;
+}
+.vy-settings-rail nav button span:first-of-type {
+    flex: 1;
+}
+.vy-settings-rail nav button svg {
+    flex-shrink: 0;
+}
+.vy-settings-rail nav button[aria-current='page'],
+.vy-settings-rail nav button:hover {
+    color: var(--_vy-accent);
+    background: var(--_vy-accent-soft);
+}
+.vy-settings-changed {
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background: var(--_vy-accent);
+}
+.vy-settings-source {
+    border-top: 1px solid var(--_vy-border);
+    padding: 20px 12px;
+    display: flex;
+    gap: 11px;
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.7;
+}
+.vy-settings-source svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+.vy-settings-source strong {
+    font-size: 12px;
+    font-weight: 500;
+}
+.vy-settings-source p {
+    margin: 8px 0 0;
+}
+.vy-settings-content {
+    min-width: 0;
+    display: grid;
+    gap: 22px;
+}
+.vy-settings-validation {
+    display: grid;
+    gap: 8px;
+}
+.vy-settings-validation > button {
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: left;
+    color: var(--_vy-accent);
+    font-size: 12px;
+    cursor: pointer;
+}
+.vy-settings-card {
+    border-radius: 15px;
+    padding: 28px;
+    min-width: 0;
+    background: var(--_vy-surface);
+}
+.vy-header-preview {border:1px solid var(--_vy-border);border-radius:12px;overflow:hidden;margin:0 0 24px}
+.vy-header-preview-toolbar {display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;background:var(--_vy-bg);border-bottom:1px solid var(--_vy-border)}
+.vy-header-preview-toolbar strong {font-size:12px;display:block}
+.vy-header-preview-toolbar small {display:block;font-size:11px;color:var(--_vy-fg-2);margin-top:3px}
+.vy-header-preview-toolbar [role=group] {display:flex;gap:4px}
+.vy-header-preview-toolbar button {display:grid;place-items:center;width:40px;height:40px;border-radius:7px;color:var(--_vy-fg-2)}
+.vy-header-preview-toolbar button[aria-pressed=true] {background:var(--_vy-surface);color:var(--_vy-accent);box-shadow:0 0 0 1px var(--_vy-border)}
+.vy-header-preview-canvas {padding:0 18px;container-type:inline-size;margin-inline:auto;min-width:0}
+.vy-header-preview-canvas[data-mobile=true] {max-width:375px}
+.vy-header-preview-masthead {display:flex;flex-wrap:wrap;align-items:center;gap:0 24px;padding-block:20px;border-bottom:1px solid var(--_vy-border)}
+.vy-header-preview-masthead[data-density=compact] {padding-block:10px}
+.vy-header-preview-masthead[data-divider=false] {border-bottom:0}
+.vy-header-preview-brand {display:flex;align-items:center;gap:13px;flex:1 0 220px;min-width:0;margin-block:4px 12px}
+.vy-header-preview-brand > div {min-width:0;overflow-wrap:anywhere}
+.vy-header-preview-brand strong {font-size:20px;line-height:1.25;font-weight:650}
+.vy-header-preview-brand small {font-size:12px;line-height:1.5;display:block;color:var(--_vy-fg-2);margin-top:5px}
+.vy-header-preview-mark {display:grid;place-items:center;flex-shrink:0;width:var(--preview-logo-size);height:var(--preview-logo-size);font:italic calc(var(--preview-logo-size) * .714) Georgia,serif;border-radius:12px;background:#253b35;color:#f5ead7}
+.vy-header-preview-brand img {height:var(--preview-logo-size);width:auto;max-width:min(180px,45%);object-fit:contain;flex-shrink:0}
+.vy-header-preview-image-error {font-size:11px;max-width:120px;color:var(--_vy-danger)}
+.vy-header-preview-navigation {display:flex;flex-wrap:wrap;gap:4px;flex:2 1 590px}
+.vy-header-preview-navigation span {padding:10px;font-size:12px;line-height:1.4;min-height:40px;display:flex;align-items:center;color:var(--_vy-fg-2);border-radius:8px}
+.vy-header-preview-navigation span[data-active=true] {color:var(--_vy-accent);background:var(--_vy-accent-soft)}
+.vy-header-preview-masthead[data-layout=sidebar] .vy-header-preview-brand {flex-basis:100%}
+.vy-header-preview-masthead[data-layout=sidebar] .vy-header-preview-navigation {flex:0 0 170px;flex-direction:column;margin-top:12px}
+.vy-header-preview-content {flex:1 1 0;min-width:0;display:grid;gap:12px;padding:20px;border-inline-start:1px solid var(--_vy-border)}
+.vy-header-preview-content span {height:12px;border-radius:4px;background:var(--_vy-surface-2)}
+.vy-header-preview-content span:nth-child(2) {width:65%}
+.vy-header-preview-content span:last-child {height:70px}
+.vy-header-preview-note,.vy-header-preview-hidden {font-size:11px;line-height:1.7;color:var(--_vy-fg-2);padding:14px 18px;margin:0}
+.vy-header-preview-hidden {padding:30px 0}
+.vy-settings-header-panels {display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--_vy-border)}
+.vy-settings-header-panels button {display:flex;gap:8px;align-items:center;min-height:44px;padding:12px 16px;font-size:13px;border-bottom:2px solid transparent;color:var(--_vy-fg-2)}
+.vy-settings-header-panels button[aria-pressed=true] {border-bottom-color:var(--_vy-accent);color:var(--_vy-accent)}
+@container(max-width:540px) {
+    .vy-header-preview-masthead[data-layout=sidebar] .vy-header-preview-navigation {flex:1 0 100%;flex-direction:row}
+    .vy-header-preview-content {display:none}
+}
+.vy-settings-card > header {
+    display: flex;
+    gap: 18px;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 22px;
+}
+.vy-settings-card h2 {
+    font-size: 19px;
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+}
+.vy-settings-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.vy-settings-card > header p {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 7px 0 0;
+}
+.vy-settings-card > header > span {
+    display: grid;
+    place-items: center;
+    height: 42px;
+    width: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    color: var(--_vy-accent);
+    background: var(--_vy-accent-soft);
+}
+.vy-settings-workspace fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    min-width: 0;
+}
+.vy-settings-field {
+    padding: 23px 0;
+    border-bottom: 1px solid var(--_vy-border);
+    display: grid;
+    gap: 10px;
+}
+.vy-settings-field:last-child {
+    border-bottom: 0;
+}
+.vy-settings-workspace label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--_vy-fg);
+}
+.vy-settings-workspace :is(input:not([type='checkbox']), textarea, select) {
+    width: 100%;
+    min-width: 0;
+    min-height: 42px;
+    margin: 0;
+    border-radius: 8px;
+    border: 1px solid var(--_vy-border);
+    padding: 11px 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    background: var(--_vy-surface);
+    color: var(--_vy-fg);
+    box-shadow: none;
+}
+.vy-settings-workspace textarea {
+    resize: vertical;
+}
+.vy-settings-workspace .vy-settings-search input {
+    border: 0;
+    padding: 11px 0;
+    background: transparent;
+    outline: none;
+}
+.vy-settings-search:focus-within {
+    outline: 2px solid var(--_vy-accent);
+    outline-offset: -2px;
+}
+.vy-settings-workspace .vy-settings-search input:focus-visible {
+    outline: none;
+}
+.vy-settings-field p,
+.vy-settings-extra p,
+.vy-settings-facts p {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    line-height: 1.75;
+    margin: 0;
+}
+.vy-settings-switch-field {
+    grid-template-columns: minmax(0, 1fr) 42px;
+    align-items: center;
+}
+.vy-settings-switch-field p {
+    grid-column: 1;
+}
+.vy-settings-switch-field input {
+    grid-row: 1 / 3;
+    grid-column: 2;
+    appearance: none;
+    width: 40px;
+    height: 23px;
+    border-radius: 20px;
+    margin: 0;
+    border: 1px solid var(--_vy-border);
+    background: var(--_vy-surface-2);
+    cursor: pointer;
+    position: relative;
+}
+.vy-settings-switch-field input::before {
+    content: '';
+    position: absolute;
+    width: 17px;
+    height: 17px;
+    background: var(--_vy-fg-2);
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: transform 0.15s;
+}
+.vy-settings-switch-field input:checked {
+    background: var(--_vy-accent);
+    border-color: var(--_vy-accent);
+}
+.vy-settings-switch-field input:checked::before {
+    transform: translateX(17px);
+    background: #fff;
+}
+.vy-settings-savebar {
+    position: sticky;
+    bottom: -1px;
+    z-index: 8;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 19px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    background: var(--_vy-surface);
+    box-shadow: 0 5px 24px #24324907;
+}
+.vy-settings-savebar > span {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+}
+.vy-settings-savebar > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.vy-settings-export {
+    display: flex;
+    justify-content: flex-end;
+}
+.vy-settings-info {
+    display: flex;
+    gap: 12px;
+    padding: 17px;
+    border-radius: 10px;
+    background: var(--_vy-surface-2);
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.8;
+}
+.vy-settings-info p {
+    margin: 0;
+}
+.vy-settings-info svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+.vy-settings-extra {
+    display: grid;
+    gap: 15px;
+    border-top: 1px solid var(--_vy-border);
+    padding-top: 25px;
+    margin-top: 15px;
+}
+.vy-settings-extra form fieldset {
+    display: grid;
+    gap: 17px;
+}
+.vy-settings-extra label {
+    display: grid;
+    gap: 9px;
+}
+.vy-settings-extra button {
+    justify-self: start;
+}
+.vy-settings-facts {
+    display: grid;
+    gap: 25px;
+    padding: 16px 0;
+}
+.vy-settings-facts strong {
+    font-size: 13px;
+}
+.vy-settings-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 15px;
+}
+.vy-settings-links a {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--_vy-accent);
+    font-size: 12px;
+}
+.vy-settings-connections {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 18px;
+}
+.vy-settings-connections > div {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 16px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 9px;
+    font-size: 12px;
+}
+.vy-settings-connections span,
+.vy-settings-muted {
+    color: var(--_vy-fg-2);
+}
+.vy-settings-appearance {
+    padding: 28px 0 12px;
+    display: grid;
+    gap: 16px;
+}
+.vy-settings-appearance > span {
+    font-size: 84px;
+    letter-spacing: -4px;
+    line-height: 1.1;
+    color: var(--_vy-accent);
+}
+.vy-settings-appearance > p {
+    color: var(--_vy-fg-2);
+    font-size: 13px;
+    margin: 0;
+}
+.vy-settings-notice {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    background: var(--_vy-accent-soft);
+    color: var(--_vy-fg);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin: 0;
+}
+.vy-settings-warning,
+.vy-settings-empty {
+    padding: 20px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    background: var(--_vy-surface);
+    font-size: 13px;
+}
+.vy-settings-workspace :is(button, input, textarea, select, a):focus-visible {
+    outline: 2px solid var(--_vy-accent);
+    outline-offset: 3px;
+}
+.vy-settings-workspace button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+@media (max-width: 1150px) {
+    .vy-settings-layout {
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: 18px;
+    }
+    .vy-settings-card {
+        padding: 22px;
+    }
+}
+@media (max-width: 950px) {
+    .vy-settings-layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-settings-rail {
+        position: static;
+        gap: 12px;
+    }
+    .vy-settings-rail nav {
+        display: flex;
+        overflow: auto;
+    }
+    .vy-settings-rail nav button {
+        width: auto;
+        flex-shrink: 0;
+    }
+    .vy-settings-rail nav button > svg:last-child,
+    .vy-settings-source {
+        display: none;
+    }
+}
+@media (max-width: 550px) {
+    .vy-settings-card {
+        padding: 18px;
+    }
+    .vy-settings-savebar {
+        padding: 12px;
+    }
+    .vy-settings-savebar > span {
+        width: 100%;
+    }
+    .vy-settings-card > header > span {
+        display: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .vy-settings-switch-field input::before {
+        transition: none;
+    }
+}

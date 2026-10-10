@@ -1,0 +1,617 @@
+.vy-email-workspace {
+    min-width: 0;
+    color: var(--_vy-fg);
+}
+/* Clip this screen without creating a second scrolling ancestor for its save bar. */
+.vy-workspace-main > div:has(.vy-email-workspace) {
+    overflow: clip !important;
+}
+.vy-email-workspace [hidden] {
+    display: none !important;
+}
+.vy-email-library,
+.vy-email-editor {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+    min-width: 0;
+}
+.vy-email-library > [role='region'] {
+    min-width: 0;
+    overflow-x: auto;
+}
+.vy-email-workspace :is(h1, h2, h3),
+.vy-email-dialog :is(h2, h3) {
+    margin: 0;
+    color: var(--_vy-fg);
+    font-family: inherit;
+}
+.vy-email-workspace h1 {
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+    font-weight: 650;
+}
+.vy-email-workspace h2 {
+    font-size: 19px;
+    line-height: 1.35;
+    letter-spacing: -0.3px;
+    font-weight: 600;
+}
+.vy-email-workspace h3 {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+.vy-email-dot {
+    color: var(--_vy-accent);
+}
+.vy-email-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin: 0;
+}
+.vy-email-stats > div {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border: 1px solid var(--_vy-border);
+    background: var(--_vy-surface);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+.vy-email-stats svg {
+    flex-shrink: 0;
+    color: var(--_vy-accent);
+}
+.vy-email-stats dd {
+    font-size: 22px;
+    line-height: 1.1;
+    font-weight: 650;
+    margin: 0 0 4px;
+}
+.vy-email-stats dt {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    font-weight: 500;
+}
+.vy-email-library-tools {
+    display: grid;
+    grid-template-columns: minmax(200px, 1.5fr) minmax(140px, 1.2fr) minmax(100px, 0.7fr) minmax(100px, 0.7fr);
+    gap: 14px;
+}
+.vy-email-field {
+    display: grid;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+}
+.vy-email-workspace :is(input:not([type='color']), select, textarea),
+.vy-email-dialog :is(input, select) {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--_vy-border);
+    border-radius: 8px;
+    background: var(--_vy-surface);
+    color: var(--_vy-fg);
+    padding: 11px 12px;
+    font-size: 13px;
+    line-height: 1.45;
+    min-height: 42px;
+    margin: 0;
+    box-shadow: none;
+}
+.vy-email-workspace select {
+    padding-right: 30px;
+}
+.vy-email-workspace textarea {
+    min-height: 108px;
+    resize: vertical;
+}
+.vy-email-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    min-width: 0;
+}
+.vy-email-muted {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    margin: 0;
+}
+.vy-email-view {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.vy-email-view button[aria-pressed='true'] {
+    background: var(--_vy-accent-soft);
+    border-color: var(--_vy-accent);
+    color: var(--_vy-accent);
+}
+.vy-email-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+.vy-email-card {
+    border: 1px solid var(--_vy-border);
+    border-radius: 15px;
+    overflow: hidden;
+    background: var(--_vy-surface);
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+.vy-email-mini {
+    display: block;
+    position: relative;
+    border: 0;
+    width: 100%;
+    text-align: left;
+    padding: 28px 22px 0;
+    height: 225px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.vy-email-mini.peach {
+    background: #f7e7d9;
+}
+.vy-email-mini.sage {
+    background: #e2eee4;
+}
+.vy-email-mini.lavender {
+    background: #ece7f8;
+}
+.vy-email-mini.blue {
+    background: #e3ecf7;
+}
+.vy-email-mini.rose {
+    background: #f3e5ec;
+}
+.vy-email-paper {
+    display: grid;
+    gap: 14px;
+    min-height: 230px;
+    background: #fff;
+    padding: 23px;
+    border-radius: 6px 6px 0 0;
+    color: #293340;
+    box-shadow: 0 8px 25px #27334416;
+    transition: transform 0.2s;
+}
+.vy-email-mini:hover .vy-email-paper {
+    transform: translateY(-4px);
+}
+.vy-email-mini-brand {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: #657080;
+    text-transform: uppercase;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+}
+.vy-email-mini-brand svg {
+    color: #b64b20;
+}
+.vy-email-paper > strong {
+    font-size: 16px;
+    font-weight: 550;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.vy-email-mini-copy {
+    font-size: 10px;
+    color: #71808c;
+    line-height: 1.7;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 34px;
+}
+.vy-email-mini-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 8px 12px;
+    font-size: 9px;
+    background: #b6471b;
+    color: #fff;
+    border-radius: 4px;
+    width: fit-content;
+    max-width: 100%;
+}
+.vy-email-sample {
+    position: absolute;
+    right: 12px;
+    top: 8px;
+    color: #6c7380;
+    font-size: 8px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+.vy-email-card-body {
+    display: grid;
+    align-content: start;
+    gap: 14px;
+    padding: 23px;
+    flex: 1;
+}
+.vy-email-card-title {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: start;
+    justify-content: space-between;
+}
+.vy-email-card-title h2 {
+    font-size: 16px;
+    flex: 1;
+    min-width: 140px;
+}
+.vy-email-card-body > p {
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+    margin: 0;
+}
+.vy-email-text-link {
+    display: inline-flex;
+    gap: 7px;
+    align-items: center;
+    background: none;
+    border: 0;
+    padding: 0;
+    color: var(--_vy-accent);
+    text-align: left;
+    font-size: 12px;
+    cursor: pointer;
+    width: fit-content;
+}
+.vy-email-card-body > .vy-email-text-link {
+    margin-top: 8px;
+}
+.vy-email-library-hint {
+    text-align: right;
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+    margin: 0;
+}
+.vy-email-back {
+    justify-self: start;
+}
+.vy-email-editor-heading {
+    display: flex;
+    align-items: start;
+    gap: 18px;
+}
+.vy-email-heading-icon {
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 14px;
+    background: var(--_vy-accent-soft);
+    color: var(--_vy-accent);
+}
+.vy-email-editor-heading p {
+    color: var(--_vy-fg-2);
+    font-size: 13px;
+    margin: 10px 0 13px;
+}
+.vy-email-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+}
+.vy-email-savebar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 14px 20px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    box-shadow: 0 5px 20px #293a4806;
+}
+.vy-email-savebar > span {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+}
+.vy-email-savebar > .vy-email-unsaved {
+    color: var(--_vy-accent);
+}
+.vy-email-savebar > div {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+}
+.vy-email-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid var(--_vy-border);
+}
+.vy-email-tabs button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    padding: 12px 16px 16px;
+    background: none;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    font-size: 13px;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+}
+.vy-email-tabs button[aria-current='page'] {
+    color: var(--_vy-fg);
+    border-color: var(--_vy-accent);
+}
+.vy-email-studio-grid {
+    display: grid;
+    grid-template-columns: minmax(310px, 0.95fr) minmax(350px, 1.05fr);
+    gap: 24px;
+    align-items: start;
+    min-width: 0;
+}
+.vy-email-studio-fields,
+.vy-email-preview-column {
+    display: grid;
+    gap: 20px;
+    min-width: 0;
+}
+.vy-email-preview-column {
+    position: sticky;
+    top: 92px;
+}
+.vy-email-preview-column > .vy-email-toolbar {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+}
+.vy-email-section {
+    padding: 25px;
+    border-radius: 15px;
+}
+.vy-email-fields,
+.vy-email-panel,
+.vy-email-token-fields {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 21px;
+    min-width: 0;
+}
+.vy-email-section-title p {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 1.65;
+    color: var(--_vy-fg-2);
+}
+.vy-email-two-fields {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+}
+.vy-email-paragraphs {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 16px;
+    min-width: 0;
+}
+.vy-email-paragraphs > legend {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.vy-email-paragraph {
+    min-width: 0;
+}
+.vy-email-paragraph-tools {
+    display: flex;
+    justify-content: end;
+    gap: 3px;
+    margin-top: 5px;
+}
+.vy-email-paragraph-tools button {
+    padding: 5px 8px;
+}
+.vy-email-color {
+    display: flex;
+    gap: 10px;
+}
+.vy-email-color input[type='color'] {
+    flex: 0 0 48px;
+    padding: 3px;
+    height: 43px;
+    width: 48px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 8px;
+    background: var(--_vy-surface);
+}
+.vy-email-identity {
+    display: grid;
+    gap: 14px;
+    margin: 0;
+}
+.vy-email-identity dt {
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+    margin-bottom: 5px;
+}
+.vy-email-identity dd {
+    margin: 0;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+.vy-email-provenance {
+    display: grid;
+    gap: 12px;
+    padding-top: 18px;
+    border-top: 1px solid var(--_vy-border);
+}
+.vy-email-provenance p {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    margin: 0;
+}
+.vy-email-token-fields legend {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+.vy-email-token-fields > p {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    margin: 0;
+    line-height: 1.6;
+}
+.vy-email-tokens {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.vy-email-tokens button {
+    display: grid;
+    gap: 5px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 8px;
+    padding: 9px 11px;
+    text-align: left;
+    background: var(--_vy-surface);
+    color: var(--_vy-fg);
+    cursor: pointer;
+}
+.vy-email-tokens code {
+    font-size: 10px;
+    background: transparent;
+    padding: 0;
+    color: var(--_vy-accent);
+}
+.vy-email-tokens span {
+    font-size: 9px;
+    color: var(--_vy-fg-2);
+}
+.vy-email-tokens button:hover {
+    border-color: var(--_vy-accent);
+}
+.vy-email-test {
+    display: grid;
+    gap: 12px;
+}
+.vy-email-test h3 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+.vy-email-test > p {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    margin: 0;
+}
+.vy-email-notice,
+.vy-email-success {
+    border: 1px solid var(--_vy-border);
+    border-radius: 10px;
+    padding: 15px 19px;
+    font-size: 12px;
+    background: var(--_vy-surface);
+    line-height: 1.65;
+}
+.vy-email-success {
+    color: var(--_vy-ok-strong, #387655);
+}
+.vy-email-dialog {
+    max-width: 550px;
+    padding: 25px;
+    top: calc(50% + 2rem);
+    max-height: calc(100dvh - 8rem);
+}
+.vy-email-dialog h2 {
+    font-size: 22px;
+}
+.vy-email-dialog > p {
+    margin: 15px 0 25px;
+    line-height: 1.65;
+}
+.vy-email-workspace :is(button, input, textarea, select):focus-visible,
+.vy-email-dialog button:focus-visible {
+    outline: 2px solid var(--_vy-accent);
+    outline-offset: 3px;
+}
+.vy-email-workspace button:disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+@media (min-width: 1550px) {
+    .vy-email-two-fields {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 1350px) {
+    .vy-email-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 1100px) {
+    .vy-email-library-tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .vy-email-studio-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-email-preview-column {
+        position: static;
+    }
+    .vy-email-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+@media (max-width: 650px) {
+    .vy-email-grid,
+    .vy-email-library-tools {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-email-tabs {
+        gap: 0;
+    }
+    .vy-email-tabs button {
+        font-size: 11px;
+        padding: 12px 8px;
+    }
+    .vy-email-section {
+        padding: 18px;
+    }
+    .vy-email-savebar {
+        padding: 12px;
+    }
+    .vy-email-savebar > div {
+        gap: 5px;
+    }
+    .vy-email-heading-icon {
+        display: none;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .vy-email-paper {
+        transition: none;
+    }
+}

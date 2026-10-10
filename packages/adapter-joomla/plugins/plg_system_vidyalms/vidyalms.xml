@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_VIDYALMS</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>PLG_SYSTEM_VIDYALMS_XML_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Plugin\System\VidyaLms</namespace>
+
+    <files>
+        <filename>LICENSE</filename>
+        <folder plugin="vidyalms">services</folder>
+        <folder>src</folder>
+    </files>
+
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_vidyalms.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_vidyalms.sys.ini</language>
+    </languages>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                    name="actionlog"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="PLG_SYSTEM_VIDYALMS_FIELD_ACTIONLOG_LABEL"
+                    description="PLG_SYSTEM_VIDYALMS_FIELD_ACTIONLOG_DESC"
+                    default="1"
+                    filter="integer"
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+                <field
+                    name="actionlog_titles"
+                    type="radio"
+                    layout="joomla.form.field.radio.switcher"
+                    label="PLG_SYSTEM_VIDYALMS_FIELD_ACTIONLOG_TITLES_LABEL"
+                    description="PLG_SYSTEM_VIDYALMS_FIELD_ACTIONLOG_TITLES_DESC"
+                    default="1"
+                    filter="integer"
+                    showon="actionlog:1"
+                    >
+                    <option value="0">JNO</option>
+                    <option value="1">JYES</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>

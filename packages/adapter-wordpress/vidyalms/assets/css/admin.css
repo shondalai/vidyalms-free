@@ -1,0 +1,117 @@
+/**
+ * VidyaLMS admin styles. Loaded on VidyaLMS screens only.
+ *
+ * The React admin app and the workbench dress themselves: their bundles ship
+ * their own stylesheet. What is left here is the two server rendered screens,
+ * Import and Settings, and the page frame around every mount. Rules for the
+ * PHP dashboard, the two WP_List_Table screens and the PHP course form went
+ * with those screens, along with the media picker markup assets/js/admin.js
+ * used to drive.
+ */
+
+.vidyalms-wrap [hidden] {
+	display: none !important;
+}
+
+/* The native settings form belongs to Settings even when the SPA changes page. */
+.vidyalms-wrap:has(#vidyalms-admin[data-screen]):not(:has(#vidyalms-admin[data-screen="settings"])) :is(.vidyalms-native-settings, #vidyalms-wordpress-settings, #vidyalms-wordpress-settings + form) {
+	display: none;
+}
+
+.vidyalms-native-settings {
+	margin-top: 24px;
+	padding: 24px;
+	border: 1px solid #e3e6eb;
+	border-radius: 12px;
+	background: #fff;
+}
+
+/* Shared bits */
+
+.vidyalms-row-meta {
+	font-size: 12px;
+	color: #646970;
+}
+
+.vidyalms-muted {
+	color: #a7aaad;
+}
+
+.vidyalms-pill {
+	display: inline-block;
+	padding: 2px 8px;
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 1.6;
+	color: #1d2327;
+	white-space: nowrap;
+	background: #f0f0f1;
+	border-radius: 9px;
+}
+
+.vidyalms-pill-completed {
+	color: #00450c;
+	background: #d5f2d9;
+}
+
+.vidyalms-pill-draft {
+	color: #674600;
+	background: #fcf3d4;
+}
+
+.vidyalms-pill-cancelled {
+	color: #3c434a;
+	background: #e8e9ea;
+}
+
+.vidyalms-pill-active {
+	color: #0a4b78;
+	background: #d7e9f6;
+}
+
+.vidyalms-pill-suspended {
+	color: #8a2424;
+	background: #fbdada;
+}
+
+/* The import job list */
+
+.vidyalms-wrap .wp-list-table td,
+.vidyalms-wrap .wp-list-table th {
+	vertical-align: middle;
+}
+
+.vidyalms-wrap .column-status {
+	width: 8%;
+}
+
+.vidyalms-import-panel {
+	max-width: none;
+	padding: 8px 20px 16px;
+}
+
+.vidyalms-import-log {
+	max-width: 100%;
+	max-height: 18rem;
+	margin: 6px 0 0;
+	padding: 8px 10px;
+	overflow: auto;
+	white-space: pre-wrap;
+	word-break: break-word;
+	background: #f6f7f7;
+	border: 1px solid #dcdcde;
+	border-radius: 3px;
+}
+
+.vidyalms-import-trouble {
+	margin: 6px 0;
+}
+
+.vidyalms-import-trouble ul {
+	margin: 0 0 8px 18px;
+	list-style: disc;
+}
+
+.column-job details > summary {
+	cursor: pointer;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="library" method="upgrade">
+    <name>LIB_VIDYALMS_CORE</name>
+    <libraryname>vidyalms_core</libraryname>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>01 September 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com</authorUrl>
+    <version>1.0.1</version>
+    <description>LIB_VIDYALMS_CORE_XML_DESCRIPTION</description>
+
+    <!-- Joomla's own PSR-4 autoloader serves the core from libraries/vidyalms_core/src.
+         The core depends only on psr/clock and psr/log, both bundled with Joomla 6,
+         so this library ships no vendor directory. -->
+    <namespace path="src">Shondalai\VidyaLMS\Core</namespace>
+
+    <files>
+        <filename>LICENSE</filename>
+        <folder>src</folder>
+        <folder>language</folder>
+    </files>
+
+    <languages folder="language">
+        <language tag="en-GB">en-GB/lib_vidyalms_core.ini</language>
+        <language tag="en-GB">en-GB/lib_vidyalms_core.sys.ini</language>
+    </languages>
+</extension>

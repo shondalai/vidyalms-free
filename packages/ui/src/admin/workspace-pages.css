@@ -1,0 +1,579 @@
+.vy-modern-workspace {
+    display: grid;
+    gap: 26px;
+    min-width: 0;
+    color: var(--_vy-fg);
+}
+.vy-modern-workspace [hidden] {
+    display: none !important;
+}
+.vy-modern-workspace > header h1 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+    line-height: 1.2;
+    font-weight: 650;
+}
+.vy-workspace-dot {
+    color: var(--_vy-accent);
+}
+.vy-modern-workspace > header p {
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+.vy-modern-workspace ul:has(> .vy-metric-card) {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 175px), 1fr));
+    gap: 10px;
+}
+.vy-modern-workspace .vy-list-header {
+    padding: 20px 22px;
+}
+.vy-modern-workspace .vy-list-header h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+.vy-modern-workspace section:has(> .vy-list-header) {
+    border-radius: 14px;
+}
+.vy-modern-workspace :is(input:not([type='checkbox']):not([type='radio']), select, textarea) {
+    border-radius: 8px;
+    min-height: 40px;
+    font-size: 13px;
+}
+.vy-modern-workspace :is(h1, h2, h3) {
+    font-family: inherit;
+    color: var(--_vy-fg);
+}
+.vy-modern-workspace :is(button, a) {
+    scroll-margin: 90px;
+}
+.vy-workspace-tabs {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--_vy-border);
+    padding-bottom: 0;
+    min-width: 0;
+}
+.vy-workspace-tabs > button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    padding: 14px 16px;
+    background: transparent;
+    border: 0;
+    border-bottom: 2px solid transparent;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+}
+.vy-workspace-tabs > button[aria-selected='true'] {
+    color: var(--_vy-accent);
+    border-bottom-color: var(--_vy-accent);
+}
+.vy-workspace-tabs strong {
+    font-size: 13px;
+    font-weight: 550;
+}
+.vy-workspace-tabs small {
+    display: none;
+}
+.vy-workspace-split {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    gap: 26px;
+    align-items: start;
+    min-width: 0;
+}
+.vy-workspace-sections {
+    display: grid;
+    gap: 7px;
+    min-width: 0;
+}
+.vy-workspace-sections > button {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    background: transparent;
+    border: 0;
+    border-radius: 10px;
+    padding: 15px 12px;
+    text-align: left;
+    color: var(--_vy-fg-2);
+    cursor: pointer;
+}
+.vy-workspace-sections > button[aria-selected='true'] {
+    color: var(--_vy-accent);
+    background: var(--_vy-accent-soft);
+}
+.vy-workspace-sections > button > span {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    gap: 5px;
+}
+.vy-workspace-sections > button > svg {
+    flex-shrink: 0;
+}
+.vy-workspace-sections strong {
+    font-size: 13px;
+    font-weight: 550;
+}
+.vy-workspace-sections small {
+    font-size: 11px;
+    line-height: 1.5;
+    color: var(--_vy-fg-2);
+}
+.vy-workspace-panel {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 14px;
+    background: var(--_vy-surface);
+}
+/* Keep filter controls separate from the following results, including empty states. */
+.vy-workspace-panel > div:has(> label > :is(input, select)) {
+    margin-bottom: 20px;
+}
+.vy-workspace-panel-heading {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+.vy-workspace-panel-heading h2 {
+    font-size: 19px;
+    margin: 0;
+    line-height: 1.5;
+    letter-spacing: -0.3px;
+}
+.vy-workspace-panel-heading p {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 7px 0 0;
+}
+.vy-workspace-glyph {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    background: var(--_vy-accent-soft);
+    color: var(--_vy-accent);
+    border-radius: 12px;
+}
+.vy-workspace-callout {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    padding: 22px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 14px;
+    background: var(--_vy-surface);
+}
+.vy-workspace-callout > div {
+    flex: 1;
+    min-width: min(100%, 200px);
+}
+.vy-workspace-callout h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.vy-workspace-callout p {
+    margin: 6px 0 0;
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.75;
+}
+.vy-workspace-callout-warning .vy-workspace-glyph {
+    color: var(--_vy-warn-strong);
+    background: var(--_vy-warn-soft);
+}
+.vy-workspace-callout-neutral .vy-workspace-glyph {
+    color: var(--_vy-fg-2);
+    background: var(--_vy-surface-2);
+}
+.vy-workspace-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 265px), 1fr));
+    gap: 18px;
+}
+.vy-page-actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.vy-page-actions-row > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.vy-workspace-muted {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+    line-height: 1.7;
+}
+.vy-workspace-person {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+.vy-workspace-avatar {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--_vy-accent-soft);
+    color: var(--_vy-accent);
+    font-size: 11px;
+    flex-shrink: 0;
+}
+.vy-workspace-person > div {
+    display: grid;
+    gap: 3px;
+}
+.vy-workspace-person small {
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+}
+.vy-modern-workspace .vy-workspace-table {
+    overflow: auto;
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    background: var(--_vy-surface);
+}
+.vy-service-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(230px, 1fr);
+    gap: 20px;
+}
+.vy-service-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid var(--_vy-border);
+    padding: 18px 0;
+}
+.vy-service-row > div {
+    flex: 1;
+    min-width: 0;
+}
+.vy-service-row strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 550;
+}
+.vy-service-row small {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    line-height: 1.6;
+}
+.vy-modern-workspace .vy-detail-facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 22px;
+}
+.vy-notification-panels {
+    min-width: 0;
+}
+.vy-notification-panels > div > section {
+    padding: 0;
+}
+.vy-notification-panels section .grid {
+    align-content: start;
+}
+.vy-notification-panels [role='table'],
+.vy-notification-panels table {
+    width: 100%;
+}
+.vy-provider-grid {
+    display: grid;
+    gap: 16px;
+}
+.vy-workspace-panel > header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+}
+.vy-workspace-panel > header > div {
+    flex: 1;
+    min-width: 0;
+}
+.vy-workspace-panel h2 {
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+}
+.vy-workspace-panel > header p {
+    font-size: 12px;
+    line-height: 1.7;
+    margin: 5px 0 0;
+    color: var(--_vy-fg-2);
+}
+.vy-workspace-search {
+    display: grid;
+    gap: 8px;
+    max-width: 420px;
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+}
+.vy-workspace-search input {
+    padding: 10px 13px;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    color: var(--_vy-fg);
+}
+.vy-modern-workspace .vy-workspace-person small {
+    display: block;
+    margin-top: 4px;
+}
+.vy-order-detail > header h2 {
+    font-size: 30px;
+    letter-spacing: -0.7px;
+}
+.vy-order-detail > section {
+    border-radius: 14px;
+    overflow: hidden;
+}
+.vy-order-detail > section > h3 {
+    padding: 18px 24px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.vy-order-detail > section > div {
+    padding: 24px;
+}
+.vy-governance-panels > div > section {
+    background: var(--_vy-surface);
+    border-radius: 14px;
+    padding: 24px;
+}
+.vy-import-steps {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 28px;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+.vy-import-steps li {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+}
+.vy-import-steps li > span {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1px solid var(--_vy-border);
+    background: var(--_vy-surface);
+}
+.vy-import-steps li[aria-current='step'] {
+    color: var(--_vy-accent);
+    font-weight: 600;
+}
+.vy-import-steps li[aria-current='step'] > span {
+    background: var(--_vy-accent);
+    color: white;
+    border-color: var(--_vy-accent);
+}
+.vy-import-sources {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+    gap: 12px;
+}
+.vy-import-sources > button {
+    display: grid;
+    gap: 12px;
+    padding: 18px;
+    text-align: left;
+    background: var(--_vy-surface);
+    border: 1px solid var(--_vy-border);
+    border-radius: 12px;
+    color: var(--_vy-fg);
+    cursor: pointer;
+}
+.vy-import-sources > button:hover,
+.vy-import-sources > button[aria-pressed='true'] {
+    border-color: var(--_vy-accent);
+    background: var(--_vy-accent-soft);
+}
+.vy-import-sources strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+.vy-import-sources small {
+    font-size: 11px;
+    color: var(--_vy-fg-2);
+}
+.vy-import-form {
+    display: grid;
+    gap: 18px;
+    margin-top: 24px;
+    border-top: 1px solid var(--_vy-border);
+    padding-top: 24px;
+}
+.vy-import-form fieldset {
+    display: grid;
+    gap: 18px;
+    border: 0;
+    padding: 0;
+    min-width: 0;
+}
+.vy-import-form legend {
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+.vy-import-form > button {
+    justify-self: start;
+}
+.vy-import-upload {
+    display: grid;
+    justify-items: center;
+    gap: 12px;
+    padding: 28px 18px;
+    border: 1px dashed var(--_vy-accent);
+    border-radius: 12px;
+    color: var(--_vy-accent);
+    background: var(--_vy-accent-soft);
+    text-align: center;
+}
+.vy-import-upload strong {
+    font-size: 14px;
+    word-break: break-word;
+}
+.vy-import-upload span {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+}
+.vy-import-upload input {
+    max-width: 100%;
+    color: var(--_vy-fg-2);
+}
+.vy-import-guide {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: grid;
+    gap: 26px;
+}
+.vy-import-guide strong {
+    font-size: 13px;
+}
+.vy-import-guide p {
+    font-size: 12px;
+    color: var(--_vy-fg-2);
+    line-height: 1.8;
+    margin: 7px 0 0;
+}
+.vy-import-notes {
+    padding: 0;
+    margin-top: 24px;
+    max-height: 360px;
+    overflow: auto;
+    display: grid;
+    gap: 12px;
+}
+.vy-import-notes li {
+    display: flex;
+    align-items: start;
+    gap: 12px;
+    font-size: 12px;
+    line-height: 1.7;
+    word-break: break-word;
+}
+.vy-detail-facts dt {
+    color: var(--_vy-fg-2);
+    font-size: 12px;
+}
+.vy-detail-facts dd {
+    color: var(--_vy-fg);
+    font-size: 16px;
+    margin: 6px 0 0;
+}
+.vy-provider-card {
+    padding: 22px;
+    border: 1px solid var(--_vy-border);
+    border-radius: 13px;
+    background: var(--_vy-surface);
+    display: grid;
+    gap: 17px;
+}
+.vy-provider-card header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.vy-provider-card header > div {
+    flex: 1;
+    min-width: 0;
+}
+.vy-provider-card header h2 {
+    font-size: 17px;
+    margin: 0;
+}
+.vy-provider-card header small {
+    color: var(--_vy-fg-2);
+    font-size: 11px;
+}
+.vy-provider-card .vy-provider-settings {
+    border-top: 1px solid var(--_vy-border);
+    padding-top: 21px;
+}
+@media (max-width: 1150px) {
+    .vy-workspace-split {
+        grid-template-columns: 185px minmax(0, 1fr);
+        gap: 18px;
+    }
+    .vy-service-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+@media (max-width: 950px) {
+    .vy-workspace-split {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .vy-workspace-sections {
+        display: flex;
+        overflow-x: auto;
+    }
+    .vy-workspace-sections > button {
+        flex-shrink: 0;
+    }
+    .vy-workspace-sections small,
+    .vy-workspace-sections > button > svg:last-child {
+        display: none;
+    }
+}
+@media (max-width: 550px) {
+    .vy-modern-workspace {
+        gap: 19px;
+    }
+    .vy-workspace-panel,
+    .vy-workspace-callout,
+    .vy-provider-card {
+        padding: 17px;
+    }
+    .vy-modern-workspace > header h1 {
+        font-size: 26px;
+    }
+}

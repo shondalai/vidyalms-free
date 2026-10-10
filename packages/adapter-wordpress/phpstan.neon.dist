@@ -1,0 +1,61 @@
+parameters:
+    level: 5
+    phpVersion: 80300
+
+    paths:
+        - vidyalms/src
+
+    # The two string files tooling/i18n/compile.php writes into src/I18n are
+    # generated data, an array of over 5,000 strings and one literal _x() call
+    # per string, and the "(?)" keeps a tree that has not been built yet
+    # analysable.
+    excludePaths:
+        analyse:
+            - vidyalms/src/I18n/catalogue.php (?)
+            - vidyalms/src/I18n/gettext.php (?)
+
+    # Only vidyalms/src is analysed. WordPress is autoloaded by WordPress,
+    # WooCommerce by WooCommerce, and the core by the loader the packager
+    # writes into the plugin, so their symbols are scanned and never checked.
+    # vidyalms/core is the packager's copy of packages/core/src and is out of
+    # paths for the same reason lib_vidyalms_core is on the Joomla side: one
+    # copy of the core is analysed, in packages/core, at level 8.
+    scanFiles:
+        # The plugin entry point, for the three global accessors it declares
+        # (vidyalms_kernel, vidyalms_ports, vidyalms_system_principal). It is
+        # scanned rather than analysed because it is a bootstrap: it runs code
+        # at include time and has no class to check.
+        - vidyalms/vidyalms.php
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-stubs.php
+        - vendor/php-stubs/woocommerce-stubs/woocommerce-packages-stubs.php
+
+    scanDirectories:
+        - ../core/src
+        - ../core/vendor/psr
+
+    bootstrapFiles:
+        - build/phpstan-bootstrap.php
+
+    treatPhpDocTypesAsCertain: false
+
+    # Every entry below is a stub or a defensive-boot artefact, not a defect.
+    # Each says which declaration is looser or stricter than the runtime object,
+    # and each is scoped to the files that legitimately hit it.
+    ignoreErrors:
+        # The plugin is loaded by its own PSR-4 loader, written by the packager
+        # from whatever it found on disk. A build that shipped a partial tree
+        # would have the class without the method, so these guards are real at
+        # runtime even though the analyser sees the whole source tree.
+        -
+            identifier: function.alreadyNarrowedType
+            message: '#^Call to function method_exists\(\) with .Shondalai..VidyaLMS#'
+
+        # register_block_type()'s stub types its $args as a closed shape built
+        # from block.json, and rejects the two keys WordPress itself documents
+        # for a dynamic block registered in PHP (render_callback, supports).
+        -
+            identifier: argument.type
+            message: '#^Parameter \#2 \$args of function register_block_type expects#'
+            paths:
+                - vidyalms/src/Content/Blocks.php

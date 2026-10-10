@@ -1,0 +1,23 @@
+/* Shared learner workspace; never styles the surrounding CMS theme. */
+#vidyalms-player, #vidyalms-quiz-runner {
+    --_vy-radius: var(--vy-radius, 9px);
+    --_vy-radius-lg: var(--vy-radius-lg, 14px);
+    container-type: inline-size;
+}
+#vidyalms-player .vy-study-eyebrow, #vidyalms-quiz-runner .vy-study-eyebrow {
+    display:block;font-size:10px;letter-spacing:.14em;font-weight:600;line-height:1.6;color:var(--_vy-fg-2);
+}
+#vidyalms-player .vy-study-back, #vidyalms-quiz-runner .vy-study-back {
+    display:inline-flex;align-items:center;gap:9px;min-height:44px;flex-shrink:0;
+    font-size:13px;font-weight:500;color:var(--_vy-fg-2);text-decoration:none;
+}
+#vidyalms-player .vy-study-back:hover, #vidyalms-quiz-runner .vy-study-back:hover {color:var(--_vy-accent)}
+#vidyalms-player .rounded-btn, #vidyalms-quiz-runner .rounded-btn {min-height:44px;height:auto;padding-block:10px;font-size:13px;border-radius:8px;white-space:normal;text-align:center}
+#vidyalms-player .vy-activity-icon, #vidyalms-quiz-runner .vy-activity-icon {display:grid;place-items:center;width:68px;height:68px;border-radius:20px;background:var(--_vy-activity-bg);color:var(--_vy-activity-fg);margin:0 auto 22px}
+#vidyalms-player .vy-activity-intro, #vidyalms-quiz-runner .vy-assessment-welcome {text-align:center}
+#vidyalms-player .vy-activity-intro h4, #vidyalms-player .vy-activity-heading h4 {font-size:clamp(24px,3cqi,32px);font-weight:550;line-height:1.25;letter-spacing:-.035em;margin:12px 0}
+#vidyalms-player .vy-activity-intro p {font-size:15px;color:var(--_vy-fg-2);max-width:54ch;line-height:1.85;margin:0 auto}
+#vidyalms-player .vy-activity-heading {padding-bottom:15px}
+@media (prefers-reduced-motion: reduce) {
+    #vidyalms-player *, #vidyalms-quiz-runner * {scroll-behavior:auto;animation-duration:0s;transition-duration:0s}
+}

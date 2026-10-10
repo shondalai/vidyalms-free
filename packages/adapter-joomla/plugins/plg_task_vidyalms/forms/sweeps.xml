@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fields name="params">
+        <fieldset name="vidyalms_sweeps" label="PLG_TASK_VIDYALMS_SWEEPS_TITLE">
+            <!-- The routine holds no list of sweeps. It asks the core's
+                 scheduled task registry which handlers declare that the clock
+                 has to start them, and each of those answers its own bin
+                 count, period bucket and dedupe key. A sweep added by a paid
+                 or third-party package is therefore started here the day it
+                 registers, with no change to this plugin and no option to
+                 tick. -->
+            <field
+                name="sweeps_note"
+                type="note"
+                label="PLG_TASK_VIDYALMS_SWEEPS_NOTE_LABEL"
+                description="PLG_TASK_VIDYALMS_SWEEPS_NOTE_DESC"
+            />
+        </fieldset>
+    </fields>
+</form>

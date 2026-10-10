@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="system" method="upgrade">
+    <name>PLG_SYSTEM_VIDYALMS_EASYCOMMERCE</name>
+    <author>BulaSikku Technologies Private Limited</author>
+    <creationDate>03 October 2026</creationDate>
+    <copyright>Copyright (C) 2026 BulaSikku Technologies Private Limited.</copyright>
+    <license>GNU General Public License version 3 or later; see LICENSE</license>
+    <authorEmail>support@shondalai.com</authorEmail>
+    <authorUrl>https://shondalai.com/</authorUrl>
+    <version>1.0.1</version>
+    <description>PLG_SYSTEM_VIDYALMS_EASYCOMMERCE_DESCRIPTION</description>
+    <namespace path="src">VidyaLMS\Plugin\System\VidyaLmsEasyCommerce</namespace>
+    <files>
+        <filename>LICENSE</filename>
+        <folder plugin="vidyalms_easycommerce">services</folder>
+        <folder>src</folder>
+        <folder>sql</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_vidyalms_easycommerce.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_vidyalms_easycommerce.sys.ini</language>
+    </languages>
+    <install><sql><file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file></sql></install>
+    <uninstall><sql><file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file></sql></uninstall>
+</extension>

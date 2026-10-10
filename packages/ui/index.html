@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>VidyaLMS UI dev harness</title>
+    <style>
+        /* A stand-in host page: its styles must never leak into the mounts. */
+        body { margin: 0; font-family: Georgia, serif; background: #dde6ee; color: #123; }
+        .host-chrome { padding: 16px 24px; background: #0b3954; color: #fff; }
+        .host-wrap { max-width: 900px; margin: 24px auto; display: grid; gap: 24px; padding: 0 16px; }
+        p { margin: 0 0 12px; }
+    </style>
+</head>
+<body>
+    <header class="host-chrome"><strong>Host site chrome</strong> (not VidyaLMS)</header>
+    <div class="host-wrap">
+        <p>One mount per app below. Edit the config JSON to try the malformed-config state.</p>
+        <div id="vidyalms-player" data-vy-config='{
+            "api": {"base": "/v1", "mode": "prefix", "headers": {"X-CSRF-Token": "dev"}},
+            "course": {"id": 1, "slug": "demo-course"},
+            "lessonId": null,
+            "user": {"id": 42, "name": "Dev Learner"},
+            "locale": "en-GB",
+            "urls": {"course": "/course/demo-course", "myLearning": "/my-learning"}
+        }'></div>
+        <div id="vidyalms-quiz-runner" data-vy-config='{
+            "api": {"base": "/v1", "mode": "prefix", "headers": {"X-CSRF-Token": "dev"}},
+            "course": {"id": 1, "slug": "demo-course"},
+            "lessonId": 7,
+            "user": {"id": 42, "name": "Dev Learner"},
+            "locale": "en-GB",
+            "urls": {"course": "/course/demo-course", "myLearning": "/my-learning"}
+        }'></div>
+        <div id="vidyalms-instructor" data-vy-config='{
+            "api": {"base": "/v1", "mode": "prefix", "headers": {"X-CSRF-Token": "dev"}},
+            "course": {"id": 1, "slug": "demo-course"},
+            "user": {"id": 7, "name": "Dev Instructor"},
+            "locale": "en-GB",
+            "urls": {
+                "courses": "/admin/courses",
+                "workbench": "/admin/course/{course_id}",
+                "preview": "/course/{slug}"
+            }
+        }'></div>
+        <div id="vidyalms-admin" data-vy-config='{
+            "api": {"base": "/v1", "mode": "prefix", "headers": {"X-CSRF-Token": "dev"}},
+            "user": {"id": 1, "name": "Dev Administrator"},
+            "locale": "en-GB",
+            "screen": "dashboard",
+            "urls": {
+                "workbench": "/admin/course/{course_id}",
+                "preview": "/course/{slug}",
+                "settings": "/admin/settings",
+                "screens": {"courses": "/admin/courses", "enrolments": "/admin/enrolments"}
+            }
+        }'></div>
+    </div>
+    <script type="module" src="/src/player/main.tsx"></script>
+    <script type="module" src="/src/quiz-runner/main.tsx"></script>
+    <script type="module" src="/src/instructor/main.tsx"></script>
+    <script type="module" src="/src/admin/main.tsx"></script>
+</body>
+</html>

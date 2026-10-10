@@ -1,0 +1,37 @@
+# The repository root ignores every directory named build/; the packager must stay tracked.
+!/build/
+/build/.generated/
+/build/.stage/
+
+# Build-time copy of packages/core/src, plus its generated PSR-4 loader.
+# Fix core bugs in packages/core, never here.
+/vidyalms/core/
+
+# Vendored psr/clock and psr/log interfaces, copied from packages/core/vendor
+# by the packager because WordPress bundles neither.
+/vidyalms/vendor-psr/
+
+# Compiled by build/build.php from packages/core/schema/tables.php.
+/vidyalms/schema/schema.php
+
+# Compiled by tooling/i18n/compile.php from packages/core/i18n/catalogue.php.
+# The plugin ships no POT and no translations: translate.wordpress.org builds
+# the template from gettext.php and serves translations as language packs.
+/vidyalms/src/I18n/catalogue.php
+/vidyalms/src/I18n/gettext.php
+
+# Packager output.
+/dist/
+*.zip
+
+# Static analysis and tooling only; the shipped plugin has no Composer deps.
+/vendor/
+/node_modules/
+
+.DS_Store
+Thumbs.db
+
+# The learner app bundles, copied from packages/ui/dist by build/build.php,
+# and the third-party notices generated for them from the UI lockfiles.
+/vidyalms/assets/app/
+/vidyalms/THIRD-PARTY-NOTICES.txt
